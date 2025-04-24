@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 26 Mar 2023 20:18:58 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 24 Apr 2025 21:05:08 +0800</lastBuildDate><atom:link href="https://nubismons.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Test</title>
+        <link>https://nubismons.github.io/categories/test/</link>
+        <pubDate>Thu, 24 Apr 2025 21:05:08 +0800</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/test/</guid>
+        <description>&lt;img src="https://nubismons.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        </item>
+        <item>
         <title>AI</title>
         <link>https://nubismons.github.io/categories/ai/</link>
         <pubDate>Sun, 26 Mar 2023 20:18:58 +0000</pubDate>
@@ -70,14 +78,6 @@
         
         <guid>https://nubismons.github.io/categories/directory/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>Test</title>
-        <link>https://nubismons.github.io/categories/test/</link>
-        <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-        
-        <guid>https://nubismons.github.io/categories/test/</guid>
-        <description>&lt;img src="https://nubismons.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         <item>
         <title>测试</title>
