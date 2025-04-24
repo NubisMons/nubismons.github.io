@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>云雾中的山-NubisMons</title>
-        <link>https://nubismons.github.io/</link>
+        <link>https://blogbook.eu.org/</link>
         <description>Recent content on 云雾中的山-NubisMons</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Thu, 24 Apr 2025 21:05:08 +0800</lastBuildDate><atom:link href="https://nubismons.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 24 Apr 2025 21:05:08 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Testblog</title>
-        <link>https://nubismons.github.io/p/testblog/</link>
+        <link>https://blogbook.eu.org/p/testblog/</link>
         <pubDate>Thu, 24 Apr 2025 21:05:08 +0800</pubDate>
         
-        <guid>https://nubismons.github.io/p/testblog/</guid>
+        <guid>https://blogbook.eu.org/p/testblog/</guid>
         <description>&lt;h2 id=&#34;你好&#34;&gt;你好
 &lt;/h2&gt;&lt;p&gt;这是一个测试的博客，用于测试博客的功能。&lt;/p&gt;
 &lt;h3 id=&#34;标题&#34;&gt;标题
@@ -71,18 +71,18 @@
         </item>
         <item>
         <title>china stock</title>
-        <link>https://nubismons.github.io/p/china-stock/</link>
+        <link>https://blogbook.eu.org/p/china-stock/</link>
         <pubDate>Thu, 09 Nov 2023 19:34:49 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/china-stock/</guid>
+        <guid>https://blogbook.eu.org/p/china-stock/</guid>
         <description>&lt;p&gt;//启动摘要和不展示全文的小技巧&lt;/p&gt;</description>
         </item>
         <item>
         <title>图像到图像的翻译的具有自适应实例归一化的无监督生成注意网络</title>
-        <link>https://nubismons.github.io/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</link>
+        <link>https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</link>
         <pubDate>Sun, 26 Mar 2023 20:18:58 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</guid>
+        <guid>https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</guid>
         <description>&lt;h2 id=&#34;本文仅记录一些我的学习这篇论文记录&#34;&gt;本文仅记录一些我的学习这篇论文记录
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;什么是卷积神经网络&lt;/li&gt;
@@ -115,10 +115,10 @@
         </item>
         <item>
         <title>关于在Vscode中c&#43;&#43;无法自动生成launch.json的问题</title>
-        <link>https://nubismons.github.io/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+        <link>https://blogbook.eu.org/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</link>
         <pubDate>Tue, 14 Feb 2023 19:08:07 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://blogbook.eu.org/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;h2 id=&#34;问题描述&#34;&gt;问题描述
 &lt;/h2&gt;&lt;p&gt;首先就是大家发现c++更新到1.8.4之后的版本后发现这个launch文件无法自动生成了.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/ljy18/blogimg/20230214191113.png&#34;
@@ -153,10 +153,10 @@
         </item>
         <item>
         <title>Vscode 中markdown不能显示预览图片问题</title>
-        <link>https://nubismons.github.io/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</link>
+        <link>https://blogbook.eu.org/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</link>
         <pubDate>Tue, 07 Feb 2023 22:29:44 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://blogbook.eu.org/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;h2 id=&#34;问题描述&#34;&gt;问题描述
 &lt;/h2&gt;&lt;p&gt;使用vscode,在markdown的预览模式下无法加载预览图片问题&lt;/p&gt;
 &lt;h2 id=&#34;本机环境&#34;&gt;本机环境
@@ -230,10 +230,10 @@
         </item>
         <item>
         <title>Vscode在一个文件夹里编译多个文件</title>
-        <link>https://nubismons.github.io/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</link>
+        <link>https://blogbook.eu.org/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</link>
         <pubDate>Tue, 07 Feb 2023 17:53:53 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</guid>
+        <guid>https://blogbook.eu.org/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</guid>
         <description>&lt;h2 id=&#34;一tasksjson-配置&#34;&gt;一、tasks.json 配置
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -474,10 +474,10 @@ p&lt;/p&gt;</description>
         </item>
         <item>
         <title>计算机的基本组成</title>
-        <link>https://nubismons.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</link>
+        <link>https://blogbook.eu.org/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</link>
         <pubDate>Sat, 14 Jan 2023 16:00:32 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</guid>
+        <guid>https://blogbook.eu.org/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</guid>
         <description>&lt;h2 id=&#34;计算机的基本组成构件&#34;&gt;计算机的基本组成构件
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;ol&gt;
@@ -515,10 +515,10 @@ p&lt;/p&gt;</description>
         </item>
         <item>
         <title>卷积公式</title>
-        <link>https://nubismons.github.io/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</link>
+        <link>https://blogbook.eu.org/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</link>
         <pubDate>Sun, 11 Sep 2022 18:50:55 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</guid>
+        <guid>https://blogbook.eu.org/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</guid>
         <description>&lt;h2 id=&#34;前期提示&#34;&gt;前期提示
 &lt;/h2&gt;&lt;p&gt;以下东西纯属个人消化&lt;/p&gt;
 &lt;h2 id=&#34;缘由&#34;&gt;缘由
@@ -584,10 +584,10 @@ y(4)=x(4)*h(0)+x(3)*h(1)+x(2)*h(2)+x(1)*h(3)+x(0)*h(4)&lt;/p&gt;
         </item>
         <item>
         <title>LaTeX数学公式大全</title>
-        <link>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</link>
+        <link>https://blogbook.eu.org/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</link>
         <pubDate>Mon, 22 Aug 2022 21:29:24 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</guid>
+        <guid>https://blogbook.eu.org/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</guid>
         <description>&lt;h3 id=&#34;前言&#34;&gt;前言
 &lt;/h3&gt;&lt;p&gt;LaTeX是一套非常优秀的排版系统， 通过它排版的图书和论文会变得非常漂亮和易读。 而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。 这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。
 以下的例子是在Sublime Text3上编写， 并测试的结果， 当然你也可以在任何引入MathJax的MarkDown编辑器上测试。&lt;/p&gt;
@@ -1650,11 +1650,11 @@ n/2,  &amp; \text{if $n$ is even} \\
         </item>
         <item>
         <title>Chinese Test</title>
-        <link>https://nubismons.github.io/p/test-chinese/</link>
+        <link>https://blogbook.eu.org/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/test-chinese/</guid>
-        <description>&lt;img src="https://nubismons.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
+        <guid>https://blogbook.eu.org/p/test-chinese/</guid>
+        <description>&lt;img src="https://blogbook.eu.org/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
 &lt;/h2&gt;&lt;p&gt;而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。&lt;/p&gt;
 &lt;p&gt;奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。&lt;/p&gt;
 &lt;h2 id=&#34;引用&#34;&gt;引用
@@ -1666,10 +1666,10 @@ n/2,  &amp; \text{if $n$ is even} \\
 &lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=3aypp_YlBzI&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;最暖的憂傷 - 田馥甄&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://nubismons.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blogbook.eu.org/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;https://nubismons.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e98fca2b4272416e.jpg 480w, https://nubismons.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e3d37c9ded115b12.jpg 1024w&#34;
+	srcset=&#34;https://blogbook.eu.org/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e98fca2b4272416e.jpg 480w, https://blogbook.eu.org/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e3d37c9ded115b12.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Florian Klauer on Unsplash&#34;
@@ -1679,10 +1679,10 @@ n/2,  &amp; \text{if $n$ is even} \\
 		data-flex-grow=&#34;66&#34;
 		data-flex-basis=&#34;160px&#34;
 	
-&gt;  &lt;img src=&#34;https://nubismons.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;https://blogbook.eu.org/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;667&#34;
-	srcset=&#34;https://nubismons.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_e13c58d5189f892c.jpg 480w, https://nubismons.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_8fc948b7ee525251.jpg 1024w&#34;
+	srcset=&#34;https://blogbook.eu.org/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_e13c58d5189f892c.jpg 480w, https://blogbook.eu.org/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_8fc948b7ee525251.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Luca Bravo on Unsplash&#34;
@@ -1693,10 +1693,10 @@ n/2,  &amp; \text{if $n$ is even} \\
 		data-flex-basis=&#34;359px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://nubismons.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://blogbook.eu.org/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;750&#34;
-	srcset=&#34;https://nubismons.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_503c0ebcc5245e10.jpg 480w, https://nubismons.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_48c98de55fb3c999.jpg 1024w&#34;
+	srcset=&#34;https://blogbook.eu.org/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_503c0ebcc5245e10.jpg 480w, https://blogbook.eu.org/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_48c98de55fb3c999.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Helena Hertz on Unsplash&#34;
@@ -1706,10 +1706,10 @@ n/2,  &amp; \text{if $n$ is even} \\
 		data-flex-grow=&#34;133&#34;
 		data-flex-basis=&#34;320px&#34;
 	
-&gt;  &lt;img src=&#34;https://nubismons.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;https://blogbook.eu.org/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;https://nubismons.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_f81a3588c5c4a663.jpg 480w, https://nubismons.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_1c52ba2a4ad7b9a0.jpg 1024w&#34;
+	srcset=&#34;https://blogbook.eu.org/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_f81a3588c5c4a663.jpg 480w, https://blogbook.eu.org/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_1c52ba2a4ad7b9a0.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Hudai Gayiran on Unsplash&#34;
@@ -1738,19 +1738,19 @@ n/2,  &amp; \text{if $n$ is even} \\
         </item>
         <item>
         <title>Archives</title>
-        <link>https://nubismons.github.io/archives/</link>
+        <link>https://blogbook.eu.org/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/archives/</guid>
+        <guid>https://blogbook.eu.org/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Markdown Syntax Guide</title>
-        <link>https://nubismons.github.io/p/markdown-syntax-guide/</link>
+        <link>https://blogbook.eu.org/p/markdown-syntax-guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/markdown-syntax-guide/</guid>
-        <description>&lt;img src="https://nubismons.github.io/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+        <guid>https://blogbook.eu.org/p/markdown-syntax-guide/</guid>
+        <description>&lt;img src="https://blogbook.eu.org/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
 &lt;h2 id=&#34;headings&#34;&gt;Headings
 &lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
 &lt;h1 id=&#34;h1&#34;&gt;H1
@@ -1974,11 +1974,11 @@ n/2,  &amp; \text{if $n$ is even} \\
         </item>
         <item>
         <title>Placeholder Text</title>
-        <link>https://nubismons.github.io/p/placeholder-text/</link>
+        <link>https://blogbook.eu.org/p/placeholder-text/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/placeholder-text/</guid>
-        <description>&lt;img src="https://nubismons.github.io/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
+        <guid>https://blogbook.eu.org/p/placeholder-text/</guid>
+        <description>&lt;img src="https://blogbook.eu.org/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
 &lt;p&gt;Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Exierant elisi ambit vivere dedere&lt;/li&gt;
@@ -2005,10 +2005,10 @@ n/2,  &amp; \text{if $n$ is even} \\
         </item>
         <item>
         <title>Math Typesetting</title>
-        <link>https://nubismons.github.io/p/math-typesetting/</link>
+        <link>https://blogbook.eu.org/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/math-typesetting/</guid>
+        <guid>https://blogbook.eu.org/p/math-typesetting/</guid>
         <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
 &lt;p&gt;In this example we will be using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
@@ -2042,11 +2042,11 @@ $$</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://nubismons.github.io/p/emoji-support/</link>
+        <link>https://blogbook.eu.org/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/emoji-support/</guid>
-        <description>&lt;img src="https://nubismons.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>https://blogbook.eu.org/p/emoji-support/</guid>
+        <description>&lt;img src="https://blogbook.eu.org/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
@@ -2073,10 +2073,10 @@ $$</description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://nubismons.github.io/links/</link>
+        <link>https://blogbook.eu.org/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/links/</guid>
+        <guid>https://blogbook.eu.org/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2108,18 +2108,18 @@ $$</description>
         </item>
         <item>
         <title>Search</title>
-        <link>https://nubismons.github.io/search/</link>
+        <link>https://blogbook.eu.org/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/search/</guid>
+        <guid>https://blogbook.eu.org/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://nubismons.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <link>https://blogbook.eu.org/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>https://blogbook.eu.org/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
 </description>
         </item>

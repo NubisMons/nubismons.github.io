@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Directory on 云雾中的山-NubisMons</title>
-        <link>https://nubismons.github.io/categories/directory/</link>
+        <link>https://blogbook.eu.org/categories/directory/</link>
         <description>Recent content in Directory on 云雾中的山-NubisMons</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Mon, 22 Aug 2022 21:29:24 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/categories/directory/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 Aug 2022 21:29:24 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/directory/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LaTeX数学公式大全</title>
-        <link>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</link>
+        <link>https://blogbook.eu.org/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</link>
         <pubDate>Mon, 22 Aug 2022 21:29:24 +0000</pubDate>
         
-        <guid>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</guid>
+        <guid>https://blogbook.eu.org/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</guid>
         <description>&lt;h3 id=&#34;前言&#34;&gt;前言
 &lt;/h3&gt;&lt;p&gt;LaTeX是一套非常优秀的排版系统， 通过它排版的图书和论文会变得非常漂亮和易读。 而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。 这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。
 以下的例子是在Sublime Text3上编写， 并测试的结果， 当然你也可以在任何引入MathJax的MarkDown编辑器上测试。&lt;/p&gt;
