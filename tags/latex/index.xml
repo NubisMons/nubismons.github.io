@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>LaTeX on 云雾中的山-Mistao</title>
+        <link>https://nubismons.github.io/tags/latex/</link>
+        <description>Recent content in LaTeX on 云雾中的山-Mistao</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-Mistao</copyright>
+        <lastBuildDate>Mon, 22 Aug 2022 21:29:24 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>LaTeX数学公式大全</title>
+        <link>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</link>
+        <pubDate>Mon, 22 Aug 2022 21:29:24 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</guid>
+        <description>&lt;h3 id=&#34;前言&#34;&gt;前言
+&lt;/h3&gt;&lt;p&gt;LaTeX是一套非常优秀的排版系统， 通过它排版的图书和论文会变得非常漂亮和易读。 而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。 这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。
+以下的例子是在Sublime Text3上编写， 并测试的结果， 当然你也可以在任何引入MathJax的MarkDown编辑器上测试。&lt;/p&gt;
+&lt;p&gt;//启动摘要和不展示全文的小技巧&lt;/p&gt;
+&lt;h3 id=&#34;1显示方法&#34;&gt;1.显示方法
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;嵌入文字显示：&lt;code&gt;$...$&lt;/code&gt;
+eg: &lt;code&gt;$\sum^n_{i=1}x^i=1$&lt;/code&gt; ==&amp;gt; $\sum^n_{i=1}x^i=1$&lt;/li&gt;
+&lt;li&gt;单行显示： &lt;code&gt;$$...$$&lt;/code&gt;
+eg: &lt;code&gt;$ $\sum^n_{i=1}x^i=1$ $&lt;/code&gt; ==&amp;gt; $$\sum^n_{i=1}x^i=1$$&lt;/li&gt;
+&lt;li&gt;带序号显示：&lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;
+eg:
+&lt;code&gt;\begin{equation}\sum^n_{i=1}x^i=1\end{equation}&lt;/code&gt; ==&amp;gt; \begin{equation}\sum^n_{i=1}x^i=1\end{equation}
+&lt;code&gt;\begin{equation}\x+y=z\end{equation}&lt;/code&gt; ==&amp;gt; \begin{equation}x+y=z\end{equation}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2通用显示规则&#34;&gt;2.通用显示规则
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;^&lt;/code&gt; =&amp;gt; 上标&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_&lt;/code&gt; =&amp;gt; 下标&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{}&lt;/code&gt; =&amp;gt; 包括&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~&lt;/code&gt; =&amp;gt; 空格&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\&lt;/code&gt; =&amp;gt; 转移符号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3增强型显示规则&#34;&gt;3.增强型显示规则
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;\sqrt 求根
+eg: &lt;code&gt;$\sqrt{x+y}$&lt;/code&gt;==&amp;gt; $\sqrt{x+y}$
+eg: &lt;code&gt;$\sqrt[3]{x+y}$&lt;/code&gt;==&amp;gt; $\sqrt[3]{x+y}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\frac \over 分数形式
+eg: &lt;code&gt;$\frac{a+1}{b+2}$&lt;/code&gt; ==&amp;gt; $\frac{a+1}{b+2}$
+eg: &lt;code&gt;${a+1}\over{b+2}$&lt;/code&gt; ==&amp;gt; ${a+1}\over{b+2}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\sum 求和
+eg: &lt;code&gt;$\sum$&lt;/code&gt;==&amp;gt; $\sum$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\prod 求积
+eg: &lt;code&gt;$\prod^n_{i=1}i+1=1$&lt;/code&gt; ==&amp;gt; $\prod^n_{i=1}i+1=1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\int 求积分
+eg: &lt;code&gt;$\int x+1$&lt;/code&gt; ==&amp;gt; $\int x+1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\iint 求积分
+eg: &lt;code&gt;$\iint x+1$&lt;/code&gt; ==&amp;gt; $\iint x+1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\bigcup 并集
+eg: &lt;code&gt;$A\bigcup B$&lt;/code&gt; ==&amp;gt; $A\bigcup B$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\cup 并集
+eg: &lt;code&gt;$A\cup B$&lt;/code&gt; ==&amp;gt; $A\cup B$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\cap 交集
+eg: &lt;code&gt;$A\cap B$&lt;/code&gt; ==&amp;gt; $A\cap B$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\bigcap 交集
+eg: &lt;code&gt;$A\bigcap B$&lt;/code&gt; ==&amp;gt; $A\bigcap B$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\to 箭头
+eg: &lt;code&gt;$A\to B$&lt;/code&gt; ==&amp;gt; $A\to B$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\lim
+eg: &lt;code&gt;$\lim_{0\to 100}$&lt;/code&gt; ==&amp;gt;  $\lim_{0\to 100}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\ln
+eg: &lt;code&gt;$\ln_{0\to 100}$&lt;/code&gt; ==&amp;gt;  $\ln_{0\to 100}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\sin
+eg: &lt;code&gt;$\sin x$&lt;/code&gt; ==&amp;gt;  $\sin x$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\cos
+eg: &lt;code&gt;$\cos x$&lt;/code&gt; ==&amp;gt;  $\cos x$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\qquad 8m空格&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\quad 4m空格&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\times 乘号
+eg: &lt;code&gt;$a \times b$&lt;/code&gt;=$a \times b$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\div  除号
+eg: &lt;code&gt;$a\div b$&lt;/code&gt;=$a\div b$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\{\} 花括号显示
+eg: &lt;code&gt;$\\{ hello \\}$&lt;/code&gt; ==&amp;gt; $\{ hello \}$
+&lt;em&gt;注意：在这里我测试的Sublime Text3编写输出的结果， 如果在其他MarkDown编辑器可能要使用单反斜杠&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;小括号增强
+eg: &lt;code&gt;$\left( hello\right)$&lt;/code&gt; ==&amp;gt; $\left( hello\right)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;中括号增强
+eg: &lt;code&gt; $\left[hello\right]$&lt;/code&gt; ==&amp;gt; $\left[hello\right]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;绝对值增强
+eg: &lt;code&gt;$\left|hello\right|$&lt;/code&gt; ==&amp;gt; $\left|hello\right|$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;尖括号
+eg: &lt;code&gt;$\langle hello\rangle$&lt;/code&gt; ==&amp;gt; $\langle hello\rangle$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;向上取整
+eg: &lt;code&gt;$\lceil hello\rceil$&lt;/code&gt; ==&amp;gt; $\lceil hello\rceil$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;向下取整
+eg: &lt;code&gt;$\lfloor hllo\rfloor$&lt;/code&gt; ==&amp;gt; $\lfloor hllo\rfloor$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4数学符号表一&#34;&gt;4.数学符号表一
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\pm$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pm&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\mp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\times$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\times&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\div$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\div&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ast$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ast&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\star$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\star&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\circ$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\circ&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bullet$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bullet&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\cdot$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\oplus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\oplus&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\oslash$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\oslash&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\dagger$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\dagger&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$+$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$-$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\cap$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cap&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\cup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cup&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ddagger$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ddagger&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\diamond$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\diamond&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\uplus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\uplus&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqcap$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqcap&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqcup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqcup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\vee$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\vee&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\wedge$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\wedge&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\setminus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\setminus&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\wr$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\wr&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ominus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ominus&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\odot$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\odot&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\bigtriangleup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigtriangleup&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigtriangledown$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigtriangledown&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\triangleleft$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangleleft&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\triangleright$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangleright&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\lhd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lhd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\rhd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rhd&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\unlhd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\unlhd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\unrhd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\unrhd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\otimes$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\otimes&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\bigcirc$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigcirc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\amalg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\amalg&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sum$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\prod$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\coprod$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\coprod&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\int$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\oint$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\oint&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigcap$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigcap&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigcup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigcup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\bigsqcup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigsqcup&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigvee$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigvee&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigwedge$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigwedge&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\bigodot$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigodot&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigotimes$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigotimes&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bigoplus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bigoplus&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\biguplus$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\biguplus&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\leq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\geq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\geq&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\equiv$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\equiv&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\prec$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prec&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\succ$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cucc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\sim$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sim&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\preceq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\preceq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\succeq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\succeq&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\simeq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\simeq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ll$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ll&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\gg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\gg&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\asymp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\asymp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\subset$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\subset&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\supset$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\supset&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\approx$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\approx&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\subseteq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\subseteq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\supseteq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\subseteq&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\cong$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cong&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqsubset$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqsubset&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqsupset$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqsupset&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\neq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\neq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqsubseteq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqsubseteq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqsupseteq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqsupseteq&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\doteq$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\doteq&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\in$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\in&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ni$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ni&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\notin$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\notin&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\vdash$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\vdash&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\dashv$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\dashv&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$:$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;:&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\models$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\models&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\perp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\perp&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mid$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mid&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\parallel$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\parallel&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bowtie$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bowtie&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Join$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Join&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\smile$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\smile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\frown$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frown&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\propto$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\propto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$&amp;lt;$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$&amp;gt;$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;5数学符号表二&#34;&gt;5.数学符号表二
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\arccos$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\arccos&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\arcsin$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\arcsin&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\arctan$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\arctan&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\arg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\arg&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\cos$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cos&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\cosh$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cosh&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\cot$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cot&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\coth$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\coth&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\csc$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\csc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\deg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\deg&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\det$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\det&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\dim$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\dim&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\exp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\exp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\gcd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\gcd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\hom$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\hom&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\inf$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\inf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ker$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ker&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\lg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lg&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\lim$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\liminf$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\liminf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\limsup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\limsup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\ln$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ln&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\log$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\log&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\max$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\max&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\min$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\min&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Pr$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pr&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sec$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sec&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\sin$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sin&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sinh$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sinh&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\tan$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\tan&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\tanh$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\tanh&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;5箭头符号表&#34;&gt;5.箭头符号表
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\leftarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leftarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\longleftarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\longleftarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Leftarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Leftarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Longleftarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Longleftarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\rightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\longrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\longrightarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Rightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Rightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Longrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Longrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\leftrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leftrightarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\longleftrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\longleftrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Leftrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Leftrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Longleftrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Longleftrightarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mapsto$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mapsto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\longmapsto$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\longmapsto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\hookleftarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\hookleftarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\hookrightarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\hookrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\leftharpoonup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leftharpoonup&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\rightharpoonup$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rightharpoonup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\leftharpoondown$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leftharpoondown&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\rightharpoondown$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rightharpoondown&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\rightleftharpoons$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rightleftharpoons&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\leadsto$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leadsto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\uparrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\uparrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\downarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\downarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Uparrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Uparrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Downarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Downarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\updownarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\updownarrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Updownarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Updownarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\nwarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nwarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\nearrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nearrow&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\swarrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\swarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\searrow$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\searrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;6特殊符号表&#34;&gt;6.特殊符号表
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;显示方法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\S$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\S&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\aleph$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\aleph&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\LaTeX$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\LaTeX&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\ldots$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ldots&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\ddots$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ddots&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\cdots$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cdots&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\vdots$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\vdots&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\imath$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\imath&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\jmath$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\jmath&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\ell$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\ell&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\wp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\wp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Re$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Re&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Im$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Im&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Diamond$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Diamond&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\diamondsuit$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\diamondsuit&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\prime$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prime&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\emptyset$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\emptyset&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\nabla$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nabla&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\surd$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\surd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\top$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\top&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\bot$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\bot&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\backslash$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\backslash&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\partial$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\partial&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\infty$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\infty&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\triangle$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\heartsuit$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\heartsuit&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\circledS$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\circledS&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\hbar$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\hbar&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\forall$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\forall&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\exists$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\exists&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\neg$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\neg&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\flat$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\flat&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\natural$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\natural&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\sharp$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sharp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\angle$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\angle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\mho$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mho&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\Box$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Box&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\clubsuit$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\clubsuits&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\spadesuit$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\spadesuit&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;7希腊字母greek-letters显示表&#34;&gt;7.希腊字母(Greek Letters)显示表
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;拉丁字母&lt;/th&gt;
+          &lt;th&gt;小写显示方法&lt;/th&gt;
+          &lt;th&gt;大写显示方法&lt;/th&gt;
+          &lt;th&gt;大写字母&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\alpha$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\alpha&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\beta$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\beta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\gamma$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Gamma$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\delta$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Delta$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\epsilon$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\epsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\zeta$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\zeta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\eta$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\eta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\theta$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Theta$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\iota$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\iota&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\kappa$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\kappa&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\lambda$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\lambda$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mu$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\nu$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\xi$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\xi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Xi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Xi$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\omicron$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omicron&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\pi$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Pi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Pi$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\rho$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rho&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\sigma$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sigma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Sigma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Sigma$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\tau$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\tau&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\upsilon$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\upsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Upsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Upsilon$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\phi$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\phi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Phi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Phi$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\chi$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\chi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+          &lt;td&gt;——&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\psi$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\psi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Psi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Psi$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\omega$&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omega&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Omega&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\Omega$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;注意：将小写字母的首字母大写表示为大写拉丁字母&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;8常用结构例子&#34;&gt;8.常用结构例子
+&lt;/h3&gt;&lt;h4 id=&#34;例1&#34;&gt;例1
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{align}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\sqrt{37} &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; = \sqrt{\frac{73^2-1}{12^2}} \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\\ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\\ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; \end{align}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$\begin{align}
+\sqrt{37} &amp; = \sqrt{\frac{73^2-1}{12^2}} \\\\
+ &amp; = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\\\ 
+ &amp; = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\\\
+ &amp; = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\\\
+ &amp; \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+\end{align}$$&lt;h4 id=&#34;例2&#34;&gt;例2
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{matrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{matrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{pmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{pmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{bmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{bmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{Bmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; x^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; y^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; z^2 \\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{Bmatrix}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$\begin{matrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{matrix}$$&lt;p&gt;
+&lt;/p&gt;
+$$\begin{pmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{pmatrix}$$&lt;p&gt;
+&lt;/p&gt;
+$$\begin{bmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{bmatrix}$$&lt;p&gt;
+&lt;/p&gt;
+$$\begin{Bmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{Bmatrix}$$&lt;p&gt;
+&lt;/p&gt;
+$$\begin{vmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{vmatrix}$$&lt;h4 id=&#34;例3&#34;&gt;例3
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\left[
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    \begin{array}{cc|c}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      1&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;2&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;3\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      4&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;5&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    \end{array}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\right]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$\left[
+    \begin{array}{cc|c}
+      1&amp;2&amp;3\\
+      4&amp;5&amp;6
+    \end{array}
+\right]$$&lt;p&gt;
+&lt;/p&gt;
+$$\left[
+    \begin{array}{c|cc}
+        2&amp;4&amp;7\\
+        3&amp;6&amp;34
+    \end{array}
+\right]\times\left[
+    \begin{array}{cc|c}
+      1&amp;2&amp;3\\
+      4&amp;5&amp;6
+    \end{array}
+\right]$$&lt;h4 id=&#34;例4&#34;&gt;例4
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;f(n) =
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{cases}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;n/2,  &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \text{if $n$ is even} \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3n+1, &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \text{if $n$ is odd}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{cases}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\begin{array}{c|lcr}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;n &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \text{Left} &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \text{Center} &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; \text{Right} \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\hline
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 0.24 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 125 \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; -1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 189 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; -8 \\\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; -20 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 2000 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt; 1+10i
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{array}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$f(n) =
+\begin{cases}
+n/2,  &amp; \text{if $n$ is even} \\
+3n+1, &amp; \text{if $n$ is odd}\end{cases}$$</description>
+        </item>
+        
+    </channel>
+</rss>

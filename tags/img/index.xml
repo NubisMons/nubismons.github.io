@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>IMG on 云雾中的山-Mistao</title>
+        <link>https://nubismons.github.io/tags/img/</link>
+        <description>Recent content in IMG on 云雾中的山-Mistao</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-Mistao</copyright>
+        <lastBuildDate>Sun, 26 Mar 2023 20:18:58 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/tags/img/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>图像到图像的翻译的具有自适应实例归一化的无监督生成注意网络</title>
+        <link>https://nubismons.github.io/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</link>
+        <pubDate>Sun, 26 Mar 2023 20:18:58 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</guid>
+        <description>&lt;h2 id=&#34;本文仅记录一些我的学习这篇论文记录&#34;&gt;本文仅记录一些我的学习这篇论文记录
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;什么是卷积神经网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;卷积这个东西有三层含义:
+1.第一个就是稳定的输出和不稳定的输入求其的系统存量
+2.周围像素点是如何影响的
+3.一个像素点的试探,就是起到一个过滤器的作用把我们需要的特征提取出来&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;什么是神经网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.旧的感知机无法实现异或运算,感知机与现有计算机的区别,它优势在哪里,感知机是一种分类工具,用随机梯度下降法,用数据去进行一个训练把分类的标准进行一个调整.感知机有标准能判断,在一个n维的情况下进行判别,使用n-1维去判断(就是进行一个分割,就是一个立体的东西进行一个切割,我们就要用到一个面,而一个面进行切割我们就要用到一个一根线,就是说一个n维的东西就行切割我们要用n-1维的去切割分类)还有就是只能进行线性分割.感知机使用一个统一模板对东西进行分类,就是一个线性函数加一个激活函数(判断函数),
+具体的表达 $t=f(\sum=w_ix_i+b=f(w^Tx))$
+感知机的缺陷就是没有办法处理异或问题,因为异或问题没有办法进行线性可分
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/ljy18/blogimg/6c82077a4f1fe1f3b0f3a0ca821e3ea.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6c82077a4f1fe1f3b0f3a0ca821e3ea&#34;
+	
+	
+&gt;
+为了解决这个问题提出多层神经网络,通过多个感知机进行解决
+盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

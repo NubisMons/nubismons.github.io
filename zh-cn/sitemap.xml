@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nubismons.github.io/</loc>
-    <lastmod>2025-04-24T15:07:14+08:00</lastmod>
+    <lastmod>2023-11-09T19:34:49+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,20 +15,20 @@
                 href="https://nubismons.github.io/"
                 />
   </url><url>
+    <loc>https://nubismons.github.io/p/china-stock/</loc>
+    <lastmod>2023-11-09T19:34:49+00:00</lastmod>
+  </url><url>
     <loc>https://nubismons.github.io/post/</loc>
-    <lastmod>2025-04-24T15:07:14+08:00</lastmod>
+    <lastmod>2023-11-09T19:34:49+00:00</lastmod>
   </url><url>
-    <loc>https://nubismons.github.io/p/testautotest/</loc>
-    <lastmod>2025-04-24T15:07:14+08:00</lastmod>
+    <loc>https://nubismons.github.io/categories/ai/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
   </url><url>
-    <loc>https://nubismons.github.io/p/mysecondebolg/</loc>
-    <lastmod>2025-04-24T03:27:36+08:00</lastmod>
-  </url><url>
-    <loc>https://nubismons.github.io/p/myfirstblog/</loc>
-    <lastmod>2025-04-24T03:25:57+08:00</lastmod>
+    <loc>https://nubismons.github.io/tags/ai/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
   </url><url>
     <loc>https://nubismons.github.io/categories/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,6 +39,97 @@
                 hreflang="zh-cn"
                 href="https://nubismons.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://nubismons.github.io/tags/img/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/networks/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://nubismons.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nubismons.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://nubismons.github.io/tags/unsupervised/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/cpp/</loc>
+    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/cpp/</loc>
+    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/vscode/</loc>
+    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/vscode/</loc>
+    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/markdown/</loc>
+    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/picture/</loc>
+    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/compile/</loc>
+    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/compile/</loc>
+    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/computer/</loc>
+    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/computerorganization/</loc>
+    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</loc>
+    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/fourier/</loc>
+    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/math/</loc>
+    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/math-test/</loc>
+    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</loc>
+    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/categories/directory/</loc>
+    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/formula/</loc>
+    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/tags/latex/</loc>
+    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+  </url><url>
+    <loc>https://nubismons.github.io/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</loc>
+    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
   </url><url>
     <loc>https://nubismons.github.io/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
@@ -69,19 +160,6 @@
   </url><url>
     <loc>https://nubismons.github.io/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nubismons.github.io/tags/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://nubismons.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://nubismons.github.io/tags/"
-                />
   </url><url>
     <loc>https://nubismons.github.io/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>

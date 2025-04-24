@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ComputerOrganization on 云雾中的山-Mistao</title>
+        <link>https://nubismons.github.io/categories/computerorganization/</link>
+        <description>Recent content in ComputerOrganization on 云雾中的山-Mistao</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-Mistao</copyright>
+        <lastBuildDate>Sat, 14 Jan 2023 16:00:32 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/categories/computerorganization/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>计算机的基本组成</title>
+        <link>https://nubismons.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</link>
+        <pubDate>Sat, 14 Jan 2023 16:00:32 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</guid>
+        <description>&lt;h2 id=&#34;计算机的基本组成构件&#34;&gt;计算机的基本组成构件
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;冯诺依曼型的的计算机是由运算器,输入输出,存储器(指令和数据,按址寻访),控制器组成的&lt;/li&gt;
+&lt;li&gt;指令和数据以同等的地位进行存储&lt;/li&gt;
+&lt;li&gt;指令和数据用二进制进行表示&lt;/li&gt;
+&lt;li&gt;指令是由操作码和地址码组成&lt;/li&gt;
+&lt;li&gt;存储程序&lt;/li&gt;
+&lt;li&gt;以运算器为中心&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;因为其以运算器为中心所以这个计算机的能力受到了运算器的运算能力的限制,也有其改进型以存储器为中心&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;cpu&#34;&gt;CPU
+&lt;/h3&gt;&lt;p&gt;CPU主要由控制器和运算器构成,而控制器是由PC(program Counter)程序计数器,IR(Instruction Register)指令寄存器,CU(Control Unit)组成,PC存放执行指令的地址,而IR是存放当前取出的指令,CU操作控制.运算器是由ACC(ACCumulator)累加器,ALU算术逻辑单元,MQ(Multiplier-Quotient Register)乘商寄存器,X为操作数寄存器组成&lt;/p&gt;
+&lt;h3 id=&#34;主存储器&#34;&gt;主存储器
+&lt;/h3&gt;&lt;p&gt;主存储器是由MAR(Memory Address Register)存储器地址寄存器,MDR(Memory Data Register)寄存器数据寄存器,存储体M组成.MAR是存放欲访问存储单元的地址,MDR是存放从存储体某单元取出的代码或者往某存储单元存入的代码.&lt;/p&gt;
+&lt;h3 id=&#34;一般指令的完成过程&#34;&gt;一般指令的完成过程
+&lt;/h3&gt;&lt;p&gt;三步走:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;取指令&lt;/li&gt;
+&lt;li&gt;分析指令&lt;/li&gt;
+&lt;li&gt;执行指令&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;p&gt;举一个具体的例子
+取数指令的执行过程:首先pc-&amp;gt;MAR-&amp;gt;M-&amp;gt;MDR-&amp;gt;IR
+分析指令: (OP)IR&amp;ndash;&amp;gt;CU
+执行指令: IR-&amp;gt;MAR-&amp;gt;M-&amp;gt;MDR-&amp;gt;ACC&lt;/p&gt;
+&lt;h3 id=&#34;复杂系统的管理方法&#34;&gt;复杂系统的管理方法
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;层次化(Hierarchy) 多个模块&lt;/li&gt;
+&lt;li&gt;模块化(Modularity) 每个模块都有(well-defined)的功能和接口&lt;/li&gt;
+&lt;li&gt;规则化(Regularly) 让模块更容易被重用&lt;/li&gt;
+&lt;/ol&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

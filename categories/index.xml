@@ -7,7 +7,71 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-Mistao</copyright>
-        <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 26 Mar 2023 20:18:58 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI</title>
+        <link>https://nubismons.github.io/categories/ai/</link>
+        <pubDate>Sun, 26 Mar 2023 20:18:58 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/ai/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Cpp</title>
+        <link>https://nubismons.github.io/categories/cpp/</link>
+        <pubDate>Tue, 14 Feb 2023 19:08:07 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/cpp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Vscode</title>
+        <link>https://nubismons.github.io/categories/vscode/</link>
+        <pubDate>Tue, 14 Feb 2023 19:08:07 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/vscode/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Markdown</title>
+        <link>https://nubismons.github.io/categories/markdown/</link>
+        <pubDate>Tue, 07 Feb 2023 22:29:44 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/markdown/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Compile</title>
+        <link>https://nubismons.github.io/categories/compile/</link>
+        <pubDate>Tue, 07 Feb 2023 17:53:53 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/compile/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ComputerOrganization</title>
+        <link>https://nubismons.github.io/categories/computerorganization/</link>
+        <pubDate>Sat, 14 Jan 2023 16:00:32 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/computerorganization/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Math Test</title>
+        <link>https://nubismons.github.io/categories/math-test/</link>
+        <pubDate>Sun, 11 Sep 2022 18:50:55 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/math-test/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Directory</title>
+        <link>https://nubismons.github.io/categories/directory/</link>
+        <pubDate>Mon, 22 Aug 2022 21:29:24 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/categories/directory/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Test</title>
         <link>https://nubismons.github.io/categories/test/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>

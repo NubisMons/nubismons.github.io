@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Fourier on 云雾中的山-Mistao</title>
+        <link>https://nubismons.github.io/tags/fourier/</link>
+        <description>Recent content in Fourier on 云雾中的山-Mistao</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-Mistao</copyright>
+        <lastBuildDate>Sun, 11 Sep 2022 18:50:55 +0000</lastBuildDate><atom:link href="https://nubismons.github.io/tags/fourier/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>卷积公式</title>
+        <link>https://nubismons.github.io/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</link>
+        <pubDate>Sun, 11 Sep 2022 18:50:55 +0000</pubDate>
+        
+        <guid>https://nubismons.github.io/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</guid>
+        <description>&lt;h2 id=&#34;前期提示&#34;&gt;前期提示
+&lt;/h2&gt;&lt;p&gt;以下东西纯属个人消化&lt;/p&gt;
+&lt;h2 id=&#34;缘由&#34;&gt;缘由
+&lt;/h2&gt;&lt;p&gt;首先说一下写这个东西的原因:就是这个卷积公式的理解一直都是我学习信号与系统的拦路虎,一直无法理解这个是什么东西,终于在今晚弄懂了我滴天啊!&lt;/p&gt;
+&lt;h2 id=&#34;卷积公式的形式&#34;&gt;卷积公式的形式
+&lt;/h2&gt;&lt;p&gt;首先来看一下这个卷积公式的形式
+&lt;strong&gt;积分形式&lt;/strong&gt;&lt;/p&gt;
+$$(f*g)(n)=\int^{+\infty}_{-\infty}f(\tau)g(n-\tau)d{\tau}$$&lt;p&gt;&lt;strong&gt;离散形式&lt;/strong&gt;&lt;/p&gt;
+$$(f*g)(n)=\sum^{+\infty}_{-\infty}f(\tau)g(n-\tau)$$&lt;h2 id=&#34;翻卷&#34;&gt;翻卷
+&lt;/h2&gt;&lt;p&gt;其实吧,我一直没办法就是为什么那个$f(\tau)$要乘于一个负的$g(n-\tau)$,我认为关键就是理解的这个$-\tau$,理解了这个就理解了整个公式.&lt;/p&gt;
+&lt;h2 id=&#34;举一个例子&#34;&gt;举一个例子
+&lt;/h2&gt;&lt;h3 id=&#34;扔石头&#34;&gt;扔石头
+&lt;/h3&gt;&lt;p&gt;往水面仍石头,我们把水面的反应当成的一个冲击反应,我们在t=0时,扔下一个石头会激起一个h(0)的波纹,但是水面不会立刻平静,随着时间的流逝，波纹幅度会越来越小，在t=1时刻，幅度衰减为h(1), 在t=2时刻，幅度衰减为h(2)……直到一段时间后，水面重复归于平静.&lt;/p&gt;
+&lt;p&gt;从时间轴上来看，我们只在t=0时刻丢了一块石头，其它时刻并没有做任何事，但在t=1,2….时刻，水面是不平静的，这是因为过去（t=0时刻）的作用一直持续到了现在。那么，问题来了：如果我们在t=1时刻也丢入一块石子呢？此时t=0时刻的影响还没有消失（水面还没有恢复平静）新的石子又丢进来了，那么现在激起的波浪有多高呢？答案是当前激起的波浪与t=0时刻残余的影响的叠加。那么t=0时刻对t=1时刻的残余影响有多大呢？为了便于说明，接下来我们作一下两个假设：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1．  水面对于“单位石块”的响应是固定的.&lt;/li&gt;
+&lt;li&gt;2．  丢一个两倍于的“单位石块”的石块激起的波纹高度是丢一个石块的两倍（即系统满足线性叠加原理）现在我们来计算每一时刻的波浪有多高:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那么我们一个时刻就扔一个石头,t=0,t=1,t=2时,以此类推.那么我们来算一下每个时水面的反应:&lt;/p&gt;
+&lt;p&gt;y为水面的反应,x为石子,h为水面的激起波澜的函数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;t=0时:
+y(0)=x(0)*h(0)//t0时刻一个石子在h0时刻激起y0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;t=1时
+y(1)=x(1)*h(0)+x(0)*h(1)//这个就是当前石子激起h(0),和之前那个x(0)那个的残余的叠加&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;t=2时:
+y(2)=x(2)*h(0)+x(1)*h(1)+x(0)*h(2)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以此类推&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;t=n 时:
+y(n)=x(n)*h(0)+x(n-1)*h(1)+x(n-2)*h(2)+&amp;hellip;+x(0)*h(n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推到这一步把用累加符号弄在一起你会惊讶的发现,我擦这个不就是说这个吗?
+$\sum_{i=0}^nx(i)&lt;em&gt;h(n-i)$是不是很是相像$(f&lt;/em&gt;g)(n)=\sum^{+\infty}_{-\infty}f(\tau)g(n-\tau)$.这就是离散卷积的公式了理解了上面的问题，下面我们来看看“翻转”是怎么回事：当我们每次要丢石子时，站在当前的时间点，系统的对我们的回应都是h(0),时间轴之后的（h(1),h(2)&amp;hellip;..）都是对未来的影响。而整体的回应要加上过去对于现在的残余影响。现在我们来观察t=4这个时刻.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;站在t=0时刻看他对于未来（t=4）时刻(从现在往后4秒)的影响，可见是x(0)*h(4)&lt;/li&gt;
+&lt;li&gt;站在t=1时刻看他对于未来（t=4）时刻的影响(从现在往后3秒)，可见是x(1)*h(3)&lt;/li&gt;
+&lt;li&gt;站在t=2时刻看他对于未来（t=4）时刻的影响(从现在往后2秒)，可见是x(2)*h(2)&lt;/li&gt;
+&lt;li&gt;站在t=3时刻看他对于未来（t=4）时刻的影响(从现在往后1秒)，可见是x(3)*h(1)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;图示:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/Ljy18/blogimg/main/convolution.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;示意图&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;你将第一幅和第三幅对应的乘起来是不是就是那个
+y(4)=x(4)*h(0)+x(3)*h(1)+x(2)*h(2)+x(1)*h(3)+x(0)*h(4)&lt;/p&gt;
+&lt;h2 id=&#34;结论所以所谓的翻转只是因为你站立的现在是过去的未来所谓卷积其实就是过去对现在影响的叠加&#34;&gt;结论:所以所谓的翻转只是因为你站立的现在是过去的未来,所谓卷积其实就是过去对现在影响的叠加.
+&lt;/h2&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
