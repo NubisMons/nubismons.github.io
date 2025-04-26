@@ -16,14 +16,6 @@
         <description></description>
         </item>
         <item>
-        <title>Test</title>
-        <link>https://blogbook.eu.org/categories/test/</link>
-        <pubDate>Thu, 24 Apr 2025 21:05:08 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/categories/test/</guid>
-        <description>&lt;img src="https://blogbook.eu.org/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        <item>
         <title>AI</title>
         <link>https://blogbook.eu.org/categories/ai/</link>
         <pubDate>Sun, 26 Mar 2023 20:18:58 +0000</pubDate>
@@ -118,6 +110,14 @@
         
         <guid>https://blogbook.eu.org/categories/test-with-whitespaces/</guid>
         <description></description>
+        </item>
+        <item>
+        <title>Test</title>
+        <link>https://blogbook.eu.org/categories/test/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://blogbook.eu.org/categories/test/</guid>
+        <description>&lt;img src="https://blogbook.eu.org/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         
     </channel>

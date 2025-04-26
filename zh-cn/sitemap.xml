@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blogbook.eu.org/</loc>
-    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blogbook.eu.org/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blogbook.eu.org/"
-                />
-  </url><url>
     <loc>https://blogbook.eu.org/tags/ai/</loc>
     <lastmod>2025-04-26T16:13:12+08:00</lastmod>
   </url><url>
@@ -32,7 +19,7 @@
                 />
   </url><url>
     <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+    <lastmod>2025-04-27T04:20:02+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/</loc>
     <lastmod>2025-04-26T16:13:12+08:00</lastmod>
@@ -60,162 +47,178 @@
     <lastmod>2025-04-26T16:13:12+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/blogtest/</loc>
-    <lastmod>2025-04-25T08:57:54+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/categories/test/</loc>
-    <lastmod>2025-04-24T21:05:08+08:00</lastmod>
+    <lastmod>2025-04-27T04:20:02+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/test/</loc>
-    <lastmod>2025-04-24T21:05:08+08:00</lastmod>
+    <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/testblog/</loc>
-    <lastmod>2025-04-24T21:05:08+08:00</lastmod>
+    <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BEtest/</loc>
     <lastmod>2025-04-24T01:34:47+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/china-stock/</loc>
-    <lastmod>2023-11-09T19:34:49+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/ai/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/img/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/networks/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/unsupervised/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%B0%E5%9B%BE%E5%83%8F%E7%9A%84%E7%BF%BB%E8%AF%91%E7%9A%84%E5%85%B7%E6%9C%89%E8%87%AA%E9%80%82%E5%BA%94%E5%AE%9E%E4%BE%8B%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E7%94%9F%E6%88%90%E6%B3%A8%E6%84%8F%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/cpp/</loc>
-    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/cpp/</loc>
-    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/vscode/</loc>
-    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/vscode/</loc>
-    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2023-02-14T19:08:07+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/markdown/</loc>
-    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/picture/</loc>
-    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/vscode-%E4%B8%ADmarkdown%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%A2%84%E8%A7%88%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2023-02-07T22:29:44+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/compile/</loc>
-    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/compile/</loc>
-    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/vscode%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E7%BC%96%E8%AF%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2023-02-07T17:53:53+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/computer/</loc>
-    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/computerorganization/</loc>
-    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90/</loc>
-    <lastmod>2023-01-14T16:00:32+00:00</lastmod>
+    <lastmod>2025-04-24T15:42:22+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/fourier/</loc>
-    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+    <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/math/</loc>
-    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+    <lastmod>2025-04-25T15:43:04+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/math-test/</loc>
-    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+    <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F/</loc>
-    <lastmod>2022-09-11T18:50:55+00:00</lastmod>
+    <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/directory/</loc>
-    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+    <lastmod>2025-04-25T15:43:04+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/formula/</loc>
-    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+    <lastmod>2025-04-25T15:43:04+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/latex/</loc>
-    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+    <lastmod>2025-04-25T15:43:04+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</loc>
-    <lastmod>2022-08-22T21:29:24+00:00</lastmod>
+    <lastmod>2025-04-25T15:43:04+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/test-chinese/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/page/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-25T16:59:48+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/css/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/html/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/markdown/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/markdown-syntax-guide/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/placeholder-text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/tag-with-whitespaces/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/test-with-whitespaces/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/math-typesetting/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T23:01:02+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/emoji/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/</loc>
+    <lastmod>2025-04-25T16:59:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/about/</loc>
+    <lastmod>2025-04-25T16:59:48+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/links/</loc>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/search/</loc>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/test/</loc>
+    <lastmod>2025-04-24T14:12:01+08:00</lastmod>
   </url>
 </urlset>
