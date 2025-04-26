@@ -7,10 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 27 Apr 2025 01:16:49 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 26 Apr 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>概率论的回顾</title>
         <link>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</link>
-        <pubDate>Sun, 27 Apr 2025 01:16:49 +0800</pubDate>
+        <pubDate>Sat, 26 Apr 2025 10:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</guid>
         <description>&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
@@ -79,7 +79,9 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;测试&#34;&gt;测试
-&lt;/h3&gt;</description>
+&lt;/h3&gt;&lt;h4 id=&#34;测试-1&#34;&gt;测试
+&lt;/h4&gt;&lt;h5 id=&#34;测试-2&#34;&gt;测试
+&lt;/h5&gt;</description>
         </item>
         <item>
         <title>Blogtest</title>
