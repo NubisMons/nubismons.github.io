@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 27 Apr 2025 05:37:48 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/vscode/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 27 Apr 2025 05:53:55 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/vscode/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于在Vscode中c&#43;&#43;无法自动生成launch.json的问题</title>
         <link>https://blogbook.eu.org/p/%E5%85%B3%E4%BA%8E%E5%9C%A8vscode%E4%B8%ADc-%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90launch.json%E7%9A%84%E9%97%AE%E9%A2%98/</link>
         <pubDate>Tue, 14 Feb 2023 19:08:07 +0000</pubDate>
@@ -120,8 +120,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;185.199&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;111.133&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;raw.githubusercontent.com&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;测试&#34;&gt;测试
-&lt;/h3&gt;</description>
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>Vscode在一个文件夹里编译多个文件</title>

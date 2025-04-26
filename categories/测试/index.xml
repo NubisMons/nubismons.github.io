@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 27 Apr 2025 05:30:23 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 27 Apr 2025 05:53:55 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Chinese Test</title>
         <link>https://blogbook.eu.org/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
@@ -93,8 +93,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;相册语法来自 &lt;a class=&#34;link&#34; href=&#34;https://typlog.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Typlog&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;测试时间&#34;&gt;测试时间
-&lt;/h2&gt;</description>
+</description>
         </item>
         
     </channel>
