@@ -316,7 +316,8 @@
 &gt;
 为了解决这个问题提出多层神经网络,通过多个感知机进行解决
 盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;&lt;/blockquote&gt;
-</description>
+&lt;h2 id=&#34;测试&#34;&gt;测试
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>关于在Vscode中c&#43;&#43;无法自动生成launch.json的问题</title>
