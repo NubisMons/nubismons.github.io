@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blogbook.eu.org/</loc>
-    <lastmod>2025-04-25T08:57:54+08:00</lastmod>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,14 +15,11 @@
                 href="https://blogbook.eu.org/"
                 />
   </url><url>
-    <loc>https://blogbook.eu.org/p/blogtest/</loc>
-    <lastmod>2025-04-25T08:57:54+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-04-25T08:57:54+08:00</lastmod>
+    <loc>https://blogbook.eu.org/tags/ai/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-04-24T21:05:08+08:00</lastmod>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,8 +31,11 @@
                 href="https://blogbook.eu.org/categories/"
                 />
   </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/tags/</loc>
-    <lastmod>2025-04-24T21:05:08+08:00</lastmod>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -46,6 +46,21 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/tags/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2025-04-26T16:13:12+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/blogtest/</loc>
+    <lastmod>2025-04-25T08:57:54+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/test/</loc>
     <lastmod>2025-04-24T21:05:08+08:00</lastmod>
@@ -60,9 +75,6 @@
     <lastmod>2023-11-09T19:34:49+00:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/ai/</loc>
-    <lastmod>2023-03-26T20:18:58+00:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/tags/ai/</loc>
     <lastmod>2023-03-26T20:18:58+00:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/img/</loc>

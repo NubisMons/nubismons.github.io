@@ -7,7 +7,83 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Fri, 25 Apr 2025 08:57:54 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 26 Apr 2025 16:13:12 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>概率论的回顾</title>
+        <link>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</link>
+        <pubDate>Sat, 26 Apr 2025 16:13:12 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</guid>
+        <description>&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;随机试验&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;可以在相同的条件下重复进行.&lt;/li&gt;
+&lt;li&gt;每次实验的结果可能不止一个,且能事先明确所有结果.&lt;/li&gt;
+&lt;li&gt;进行一次试验之前不能确定哪一个结果会出现.&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;样本空间&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;随机试验所有可能结果的集合&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基本事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由一个样本点组成的单点集&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;必然事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每次试验中都必然发生的事件(S事件)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不可能事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每次试验中都不可能发生的事件,也就是一个空集&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;事件的关系与运算&#34;&gt;事件的关系与运算
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;包含&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A \subset B$,表示A发生B必然发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;和事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A \bigcup B$,表示A与B至少有一个发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A \bigcap B$或$AB$,表示A与B同时发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;差事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A - B$,表示A发生而B不发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;互斥事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$AB = \varnothing $&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对立事件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\bar{A} = S - A$ 表示A不发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试
+&lt;/h3&gt;&lt;h4 id=&#34;测试-1&#34;&gt;测试
+&lt;/h4&gt;&lt;h5 id=&#34;测试-2&#34;&gt;测试
+&lt;/h5&gt;</description>
+        </item>
+        <item>
         <title>Blogtest</title>
         <link>https://blogbook.eu.org/p/blogtest/</link>
         <pubDate>Fri, 25 Apr 2025 08:57:54 +0800</pubDate>
