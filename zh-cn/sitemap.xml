@@ -2,14 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blogbook.eu.org/p/blogtest/</loc>
-    <lastmod>2025-04-27T04:20:02+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-04-27T05:30:23+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BE/</loc>
-    <lastmod>2025-04-25T05:22:10+08:00</lastmod>
+    <loc>https://blogbook.eu.org/tags/ai/</loc>
+    <lastmod>2025-04-27T05:10:05+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
     <lastmod>2025-04-27T05:30:23+08:00</lastmod>
@@ -24,6 +18,9 @@
                 href="https://blogbook.eu.org/categories/"
                 />
   </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-04-27T05:30:23+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/tags/</loc>
     <lastmod>2025-04-27T05:10:05+08:00</lastmod>
     <xhtml:link
@@ -37,6 +34,18 @@
                 href="https://blogbook.eu.org/tags/"
                 />
   </url><url>
+    <loc>https://blogbook.eu.org/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
+    <lastmod>2025-04-26T05:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-04-26T05:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
+    <lastmod>2025-04-26T05:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/blogtest/</loc>
+    <lastmod>2025-04-27T04:20:02+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/tags/test/</loc>
     <lastmod>2025-04-24T22:40:11+08:00</lastmod>
   </url><url>
@@ -47,9 +56,6 @@
     <lastmod>2025-04-27T04:40:31+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/ai/</loc>
-    <lastmod>2025-04-27T05:10:05+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/tags/ai/</loc>
     <lastmod>2025-04-27T05:10:05+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/img/</loc>
