@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-04-27T01:34:47+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BEtest/</loc>
-    <lastmod>2025-04-27T01:34:47+08:00</lastmod>
-  </url><url>
     <loc>https://blogbook.eu.org/tags/ai/</loc>
     <lastmod>2025-04-26T10:00:00+08:00</lastmod>
   </url><url>
@@ -23,6 +17,9 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/categories/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-04-27T01:22:19+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/</loc>
     <lastmod>2025-04-26T10:00:00+08:00</lastmod>
@@ -57,6 +54,9 @@
   </url><url>
     <loc>https://blogbook.eu.org/p/testblog/</loc>
     <lastmod>2025-04-24T22:40:11+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9B%9E%E9%A1%BEtest/</loc>
+    <lastmod>2025-04-24T01:34:47+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/china-stock/</loc>
     <lastmod>2025-04-24T15:42:22+08:00</lastmod>
