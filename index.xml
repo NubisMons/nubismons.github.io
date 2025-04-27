@@ -77,6 +77,33 @@
 &lt;p&gt;$\bar{A} = S - A$ 表示A不发生&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;运算律&#34;&gt;运算律
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;交换律: $A\bigcup B=B\bigcup A$&lt;/li&gt;
+&lt;li&gt;结合律: $(A\bigcup B)\bigcup C = A\bigcup (B\bigcup C)$&lt;/li&gt;
+&lt;li&gt;分配律: $(A\bigcup B)\bigcap C = (A\bigcap C)\bigcup (B\bigcap C)$&lt;/li&gt;
+&lt;li&gt;德摩根定律: $\overline{A \cup B} = \overline{A} \cap \overline{B}$,  $\overline{A \cap B} = \overline{A} \cup \overline{B}$&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;概率的定义与性质&#34;&gt;概率的定义与性质
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;古典概型概率: $P(A) = A$ 包含的基本事件数/S中基本事件的总数.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个S,是所有事件的总数&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;几何概型概率: $P(A)=A$ 的几何度量/S的几何度量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;统计概率$P(A)= \lim_{n \to \infty}(nA/n)$, nA为A发生的总数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公理化定义&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
