@@ -69,7 +69,12 @@
 &lt;li&gt;交换律: $A\cup B=B\cup A$&lt;/li&gt;
 &lt;li&gt;结合律: $(A\cup B)\cup C = A\cup (B\cup C)$&lt;/li&gt;
 &lt;li&gt;分配律: $(A\cup B)\cap C = (A\cap C)\cup (B\cap C)$&lt;/li&gt;
-&lt;li&gt;德摩根定律: $\overline{A \cup B} = \overline{A} \cap \overline{B}$,  $\overline{A \cap B} = \overline{A} \cup \overline{B}$&lt;/li&gt;
+&lt;li&gt;德摩根定律:
+&lt;ul&gt;
+&lt;li&gt;$\overline{A \cup B} = \overline{A} \cap \overline{B}$&lt;/li&gt;
+&lt;li&gt;$\overline{A \cap B} = \overline{A} \cup \overline{B}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;概率的定义与性质&#34;&gt;概率的定义与性质
 &lt;/h2&gt;&lt;ol&gt;
