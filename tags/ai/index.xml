@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 27 Apr 2025 05:53:55 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 May 2025 12:33:20 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/ai/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>数理统计与概率论</title>
         <link>https://blogbook.eu.org/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
         <pubDate>Sun, 27 Apr 2025 05:32:32 +0800</pubDate>
@@ -182,7 +182,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 &gt;
 为了解决这个问题提出多层神经网络,通过多个感知机进行解决
 盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;&lt;/blockquote&gt;
-</description>
+&lt;h2 id=&#34;测试&#34;&gt;测试
+&lt;/h2&gt;</description>
         </item>
         
     </channel>
