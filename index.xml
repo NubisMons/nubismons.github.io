@@ -145,7 +145,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 &lt;ul&gt;
 &lt;li&gt;联合概率分布的概率: 对于随机变量,我们讨论它们的联合概率分布.这描述了两个或多个随机变量同时取特定值或落在特定范围内的概率。在统计学中，我们经常从样本数据来推断或描述这种联合分布。&lt;/li&gt;
 &lt;/ul&gt;&lt;/blockquote&gt;
-</description>
+&lt;h2 id=&#34;测试&#34;&gt;测试
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>图像到图像的翻译的具有自适应实例归一化的无监督生成注意网络</title>
