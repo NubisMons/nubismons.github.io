@@ -4,6 +4,16 @@
   <url>
     <loc>https://blogbook.eu.org/tags/ai/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/tags/ai/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/tags/ai/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
@@ -20,6 +30,16 @@
   </url><url>
     <loc>https://blogbook.eu.org/post/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/post/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/tags/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
@@ -36,12 +56,42 @@
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
     <lastmod>2025-05-07T12:55:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/"
+                />
   </url><url>
     <loc>https://blogbook.eu.org/categories/ai/</loc>
     <lastmod>2025-05-07T12:33:20+08:00</lastmod>
