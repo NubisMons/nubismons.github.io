@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blogbook.eu.org/categories/ai/</loc>
+    <lastmod>2025-05-18T00:21:40+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-05-14T23:46:00+08:00</lastmod>
+    <lastmod>2025-05-18T00:21:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +19,7 @@
                 />
   </url><url>
     <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-05-14T23:46:00+08:00</lastmod>
+    <lastmod>2025-05-18T00:21:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -27,6 +30,9 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/post/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2025-05-18T00:21:40+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E8%83%A1%E9%9B%AA%E5%B2%A9%E5%B0%8F%E8%AF%B4/</loc>
     <lastmod>2025-05-14T23:46:00+08:00</lastmod>
@@ -98,9 +104,6 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/"
                 />
-  </url><url>
-    <loc>https://blogbook.eu.org/categories/ai/</loc>
-    <lastmod>2025-05-14T23:43:32+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/tags/img/</loc>
     <lastmod>2025-05-07T12:33:20+08:00</lastmod>

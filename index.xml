@@ -7,6 +7,28 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>统计学习方法</title>
+        <link>https://blogbook.eu.org/p/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Fri, 16 May 2025 15:41:51 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h2 id=&#34;这个是关于我看李航的统计学习方法的一些记录以防我看完就忘&#34;&gt;这个是关于我看李航的统计学习方法的一些记录,以防我看完就忘.
+&lt;/h2&gt;&lt;h2 id=&#34;第一章统计学习及监督学习概论&#34;&gt;第一章统计学习及监督学习概论
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;什么是统计学习&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;就是基于数据建构一个概率统计模型并对数据进行一个预测.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;统计学习的对象&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实就是数据,只不过这些数据的来源是多种多样的,比如文字,图像,视频,音频数据或者是它们的组合,关于数据的有一个基本假设就是迷人同类数据具有共同的性质的数据,比如说英文的文章,网页之类的.由于它们具有统计的规律性.所以可以用概率统计方法去处理它们.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>胡雪岩小说</title>
         <link>https://blogbook.eu.org/p/%E8%83%A1%E9%9B%AA%E5%B2%A9%E5%B0%8F%E8%AF%B4/</link>
         <pubDate>Wed, 14 May 2025 23:31:21 +0800</pubDate>
