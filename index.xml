@@ -71,6 +71,248 @@ $$&lt;/li&gt;
 我们这个损失函数其实就是为了优化模型,感知机的损失函数它的优化目标就是期望使所有错误分类的样本到超平面的距离之和最小.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;逻辑回归&#34;&gt;逻辑回归
+&lt;/h2&gt;&lt;p&gt;逻辑回归（Logistic Regression）是统计学习中的经典分类算法，虽然名字中有&amp;quot;回归&amp;quot;，但它实际上是一种分类方法。它通过logistic函数将线性回归的输出映射到(0,1)区间，从而实现概率预测。&lt;/p&gt;
+&lt;h3 id=&#34;1-逻辑回归的基本思想&#34;&gt;1. 逻辑回归的基本思想
+&lt;/h3&gt;&lt;p&gt;逻辑回归的核心思想是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用sigmoid函数将线性函数的输出映射到概率值&lt;/li&gt;
+&lt;li&gt;通过最大似然估计来求解参数&lt;/li&gt;
+&lt;li&gt;适用于二分类和多分类问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;与线性回归不同，逻辑回归不是直接预测连续值，而是预测某个事件发生的概率。&lt;/p&gt;
+&lt;h3 id=&#34;2-逻辑回归的数学模型&#34;&gt;2. 逻辑回归的数学模型
+&lt;/h3&gt;&lt;h4 id=&#34;21-sigmoid函数&#34;&gt;2.1 Sigmoid函数
+&lt;/h4&gt;&lt;p&gt;Sigmoid函数（也称为logistic函数）定义为：
+&lt;/p&gt;
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$&lt;p&gt;其中 $z = \theta_0 + \theta_1x_1 + \theta_2x_2 + &amp;hellip; + \theta_nx_n = \theta^T x$&lt;/p&gt;
+&lt;p&gt;Sigmoid函数具有以下重要性质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数值域为(0,1)，可以表示概率&lt;/li&gt;
+&lt;li&gt;单调递增&lt;/li&gt;
+&lt;li&gt;在z=0处，$\sigma(0) = 0.5$&lt;/li&gt;
+&lt;li&gt;当z→+∞时，$\sigma(z)→1$；当z→-∞时，$\sigma(z)→0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;22-逻辑回归模型&#34;&gt;2.2 逻辑回归模型
+&lt;/h4&gt;&lt;p&gt;对于二分类问题，逻辑回归模型表示为：
+&lt;/p&gt;
+$$P(Y=1|x) = \frac{1}{1 + e^{-\theta^T x}}$$&lt;p&gt;
+&lt;/p&gt;
+$$P(Y=0|x) = 1 - P(Y=1|x) = \frac{e^{-\theta^T x}}{1 + e^{-\theta^T x}}$$&lt;h3 id=&#34;3-几率odds与对数几率log-odds&#34;&gt;3. 几率(Odds)与对数几率(Log-Odds)
+&lt;/h3&gt;&lt;h4 id=&#34;31-几率&#34;&gt;3.1 几率
+&lt;/h4&gt;&lt;p&gt;几率定义为事件发生的概率与不发生概率的比值：
+&lt;/p&gt;
+$$odds = \frac{P(Y=1|x)}{P(Y=0|x)} = \frac{P(Y=1|x)}{1-P(Y=1|x)}$$&lt;h4 id=&#34;32-对数几率logit&#34;&gt;3.2 对数几率（Logit）
+&lt;/h4&gt;&lt;p&gt;对数几率是几率的对数：
+&lt;/p&gt;
+$$logit(p) = \ln\left(\frac{p}{1-p}\right) = \theta^T x$$&lt;p&gt;这说明逻辑回归实际上是在对对数几率进行线性建模。&lt;/p&gt;
+&lt;h3 id=&#34;4-参数估计最大似然估计&#34;&gt;4. 参数估计：最大似然估计
+&lt;/h3&gt;&lt;h4 id=&#34;41-似然函数&#34;&gt;4.1 似然函数
+&lt;/h4&gt;&lt;p&gt;给定训练集 ${(x_i, y_i)}_{i=1}^m$，其中 $y_i \in {0,1}$，似然函数为：
+&lt;/p&gt;
+$$L(\theta) = \prod_{i=1}^m P(y_i|x_i;\theta)$$&lt;p&gt;具体地：
+&lt;/p&gt;
+$$L(\theta) = \prod_{i=1}^m [P(Y=1|x_i)]^{y_i} [P(Y=0|x_i)]^{1-y_i}$$&lt;h4 id=&#34;42-对数似然函数&#34;&gt;4.2 对数似然函数
+&lt;/h4&gt;&lt;p&gt;取对数得到对数似然函数：
+&lt;/p&gt;
+$$\ell(\theta) = \sum_{i=1}^m [y_i \log P(Y=1|x_i) + (1-y_i) \log P(Y=0|x_i)]$$&lt;p&gt;代入sigmoid函数：
+&lt;/p&gt;
+$$\ell(\theta) = \sum_{i=1}^m [y_i \theta^T x_i - \log(1 + e^{\theta^T x_i})]$$&lt;h4 id=&#34;43-梯度计算&#34;&gt;4.3 梯度计算
+&lt;/h4&gt;&lt;p&gt;对$\theta$求偏导：
+&lt;/p&gt;
+$$\frac{\partial \ell(\theta)}{\partial \theta} = \sum_{i=1}^m (y_i - \sigma(\theta^T x_i))x_i$$&lt;p&gt;由于对数似然函数是凹函数，可以使用梯度上升法或牛顿法求解最优参数。&lt;/p&gt;
+&lt;h3 id=&#34;5-损失函数交叉熵损失&#34;&gt;5. 损失函数：交叉熵损失
+&lt;/h3&gt;&lt;p&gt;逻辑回归的损失函数通常使用交叉熵损失（Cross-Entropy Loss）：
+&lt;/p&gt;
+$$J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))]$$&lt;p&gt;其中 $h_\theta(x_i) = \sigma(\theta^T x_i)$ 是预测概率。&lt;/p&gt;
+&lt;h3 id=&#34;6-优化算法&#34;&gt;6. 优化算法
+&lt;/h3&gt;&lt;h4 id=&#34;61-梯度下降法详细推导&#34;&gt;6.1 梯度下降法详细推导
+&lt;/h4&gt;&lt;p&gt;梯度下降法是通过迭代优化来最小化损失函数的方法。下面详细推导逻辑回归中梯度下降的计算过程。&lt;/p&gt;
+&lt;h5 id=&#34;611-损失函数回顾&#34;&gt;6.1.1 损失函数回顾
+&lt;/h5&gt;&lt;p&gt;逻辑回归的损失函数（交叉熵损失）为：
+&lt;/p&gt;
+$$J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))]$$&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$h_\theta(x_i) = \sigma(\theta^T x_i) = \frac{1}{1 + e^{-\theta^T x_i}}$ 是预测概率&lt;/li&gt;
+&lt;li&gt;$m$ 是训练样本数量&lt;/li&gt;
+&lt;li&gt;$y_i \in {0,1}$ 是真实标签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;612-梯度计算的详细推导&#34;&gt;6.1.2 梯度计算的详细推导
+&lt;/h5&gt;&lt;p&gt;我们需要计算 $\frac{\partial J(\theta)}{\partial \theta_j}$，其中 $\theta_j$ 是参数向量 $\theta$ 的第 $j$ 个分量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤1：单个样本的损失函数梯度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于单个样本 $(x_i, y_i)$，损失函数为：
+&lt;/p&gt;
+$$J_i(\theta) = -[y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))]$$&lt;p&gt;首先计算 $\frac{\partial h_\theta(x_i)}{\partial \theta_j}$：&lt;/p&gt;
+$$\frac{\partial h_\theta(x_i)}{\partial \theta_j} = \frac{\partial}{\partial \theta_j} \sigma(\theta^T x_i) = \frac{\partial}{\partial \theta_j} \frac{1}{1 + e^{-\theta^T x_i}}$$&lt;p&gt;使用链式法则：
+&lt;/p&gt;
+$$\frac{\partial h_\theta(x_i)}{\partial \theta_j} = \frac{\partial \sigma(z)}{\partial z} \cdot \frac{\partial z}{\partial \theta_j}$$&lt;p&gt;其中 $z = \theta^T x_i$，所以 $\frac{\partial z}{\partial \theta_j} = x_{ij}$&lt;/p&gt;
+&lt;p&gt;Sigmoid函数的导数为：
+&lt;/p&gt;
+$$\frac{\partial \sigma(z)}{\partial z} = \sigma(z)(1-\sigma(z)) = h_\theta(x_i)(1-h_\theta(x_i))$$&lt;p&gt;因此：
+&lt;/p&gt;
+$$\frac{\partial h_\theta(x_i)}{\partial \theta_j} = h_\theta(x_i)(1-h_\theta(x_i)) \cdot x_{ij}$$&lt;p&gt;&lt;strong&gt;步骤2：计算单个样本损失函数的梯度&lt;/strong&gt;&lt;/p&gt;
+$$\frac{\partial J_i(\theta)}{\partial \theta_j} = -\left[y_i \frac{1}{h_\theta(x_i)} \frac{\partial h_\theta(x_i)}{\partial \theta_j} + (1-y_i) \frac{1}{1-h_\theta(x_i)} \frac{\partial (1-h_\theta(x_i))}{\partial \theta_j}\right]$$&lt;p&gt;注意到：
+&lt;/p&gt;
+$$\frac{\partial (1-h_\theta(x_i))}{\partial \theta_j} = -\frac{\partial h_\theta(x_i)}{\partial \theta_j}$$&lt;p&gt;代入得：
+&lt;/p&gt;
+$$\frac{\partial J_i(\theta)}{\partial \theta_j} = -\left[y_i \frac{1}{h_\theta(x_i)} - (1-y_i) \frac{1}{1-h_\theta(x_i)}\right] \frac{\partial h_\theta(x_i)}{\partial \theta_j}$$$$= -\left[\frac{y_i}{h_\theta(x_i)} - \frac{1-y_i}{1-h_\theta(x_i)}\right] h_\theta(x_i)(1-h_\theta(x_i)) x_{ij}$$$$= -\left[y_i(1-h_\theta(x_i)) - (1-y_i)h_\theta(x_i)\right] x_{ij}$$$$= -[y_i - y_ih_\theta(x_i) - h_\theta(x_i) + y_ih_\theta(x_i)] x_{ij}$$$$= -[y_i - h_\theta(x_i)] x_{ij}$$$$= (h_\theta(x_i) - y_i) x_{ij}$$&lt;p&gt;&lt;strong&gt;步骤3：整体损失函数的梯度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对所有样本求平均：
+&lt;/p&gt;
+$$\frac{\partial J(\theta)}{\partial \theta_j} = \frac{1}{m}\sum_{i=1}^m (h_\theta(x_i) - y_i) x_{ij}$$&lt;p&gt;用向量形式表示：
+&lt;/p&gt;
+$$\frac{\partial J(\theta)}{\partial \theta} = \frac{1}{m} X^T (h_\theta(X) - y)$$&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$X$ 是 $m \times n$ 的特征矩阵&lt;/li&gt;
+&lt;li&gt;$h_\theta(X) = [\sigma(\theta^T x_1), \sigma(\theta^T x_2), &amp;hellip;, \sigma(\theta^T x_m)]^T$&lt;/li&gt;
+&lt;li&gt;$y = [y_1, y_2, &amp;hellip;, y_m]^T$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;613-梯度下降更新规则&#34;&gt;6.1.3 梯度下降更新规则
+&lt;/h5&gt;&lt;p&gt;梯度下降的更新规则为：
+&lt;/p&gt;
+$$\theta^{(t+1)} = \theta^{(t)} - \alpha \frac{\partial J(\theta^{(t)})}{\partial \theta}$$&lt;p&gt;具体地：
+&lt;/p&gt;
+$$\theta^{(t+1)} = \theta^{(t)} - \frac{\alpha}{m} X^T (h_\theta(X) - y)$$&lt;p&gt;对于每个参数分量：
+&lt;/p&gt;
+$$\theta_j^{(t+1)} = \theta_j^{(t)} - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x_i) - y_i) x_{ij}$$&lt;h5 id=&#34;614-算法流程&#34;&gt;6.1.4 算法流程
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初始化&lt;/strong&gt;：随机初始化参数 $\theta^{(0)}$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;迭代更新&lt;/strong&gt;：对于 $t = 0, 1, 2, &amp;hellip;$
+&lt;ul&gt;
+&lt;li&gt;计算预测值：$h_\theta(x_i) = \sigma(\theta^T x_i)$&lt;/li&gt;
+&lt;li&gt;计算梯度：$\nabla J(\theta) = \frac{1}{m} X^T (h_\theta(X) - y)$&lt;/li&gt;
+&lt;li&gt;更新参数：$\theta^{(t+1)} = \theta^{(t)} - \alpha \nabla J(\theta^{(t)})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;收敛判断&lt;/strong&gt;：当 $||\nabla J(\theta)||$ 小于阈值或达到最大迭代次数时停止&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;615-学习率的选择&#34;&gt;6.1.5 学习率的选择
+&lt;/h5&gt;&lt;p&gt;学习率 $\alpha$ 的选择非常重要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;太大&lt;/strong&gt;：可能导致震荡，无法收敛&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;太小&lt;/strong&gt;：收敛速度很慢&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自适应学习率&lt;/strong&gt;：随着迭代次数增加而减小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;常用的学习率策略：
+&lt;/p&gt;
+$$\alpha^{(t)} = \frac{\alpha_0}{1 + \text{decay\_rate} \times t}$$&lt;h5 id=&#34;616-梯度下降的几何解释&#34;&gt;6.1.6 梯度下降的几何解释
+&lt;/h5&gt;&lt;p&gt;从几何角度看，梯度 $\nabla J(\theta)$ 指向损失函数增长最快的方向，因此：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;负梯度方向 $-\nabla J(\theta)$ 是函数值下降最快的方向&lt;/li&gt;
+&lt;li&gt;梯度下降沿着负梯度方向移动，逐步找到最优解&lt;/li&gt;
+&lt;li&gt;步长由学习率 $\alpha$ 控制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;62-牛顿法&#34;&gt;6.2 牛顿法
+&lt;/h4&gt;&lt;p&gt;利用二阶导数信息，收敛更快：
+&lt;/p&gt;
+$$\theta := \theta - H^{-1} \nabla J(\theta)$$&lt;p&gt;其中 $H$ 是Hessian矩阵。&lt;/p&gt;
+&lt;h3 id=&#34;7-逻辑回归的优缺点&#34;&gt;7. 逻辑回归的优缺点
+&lt;/h3&gt;&lt;h4 id=&#34;71-优点&#34;&gt;7.1 优点
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型简单&lt;/strong&gt;：线性模型，易于理解和实现&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算效率高&lt;/strong&gt;：训练和预测速度快&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;概率输出&lt;/strong&gt;：直接给出分类概率，便于决策&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无需特征缩放&lt;/strong&gt;：对特征尺度不敏感&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不需要调参&lt;/strong&gt;：相对稳定，超参数较少&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;72-缺点&#34;&gt;7.2 缺点
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;线性假设&lt;/strong&gt;：只能处理线性可分问题&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对离群点敏感&lt;/strong&gt;：极端值会影响模型性能&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特征工程要求高&lt;/strong&gt;：需要人工构造有效特征&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多重共线性问题&lt;/strong&gt;：特征间相关性影响模型稳定性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8-正则化逻辑回归&#34;&gt;8. 正则化逻辑回归
+&lt;/h3&gt;&lt;p&gt;为了防止过拟合，可以加入正则化项：&lt;/p&gt;
+&lt;h4 id=&#34;81-l1正则化lasso&#34;&gt;8.1 L1正则化（Lasso）
+&lt;/h4&gt;$$J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))] + \lambda \sum_{j=1}^n |\theta_j|$$&lt;h4 id=&#34;82-l2正则化ridge&#34;&gt;8.2 L2正则化（Ridge）
+&lt;/h4&gt;$$J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))] + \lambda \sum_{j=1}^n \theta_j^2$$&lt;h4 id=&#34;83-弹性网络elastic-net&#34;&gt;8.3 弹性网络（Elastic Net）
+&lt;/h4&gt;&lt;p&gt;结合L1和L2正则化：
+&lt;/p&gt;
+$$J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i \log h_\theta(x_i) + (1-y_i) \log(1-h_\theta(x_i))] + \lambda_1 \sum_{j=1}^n |\theta_j| + \lambda_2 \sum_{j=1}^n \theta_j^2$$&lt;h3 id=&#34;9-多分类逻辑回归&#34;&gt;9. 多分类逻辑回归
+&lt;/h3&gt;&lt;h4 id=&#34;91-一对一one-vs-one&#34;&gt;9.1 一对一（One-vs-One）
+&lt;/h4&gt;&lt;p&gt;对于K个类别，训练$\frac{K(K-1)}{2}$个二分类器。&lt;/p&gt;
+&lt;h4 id=&#34;92-一对其余one-vs-rest&#34;&gt;9.2 一对其余（One-vs-Rest）
+&lt;/h4&gt;&lt;p&gt;对于K个类别，训练K个二分类器，每个分类器区分一个类别与其他所有类别。&lt;/p&gt;
+&lt;h4 id=&#34;93-softmax回归多项逻辑回归&#34;&gt;9.3 Softmax回归（多项逻辑回归）
+&lt;/h4&gt;&lt;p&gt;直接扩展到多分类：
+&lt;/p&gt;
+$$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&#34;10-模型评估指标&#34;&gt;10. 模型评估指标
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;准确率（Accuracy）&lt;/strong&gt;：正确预测的比例&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精确率（Precision）&lt;/strong&gt;：预测为正例中实际为正例的比例&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;召回率（Recall）&lt;/strong&gt;：实际正例中被正确预测的比例&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;F1-Score&lt;/strong&gt;：精确率和召回率的调和平均&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AUC-ROC&lt;/strong&gt;：ROC曲线下的面积&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对数损失（Log Loss）&lt;/strong&gt;：衡量概率预测的质量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;11-实际应用场景&#34;&gt;11. 实际应用场景
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;医疗诊断&lt;/strong&gt;：根据症状预测疾病概率&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;金融风控&lt;/strong&gt;：信用评分，违约概率预测&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场营销&lt;/strong&gt;：客户响应率预测&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;推荐系统&lt;/strong&gt;：用户点击率预测&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本分类&lt;/strong&gt;：垃圾邮件检测&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图像识别&lt;/strong&gt;：简单的二分类任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-与其他算法的比较&#34;&gt;12. 与其他算法的比较
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;特征&lt;/th&gt;
+          &lt;th&gt;逻辑回归&lt;/th&gt;
+          &lt;th&gt;线性回归&lt;/th&gt;
+          &lt;th&gt;SVM&lt;/th&gt;
+          &lt;th&gt;决策树&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;输出类型&lt;/td&gt;
+          &lt;td&gt;概率&lt;/td&gt;
+          &lt;td&gt;连续值&lt;/td&gt;
+          &lt;td&gt;分类/回归&lt;/td&gt;
+          &lt;td&gt;分类/回归&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模型复杂度&lt;/td&gt;
+          &lt;td&gt;低&lt;/td&gt;
+          &lt;td&gt;低&lt;/td&gt;
+          &lt;td&gt;中等&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;可解释性&lt;/td&gt;
+          &lt;td&gt;强&lt;/td&gt;
+          &lt;td&gt;强&lt;/td&gt;
+          &lt;td&gt;中等&lt;/td&gt;
+          &lt;td&gt;强&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;处理非线性&lt;/td&gt;
+          &lt;td&gt;弱&lt;/td&gt;
+          &lt;td&gt;弱&lt;/td&gt;
+          &lt;td&gt;强（核函数）&lt;/td&gt;
+          &lt;td&gt;强&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;训练速度&lt;/td&gt;
+          &lt;td&gt;快&lt;/td&gt;
+          &lt;td&gt;快&lt;/td&gt;
+          &lt;td&gt;中等&lt;/td&gt;
+          &lt;td&gt;快&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;13-总结&#34;&gt;13. 总结
+&lt;/h3&gt;&lt;p&gt;逻辑回归是机器学习中的基础且重要的算法，具有以下关键特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数学基础扎实&lt;/strong&gt;：基于最大似然估计，理论完备&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现简单&lt;/strong&gt;：模型结构清晰，易于编程实现&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用广泛&lt;/strong&gt;：在工业界有大量实际应用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可解释性强&lt;/strong&gt;：参数具有明确的物理意义&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算效率高&lt;/strong&gt;：训练和预测速度快&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;虽然逻辑回归在处理复杂非线性问题时有局限性，但它仍然是分类问题的首选baseline算法，也是理解更复杂机器学习算法的重要基础。&lt;/p&gt;
 </description>
         </item>
         <item>
