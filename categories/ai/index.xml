@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Fri, 13 Jun 2025 16:39:34 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 16 Jun 2025 12:55:49 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/ai/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>统计学习方法</title>
         <link>https://blogbook.eu.org/p/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</link>
         <pubDate>Fri, 16 May 2025 15:41:51 +0800</pubDate>
@@ -314,7 +314,8 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;&lt;strong&gt;计算效率高&lt;/strong&gt;：训练和预测速度快&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;虽然逻辑回归在处理复杂非线性问题时有局限性，但它仍然是分类问题的首选baseline算法，也是理解更复杂机器学习算法的重要基础。&lt;/p&gt;
-</description>
+&lt;h2 id=&#34;提升树&#34;&gt;提升树
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>图像到图像的翻译的具有自适应实例归一化的无监督生成注意网络</title>

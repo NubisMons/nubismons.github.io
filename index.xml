@@ -313,7 +313,8 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;&lt;strong&gt;计算效率高&lt;/strong&gt;：训练和预测速度快&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;虽然逻辑回归在处理复杂非线性问题时有局限性，但它仍然是分类问题的首选baseline算法，也是理解更复杂机器学习算法的重要基础。&lt;/p&gt;
-</description>
+&lt;h2 id=&#34;提升树&#34;&gt;提升树
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>胡雪岩小说</title>
