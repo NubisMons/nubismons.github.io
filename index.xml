@@ -374,6 +374,7 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;/ol&gt;
 &lt;h3 id=&#34;6-总结&#34;&gt;6. 总结
 &lt;/h3&gt;&lt;p&gt;提升树是当前机器学习领域最强大的集成方法之一，尤其适合结构化数据。理解其原理和调参技巧，对提升建模能力非常有帮助。&lt;/p&gt;
+&lt;p&gt;111&lt;/p&gt;
 </description>
         </item>
         <item>
