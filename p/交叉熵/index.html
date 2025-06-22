@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
-<title>Cross Entropy</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="我这次就是把我对于交叉熵的一个基本的理解写下来,免得我忘记了.\n熵的一个定义 说起熵的一个定义,我其实先是想说什么是期望?期望是什么?它跟平均值有什么关系?\n平均值与期望 平均值是一个统计学概念,它是指一组数据的总和除以数据的个数。它反映了数据的集中趋势。举一个例子,比如说丢骰子,如果我们丢了100次骰子,每次的结果都是1,那么平均值就是1。如果我们丢了100次骰子,每次的结果都是6,那么平均值就是6。这个就是平均值的一个概念。但是这个跟我们期望有什么关系呢?我们可以仔细去想一下,如果这个骰子是一个公平的骰子,那么每个点数出现的概率都是1/6。那么我们可以计算一下期望值,也就是每个点数乘以它的概率,然后加起来。这样我们就可以得到期望值是3.5。这个就是期望值的一个概念。平均值的话,我们如果把骰子无限次去丢的话,我们会发现这个平均值会趋近于3.5,也就是期望值。也就是说平均值其实就是期望值的一个近似值。或者说平均值是期望值在有限次实验中的一个估计。它是真实存在的,但是它是一个近似值。而期望值是一个理论上的概念,它是基于概率分布的一个计算结果。\n">
+<title>交叉熵</title>
 
-<link rel='canonical' href='https://blogbook.eu.org/p/cross-entropy/'>
+<link rel='canonical' href='https://blogbook.eu.org/p/%E4%BA%A4%E5%8F%89%E7%86%B5/'>
 
-<link rel="stylesheet" href="/scss/style.min.9dd6f25885002759c6b8702ee8bd063a2f1d77080acd4e4ba3ae8c31e6ce062a.css"><meta property='og:title' content="Cross Entropy">
-<meta property='og:description' content="">
-<meta property='og:url' content='https://blogbook.eu.org/p/cross-entropy/'>
+<link rel="stylesheet" href="/scss/style.min.9dd6f25885002759c6b8702ee8bd063a2f1d77080acd4e4ba3ae8c31e6ce062a.css"><meta property='og:title' content="交叉熵">
+<meta property='og:description' content="我这次就是把我对于交叉熵的一个基本的理解写下来,免得我忘记了.\n熵的一个定义 说起熵的一个定义,我其实先是想说什么是期望?期望是什么?它跟平均值有什么关系?\n平均值与期望 平均值是一个统计学概念,它是指一组数据的总和除以数据的个数。它反映了数据的集中趋势。举一个例子,比如说丢骰子,如果我们丢了100次骰子,每次的结果都是1,那么平均值就是1。如果我们丢了100次骰子,每次的结果都是6,那么平均值就是6。这个就是平均值的一个概念。但是这个跟我们期望有什么关系呢?我们可以仔细去想一下,如果这个骰子是一个公平的骰子,那么每个点数出现的概率都是1/6。那么我们可以计算一下期望值,也就是每个点数乘以它的概率,然后加起来。这样我们就可以得到期望值是3.5。这个就是期望值的一个概念。平均值的话,我们如果把骰子无限次去丢的话,我们会发现这个平均值会趋近于3.5,也就是期望值。也就是说平均值其实就是期望值的一个近似值。或者说平均值是期望值在有限次实验中的一个估计。它是真实存在的,但是它是一个近似值。而期望值是一个理论上的概念,它是基于概率分布的一个计算结果。\n">
+<meta property='og:url' content='https://blogbook.eu.org/p/%E4%BA%A4%E5%8F%89%E7%86%B5/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-22T23:38:11&#43;08:00'/><meta property='article:modified_time' content='2025-06-23T00:06:32&#43;08:00'/>
-<meta name="twitter:title" content="Cross Entropy">
-<meta name="twitter:description" content="">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-22T23:38:11&#43;08:00'/><meta property='article:modified_time' content='2025-06-23T00:07:43&#43;08:00'/>
+<meta name="twitter:title" content="交叉熵">
+<meta name="twitter:description" content="我这次就是把我对于交叉熵的一个基本的理解写下来,免得我忘记了.\n熵的一个定义 说起熵的一个定义,我其实先是想说什么是期望?期望是什么?它跟平均值有什么关系?\n平均值与期望 平均值是一个统计学概念,它是指一组数据的总和除以数据的个数。它反映了数据的集中趋势。举一个例子,比如说丢骰子,如果我们丢了100次骰子,每次的结果都是1,那么平均值就是1。如果我们丢了100次骰子,每次的结果都是6,那么平均值就是6。这个就是平均值的一个概念。但是这个跟我们期望有什么关系呢?我们可以仔细去想一下,如果这个骰子是一个公平的骰子,那么每个点数出现的概率都是1/6。那么我们可以计算一下期望值,也就是每个点数乘以它的概率,然后加起来。这样我们就可以得到期望值是3.5。这个就是期望值的一个概念。平均值的话,我们如果把骰子无限次去丢的话,我们会发现这个平均值会趋近于3.5,也就是期望值。也就是说平均值其实就是期望值的一个近似值。或者说平均值是期望值在有限次实验中的一个估计。它是真实存在的,但是它是一个近似值。而期望值是一个理论上的概念,它是基于概率分布的一个计算结果。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script>
@@ -296,7 +296,45 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#熵的一个定义">熵的一个定义</a>
+      <ol>
+        <li><a href="#平均值与期望">平均值与期望</a></li>
+        <li><a href="#熵的定义">熵的定义</a></li>
+        <li><a href="#熵的性质">熵的性质</a></li>
+      </ol>
+    </li>
+    <li><a href="#交叉熵">交叉熵</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -304,10 +342,18 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" >
+                机器学习
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/cross-entropy/">Cross Entropy</a>
+            <a href="/p/%E4%BA%A4%E5%8F%89%E7%86%B5/">交叉熵</a>
         </h2>
     
         
@@ -344,7 +390,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 0 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -359,7 +405,174 @@
     <section class="article-content">
     
     
-    
+    <p>我这次就是把我对于交叉熵的一个基本的理解写下来,免得我忘记了.</p>
+<h2 id="熵的一个定义">熵的一个定义
+</h2><p>说起熵的一个定义,我其实先是想说什么是期望?期望是什么?它跟平均值有什么关系?</p>
+<h3 id="平均值与期望">平均值与期望
+</h3><p>平均值是一个统计学概念,它是指一组数据的总和除以数据的个数。它反映了数据的集中趋势。举一个例子,比如说丢骰子,如果我们丢了100次骰子,每次的结果都是1,那么平均值就是1。如果我们丢了100次骰子,每次的结果都是6,那么平均值就是6。这个就是平均值的一个概念。但是这个跟我们期望有什么关系呢?我们可以仔细去想一下,如果这个骰子是一个公平的骰子,那么每个点数出现的概率都是1/6。那么我们可以计算一下期望值,也就是每个点数乘以它的概率,然后加起来。这样我们就可以得到期望值是3.5。这个就是期望值的一个概念。平均值的话,我们如果把骰子无限次去丢的话,我们会发现这个平均值会趋近于3.5,也就是期望值。也就是说平均值其实就是期望值的一个近似值。或者说平均值是期望值在有限次实验中的一个估计。它是真实存在的,但是它是一个近似值。而期望值是一个理论上的概念,它是基于概率分布的一个计算结果。</p>
+<h3 id="熵的定义">熵的定义
+</h3><p>再回到我们的熵,什么是熵,那就想说一下什么是信息量,信息量是指一个事件发生的概率越小,它所包含的信息量就越大.信息量的一个定义是:
+</p>
+$$I(x) = -\log_2 P(x)$$<p>
+什么是熵,熵其实就是信息量的一个期望,如果整体来看的话,熵就是所有可能事件的信息量的期望值,也就是:
+</p>
+$$H(X) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i)$$<p>
+其中$P(x_i)$是事件$x_i$发生的概率,而$H(X)$就是随机变量$X$的熵。
+其实也就是一个系统的平均信息量,它反映了系统的不确定性。熵越大,系统的不确定性就越大,也就是信息量越大。</p>
+<h3 id="熵的性质">熵的性质
+</h3><p>熵有几个重要的性质:</p>
+<ol>
+<li><strong>非负性</strong>：熵总是大于等于0，即$H(X) \geq 0$。当且仅当所有事件的概率都相等时，熵达到最大值。</li>
+<li><strong>对称性</strong>：熵对所有事件的排列组合是对称的，即$H(X) = H(Y)$，如果$X$和$Y$是同一分布的随机变量。</li>
+<li><strong>加法性</strong>：如果$X$和$Y$是独立的随机变量，则它们的联合熵为各自熵的和，即$H(X, Y) = H(X) + H(Y)$。</li>
+<li><strong>条件熵</strong>：条件熵$H(X|Y)$表示在已知$Y$的情况下，$X$的不确定性。它满足$H(X|Y) \leq H(X)$，即条件熵总是小于等于原熵。</li>
+</ol>
+<h2 id="交叉熵">交叉熵
+</h2><p>交叉熵这个我想了很久,到底怎么样才能去彻底去理解呢?我发现了一个方法就是通过编码的方式去理解可能会更好一些。
+比如说如图:
+<img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250622235506.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="20250622235506"
+	
+	
+></p>
+<p>就是那个图来说,## 编码示例数据</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>事件</th>
+          <th>A1</th>
+          <th>A2</th>
+          <th>A3</th>
+          <th>A4</th>
+          <th>A5</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>概率P</td>
+          <td>1/2</td>
+          <td>1/4</td>
+          <td>1/8</td>
+          <td>1/16</td>
+          <td>1/16</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>或者用矩阵形式表示：</p>
+$$
+\begin{bmatrix}
+A \\
+P
+\end{bmatrix} = 
+\begin{bmatrix}
+A1 & A2 & A3 & A4 & A5 \\
+1/2 & 1/4 & 1/8 & 1/16 & 1/16
+\end{bmatrix}
+$$<p>
+我们可以看到,如果我们用二进制编码的话,我们可以得到一个最优的编码方式,也就是:</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>事件</th>
+          <th>编码</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>A1</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>A2</td>
+          <td>10</td>
+      </tr>
+      <tr>
+          <td>A3</td>
+          <td>110</td>
+      </tr>
+      <tr>
+          <td>A4</td>
+          <td>1110</td>
+      </tr>
+      <tr>
+          <td>A5</td>
+          <td>1111</td>
+      </tr>
+      <tr>
+          <td>这个编码方式是最优的,因为它的平均长度是最小的。我们可以计算一下平均长度:</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>L = P(A1) \cdot L(A1) + P(A2) \cdot L(A2) + P(A3) \cdot L(A3) + P(A4) \cdot L(A4) + P(A5) \cdot L(A5)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>代入上面的概率和编码长度，我们可以得到：</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>L = \frac{1}{2} \cdot 1 + \frac{1}{4} \cdot 2 + \frac{1}{8} \cdot 3 + \frac{1}{16} \cdot 4 + \frac{1}{16} \cdot 4</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>计算结果为：</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>L = \frac{1}{2} + \frac{1}{2} + \frac{3}{8} + \frac{1}{4} + \frac{1}{4} = 1 + \frac{3}{8} + \frac{2}{8} = 1 + \frac{5}{8} = \frac{13}{8} = 1.625</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>这个其实就是我们知道这个真实分布所计算出来的平均长度,也就是我们知道真实分布的情况下,我们可以得到一个最优的编码方式,这个编码方式的平均长度就是1.625. 但是这个真实分布我们是不知道的,所以其实就是我们创造一个编码方式,然后去计算这个编码方式的平均长度,这个平均长度其实就是我们所说的交叉熵,也就是:
+</p>
+$$H(P, Q) = -\sum_{i=1}^{n} P(x_i) \log_2 Q(x_i)$$<p>
+其中$P(x_i)$是真实分布的概率分布，而$Q(x_i)$是我们所创造的编码方式的概率分布。
+然后它跟真实熵的差值,也就是我们所说的交叉熵损失,也就是:
+</p>
+$$L(P, Q) = H(P, Q) - H(P)$$<p>
+其中$H(P)$是真实分布的熵。也就是kl散度,也就是:
+</p>
+$$D_{KL}(P || Q) = H(P, Q) - H(P)$$<p>
+这个其实就是我们所说的交叉熵,也就是我们所创造的编码方式的平均长度减去真实分布的熵,也就是我们所说的交叉熵损失。让我们去想一下,如果是一个完美的编码方式,也就是我们所创造的编码方式和真实分布是完全一致的,那么这个交叉熵损失就是0,也就是我们所创造的编码方式的平均长度等于真实分布的熵,也就是我们所说的最优编码方式。但是很遗憾我们并不知道真实分布,所以我们只能通过训练去得到一个最优的编码方式,也就是通过最小化交叉熵损失来得到一个最优的编码方式。</p>
+<p>如果是one-hot编码的话,也就是P的取值为1,其他为0的情况,那么交叉熵损失就是:
+</p>
+$$L(P, Q) = -\log_2 Q(x_i)$$<p>
+也就是我们所创造的编码方式的概率分布的对数,也就是我们所说的交叉熵损失.其实就是我们创造这个编码的信息量,如果不是one-hot编码的话,那么交叉熵损失就是我们创造的编码的信息量的期望,也就是:
+</p>
+$$L(P, Q) = -\sum_{i=1}^{n} P(x_i) \log_2 Q(x_i)$$<p>
+也就是我们创造的编码的信息量的期望,也就是我们所说的交叉熵损失。</p>
+<p>这个也就是交叉熵从这个编码的方式来进行的一个推导,这个也是我个人理解交叉熵的一个比较直观的方式。通过这个方式我们可以更好地理解交叉熵的含义和它在机器学习中的应用。</p>
+
 </section>
 
 
@@ -376,7 +589,7 @@
 
 
         <span>
-            最后更新于 2025-06-23 00:06
+            最后更新于 2025-06-23 00:07
         </span>
     </section></footer>
 
@@ -387,6 +600,41 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据预处理与特征工程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数理统计与概率论</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

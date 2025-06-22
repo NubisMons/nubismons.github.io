@@ -7,7 +7,182 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Thu, 19 Jun 2025 14:46:48 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Jun 2025 00:07:43 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>交叉熵</title>
+        <link>https://blogbook.eu.org/p/%E4%BA%A4%E5%8F%89%E7%86%B5/</link>
+        <pubDate>Sun, 22 Jun 2025 23:38:11 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E4%BA%A4%E5%8F%89%E7%86%B5/</guid>
+        <description>&lt;p&gt;我这次就是把我对于交叉熵的一个基本的理解写下来,免得我忘记了.&lt;/p&gt;
+&lt;h2 id=&#34;熵的一个定义&#34;&gt;熵的一个定义
+&lt;/h2&gt;&lt;p&gt;说起熵的一个定义,我其实先是想说什么是期望?期望是什么?它跟平均值有什么关系?&lt;/p&gt;
+&lt;h3 id=&#34;平均值与期望&#34;&gt;平均值与期望
+&lt;/h3&gt;&lt;p&gt;平均值是一个统计学概念,它是指一组数据的总和除以数据的个数。它反映了数据的集中趋势。举一个例子,比如说丢骰子,如果我们丢了100次骰子,每次的结果都是1,那么平均值就是1。如果我们丢了100次骰子,每次的结果都是6,那么平均值就是6。这个就是平均值的一个概念。但是这个跟我们期望有什么关系呢?我们可以仔细去想一下,如果这个骰子是一个公平的骰子,那么每个点数出现的概率都是1/6。那么我们可以计算一下期望值,也就是每个点数乘以它的概率,然后加起来。这样我们就可以得到期望值是3.5。这个就是期望值的一个概念。平均值的话,我们如果把骰子无限次去丢的话,我们会发现这个平均值会趋近于3.5,也就是期望值。也就是说平均值其实就是期望值的一个近似值。或者说平均值是期望值在有限次实验中的一个估计。它是真实存在的,但是它是一个近似值。而期望值是一个理论上的概念,它是基于概率分布的一个计算结果。&lt;/p&gt;
+&lt;h3 id=&#34;熵的定义&#34;&gt;熵的定义
+&lt;/h3&gt;&lt;p&gt;再回到我们的熵,什么是熵,那就想说一下什么是信息量,信息量是指一个事件发生的概率越小,它所包含的信息量就越大.信息量的一个定义是:
+&lt;/p&gt;
+$$I(x) = -\log_2 P(x)$$&lt;p&gt;
+什么是熵,熵其实就是信息量的一个期望,如果整体来看的话,熵就是所有可能事件的信息量的期望值,也就是:
+&lt;/p&gt;
+$$H(X) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i)$$&lt;p&gt;
+其中$P(x_i)$是事件$x_i$发生的概率,而$H(X)$就是随机变量$X$的熵。
+其实也就是一个系统的平均信息量,它反映了系统的不确定性。熵越大,系统的不确定性就越大,也就是信息量越大。&lt;/p&gt;
+&lt;h3 id=&#34;熵的性质&#34;&gt;熵的性质
+&lt;/h3&gt;&lt;p&gt;熵有几个重要的性质:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;非负性&lt;/strong&gt;：熵总是大于等于0，即$H(X) \geq 0$。当且仅当所有事件的概率都相等时，熵达到最大值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对称性&lt;/strong&gt;：熵对所有事件的排列组合是对称的，即$H(X) = H(Y)$，如果$X$和$Y$是同一分布的随机变量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加法性&lt;/strong&gt;：如果$X$和$Y$是独立的随机变量，则它们的联合熵为各自熵的和，即$H(X, Y) = H(X) + H(Y)$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;条件熵&lt;/strong&gt;：条件熵$H(X|Y)$表示在已知$Y$的情况下，$X$的不确定性。它满足$H(X|Y) \leq H(X)$，即条件熵总是小于等于原熵。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;交叉熵&#34;&gt;交叉熵
+&lt;/h2&gt;&lt;p&gt;交叉熵这个我想了很久,到底怎么样才能去彻底去理解呢?我发现了一个方法就是通过编码的方式去理解可能会更好一些。
+比如说如图:
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250622235506.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250622235506&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;就是那个图来说,## 编码示例数据&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;事件&lt;/th&gt;
+          &lt;th&gt;A1&lt;/th&gt;
+          &lt;th&gt;A2&lt;/th&gt;
+          &lt;th&gt;A3&lt;/th&gt;
+          &lt;th&gt;A4&lt;/th&gt;
+          &lt;th&gt;A5&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;概率P&lt;/td&gt;
+          &lt;td&gt;1/2&lt;/td&gt;
+          &lt;td&gt;1/4&lt;/td&gt;
+          &lt;td&gt;1/8&lt;/td&gt;
+          &lt;td&gt;1/16&lt;/td&gt;
+          &lt;td&gt;1/16&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;或者用矩阵形式表示：&lt;/p&gt;
+$$
+\begin{bmatrix}
+A \\
+P
+\end{bmatrix} = 
+\begin{bmatrix}
+A1 &amp; A2 &amp; A3 &amp; A4 &amp; A5 \\
+1/2 &amp; 1/4 &amp; 1/8 &amp; 1/16 &amp; 1/16
+\end{bmatrix}
+$$&lt;p&gt;
+我们可以看到,如果我们用二进制编码的话,我们可以得到一个最优的编码方式,也就是:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;事件&lt;/th&gt;
+          &lt;th&gt;编码&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A1&lt;/td&gt;
+          &lt;td&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A2&lt;/td&gt;
+          &lt;td&gt;10&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A3&lt;/td&gt;
+          &lt;td&gt;110&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A4&lt;/td&gt;
+          &lt;td&gt;1110&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A5&lt;/td&gt;
+          &lt;td&gt;1111&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;这个编码方式是最优的,因为它的平均长度是最小的。我们可以计算一下平均长度:&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;L = P(A1) \cdot L(A1) + P(A2) \cdot L(A2) + P(A3) \cdot L(A3) + P(A4) \cdot L(A4) + P(A5) \cdot L(A5)&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;代入上面的概率和编码长度，我们可以得到：&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;L = \frac{1}{2} \cdot 1 + \frac{1}{4} \cdot 2 + \frac{1}{8} \cdot 3 + \frac{1}{16} \cdot 4 + \frac{1}{16} \cdot 4&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;计算结果为：&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;L = \frac{1}{2} + \frac{1}{2} + \frac{3}{8} + \frac{1}{4} + \frac{1}{4} = 1 + \frac{3}{8} + \frac{2}{8} = 1 + \frac{5}{8} = \frac{13}{8} = 1.625&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;这个其实就是我们知道这个真实分布所计算出来的平均长度,也就是我们知道真实分布的情况下,我们可以得到一个最优的编码方式,这个编码方式的平均长度就是1.625. 但是这个真实分布我们是不知道的,所以其实就是我们创造一个编码方式,然后去计算这个编码方式的平均长度,这个平均长度其实就是我们所说的交叉熵,也就是:
+&lt;/p&gt;
+$$H(P, Q) = -\sum_{i=1}^{n} P(x_i) \log_2 Q(x_i)$$&lt;p&gt;
+其中$P(x_i)$是真实分布的概率分布，而$Q(x_i)$是我们所创造的编码方式的概率分布。
+然后它跟真实熵的差值,也就是我们所说的交叉熵损失,也就是:
+&lt;/p&gt;
+$$L(P, Q) = H(P, Q) - H(P)$$&lt;p&gt;
+其中$H(P)$是真实分布的熵。也就是kl散度,也就是:
+&lt;/p&gt;
+$$D_{KL}(P || Q) = H(P, Q) - H(P)$$&lt;p&gt;
+这个其实就是我们所说的交叉熵,也就是我们所创造的编码方式的平均长度减去真实分布的熵,也就是我们所说的交叉熵损失。让我们去想一下,如果是一个完美的编码方式,也就是我们所创造的编码方式和真实分布是完全一致的,那么这个交叉熵损失就是0,也就是我们所创造的编码方式的平均长度等于真实分布的熵,也就是我们所说的最优编码方式。但是很遗憾我们并不知道真实分布,所以我们只能通过训练去得到一个最优的编码方式,也就是通过最小化交叉熵损失来得到一个最优的编码方式。&lt;/p&gt;
+&lt;p&gt;如果是one-hot编码的话,也就是P的取值为1,其他为0的情况,那么交叉熵损失就是:
+&lt;/p&gt;
+$$L(P, Q) = -\log_2 Q(x_i)$$&lt;p&gt;
+也就是我们所创造的编码方式的概率分布的对数,也就是我们所说的交叉熵损失.其实就是我们创造这个编码的信息量,如果不是one-hot编码的话,那么交叉熵损失就是我们创造的编码的信息量的期望,也就是:
+&lt;/p&gt;
+$$L(P, Q) = -\sum_{i=1}^{n} P(x_i) \log_2 Q(x_i)$$&lt;p&gt;
+也就是我们创造的编码的信息量的期望,也就是我们所说的交叉熵损失。&lt;/p&gt;
+&lt;p&gt;这个也就是交叉熵从这个编码的方式来进行的一个推导,这个也是我个人理解交叉熵的一个比较直观的方式。通过这个方式我们可以更好地理解交叉熵的含义和它在机器学习中的应用。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>数据预处理与特征工程</title>
         <link>https://blogbook.eu.org/p/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/</link>
         <pubDate>Thu, 19 Jun 2025 11:43:15 +0800</pubDate>

@@ -2,27 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blogbook.eu.org/p/cross-entropy/</loc>
-    <lastmod>2025-06-23T00:06:32+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-06-23T00:06:32+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blogbook.eu.org/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blogbook.eu.org/post/"
-                />
-  </url><url>
-    <loc>https://blogbook.eu.org/categories/ai/</loc>
-    <lastmod>2025-06-19T14:46:48+08:00</lastmod>
-  </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-06-19T14:46:48+08:00</lastmod>
+    <lastmod>2025-06-23T00:07:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,8 +15,21 @@
                 href="https://blogbook.eu.org/categories/"
                 />
   </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-06-23T00:07:43+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/post/"
+                />
+  </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2025-06-19T14:46:48+08:00</lastmod>
+    <lastmod>2025-06-23T00:07:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -46,6 +40,12 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E4%BA%A4%E5%8F%89%E7%86%B5/</loc>
+    <lastmod>2025-06-23T00:07:43+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/ai/</loc>
+    <lastmod>2025-06-19T14:46:48+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2025-06-19T14:46:48+08:00</lastmod>
