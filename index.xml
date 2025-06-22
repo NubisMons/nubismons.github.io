@@ -110,57 +110,23 @@ $$&lt;p&gt;
           &lt;td&gt;A5&lt;/td&gt;
           &lt;td&gt;1111&lt;/td&gt;
       &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;这个编码方式是最优的,因为它的平均长度是最小的。我们可以计算一下平均长度:&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;L = P(A1) \cdot L(A1) + P(A2) \cdot L(A2) + P(A3) \cdot L(A3) + P(A4) \cdot L(A4) + P(A5) \cdot L(A5)&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;代入上面的概率和编码长度，我们可以得到：&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;L = \frac{1}{2} \cdot 1 + \frac{1}{4} \cdot 2 + \frac{1}{8} \cdot 3 + \frac{1}{16} \cdot 4 + \frac{1}{16} \cdot 4&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;计算结果为：&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;L = \frac{1}{2} + \frac{1}{2} + \frac{3}{8} + \frac{1}{4} + \frac{1}{4} = 1 + \frac{3}{8} + \frac{2}{8} = 1 + \frac{5}{8} = \frac{13}{8} = 1.625&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$$&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;这个其实就是我们知道这个真实分布所计算出来的平均长度,也就是我们知道真实分布的情况下,我们可以得到一个最优的编码方式,这个编码方式的平均长度就是1.625. 但是这个真实分布我们是不知道的,所以其实就是我们创造一个编码方式,然后去计算这个编码方式的平均长度,这个平均长度其实就是我们所说的交叉熵,也就是:
+&lt;p&gt;这个编码方式是最优的,因为它的平均长度是最小的。我们可以计算一下平均长度:
+&lt;/p&gt;
+$$
+L = P(A1) \cdot L(A1) + P(A2) \cdot L(A2) + P(A3) \cdot L(A3) + P(A4) \cdot L(A4) + P(A5) \cdot L(A5)
+$$&lt;p&gt;
+代入上面的概率和编码长度，我们可以得到：
+&lt;/p&gt;
+$$
+L = \frac{1}{2} \cdot 1 + \frac{1}{4} \cdot 2 + \frac{1}{8} \cdot 3 + \frac{1}{16} \cdot 4 + \frac{1}{16} \cdot 4
+$$&lt;p&gt;
+计算结果为：
+&lt;/p&gt;
+$$
+L = \frac{1}{2} + \frac{1}{2} + \frac{3}{8} + \frac{1}{4} + \frac{1}{4} = 1 + \frac{3}{8} + \frac{2}{8} = 1 + \frac{5}{8} = \frac{13}{8} = 1.625
+$$&lt;p&gt;这个其实就是我们知道这个真实分布所计算出来的平均长度,也就是我们知道真实分布的情况下,我们可以得到一个最优的编码方式,这个编码方式的平均长度就是1.625. 但是这个真实分布我们是不知道的,所以其实就是我们创造一个编码方式,然后去计算这个编码方式的平均长度,这个平均长度其实就是我们所说的交叉熵,也就是:
 &lt;/p&gt;
 $$H(P, Q) = -\sum_{i=1}^{n} P(x_i) \log_2 Q(x_i)$$&lt;p&gt;
 其中$P(x_i)$是真实分布的概率分布，而$Q(x_i)$是我们所创造的编码方式的概率分布。
