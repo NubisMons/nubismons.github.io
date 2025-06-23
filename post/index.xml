@@ -7,13 +7,138 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Mon, 23 Jun 2025 16:43:25 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Model Evaluation</title>
-        <link>https://blogbook.eu.org/p/model-evaluation/</link>
+        <lastBuildDate>Mon, 23 Jun 2025 16:43:47 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>模型评估</title>
+        <link>https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</link>
         <pubDate>Mon, 23 Jun 2025 16:18:21 +0800</pubDate>
         
-        <guid>https://blogbook.eu.org/p/model-evaluation/</guid>
-        <description></description>
+        <guid>https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</guid>
+        <description>&lt;h2 id=&#34;模型评估&#34;&gt;模型评估
+&lt;/h2&gt;&lt;p&gt;我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。&lt;/p&gt;
+&lt;h3 id=&#34;准确率accuracy&#34;&gt;准确率（Accuracy）
+&lt;/h3&gt;&lt;p&gt;准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下：
+&lt;/p&gt;
+$$
+\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}
+$$&lt;p&gt;
+其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TP（True Positive）：真正例，模型正确预测为正类的样本数&lt;/li&gt;
+&lt;li&gt;TN（True Negative）：真负例，模型正确预测为负类的样本数&lt;/li&gt;
+&lt;li&gt;FP（False Positive）：假正例，模型错误预测为正类的样本数&lt;/li&gt;
+&lt;li&gt;FN（False Negative）：假负例，模型错误预测为负类的样本数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也就是其实就是这个模型对于所有样本的预测正确率。但是如果它这个样本不平衡的话,也就是正样本和负样本的比例不平衡的话,这个准确率就不是一个很好的指标了。就是比如说在一个数据集中，95%的样本是负类，5%的样本是正类。也就是它只要把样本全部预测成负类也有95%的准确率，这样就会导致模型的评估不准确。&lt;/p&gt;
+&lt;h3 id=&#34;精确率precision&#34;&gt;精确率（Precision）
+&lt;/h3&gt;&lt;p&gt;精确率是指在所有被预测为正类的样本中，实际为正类的比例。公式如下：
+&lt;/p&gt;
+$$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}$$&lt;p&gt;
+精确率反映了模型在正类预测中的准确性。高精确率意味着模型在预测正类时较少出现误报。&lt;/p&gt;
+&lt;p&gt;通过这指标我们就可以看到我们的模型在预测正类时的准确性.&lt;/p&gt;
+&lt;h3 id=&#34;召回率recall&#34;&gt;召回率（Recall）
+&lt;/h3&gt;&lt;p&gt;召回率是指在所有实际为正类的样本中，模型正确预测为正类的比例。公式如下：
+&lt;/p&gt;
+$$\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}$$&lt;p&gt;
+召回率反映了模型对正类样本的捕捉能力。高召回率意味着模型能够识别出大部分正类样本。&lt;/p&gt;
+&lt;p&gt;通过这个指标我们就可以看到我们的模型对于正类样本的捕捉能力.&lt;/p&gt;
+&lt;h3 id=&#34;f1-score&#34;&gt;F1-score
+&lt;/h3&gt;&lt;p&gt;F1-score是精确率和召回率的调和平均数，用于综合评估模型的性能。公式如下：
+&lt;/p&gt;
+$$\text{F1-score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$&lt;p&gt;
+F1-score在精确率和召回率之间取得平衡，适用于需要同时考虑这两个指标的场景。它特别适用于正负样本不平衡的情况。
+F1-score的值越高，表示模型的综合性能越好。&lt;/p&gt;
+&lt;h3 id=&#34;召回率和精确率的平衡&#34;&gt;召回率和精确率的平衡
+&lt;/h3&gt;&lt;p&gt;召回率和精确率之间通常存在一定的权衡关系。提高召回率可能会导致精确率下降，反之亦然。因此，在实际应用中，需要根据具体任务的需求来选择合适的评估指标。例如，在医疗诊断中，可能更关注召回率，以确保尽可能多地识别出患病患者；而在垃圾邮件过滤中，可能更关注精确率，以减少误报。&lt;/p&gt;
+&lt;h3 id=&#34;roc曲线和auc&#34;&gt;ROC曲线和AUC
+&lt;/h3&gt;&lt;p&gt;ROC曲线（Receiver Operating Characteristic Curve）是一个用于评估二分类模型性能的图形工具。它通过绘制真正率（TPR）和假正率（FPR）来展示模型在不同阈值下的表现。AUC（Area Under the Curve）是ROC曲线下的面积，用于量化模型的整体性能。AUC的值介于0和1之间，值越大表示模型性能越好。如图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623162855.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250623162855&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;什么是ROC曲线和AUC？
+ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下的性能。横轴表示假正率（FPR），纵轴表示真正率（TPR）。AUC是ROC曲线下的面积，表示模型的整体性能。也就是这个AUC的值越大，表示模型性能越好。&lt;/p&gt;
+&lt;p&gt;看一下几种情况,当auc=1时,如图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163326.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250623163326&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;也就是存在一个阈值,使得模型的假正率为0，真正率为1，这种情况是理想的。&lt;/p&gt;
+&lt;p&gt;当auc=0.7时,如图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163512.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250623163512&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;也就是,这个阈值并不可以使得模型的假正率为0，真正率为1，这种情况是比较常见的。也就是有一些假正例和假负例没有被正确分类。&lt;/p&gt;
+&lt;p&gt;当auc=0.5时,如图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163626.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250623163626&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;也就是,这个阈值并不能使得模型的假正率为0，真正率为1，这种情况是最差的。也就是模型的预测结果和随机猜测没有区别。&lt;/p&gt;
+&lt;p&gt;还有一种就是auc=0时,如图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163732.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20250623163732&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这个也挺好的,也是完全区分正负判例,与只不过反了而已.&lt;/p&gt;
+&lt;h3 id=&#34;混淆矩阵&#34;&gt;混淆矩阵
+&lt;/h3&gt;&lt;p&gt;混淆矩阵是一个用于可视化分类模型性能的工具，它展示了模型在不同类别上的预测结果。混淆矩阵通常是一个二维表格，其中行表示实际类别，列表示预测类别。通过混淆矩阵，我们可以直观地看到模型在各个类别上的预测情况。
+混淆矩阵的形式如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;实际/预测&lt;/th&gt;
+          &lt;th&gt;正类&lt;/th&gt;
+          &lt;th&gt;负类&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;正类&lt;/td&gt;
+          &lt;td&gt;TP&lt;/td&gt;
+          &lt;td&gt;FN&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;负类&lt;/td&gt;
+          &lt;td&gt;FP&lt;/td&gt;
+          &lt;td&gt;TN&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;混淆矩阵可以帮助我们更好地理解模型的预测结果，识别出哪些类别容易被混淆，以及模型在不同类别上的表现。&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结
+&lt;/h3&gt;&lt;p&gt;在模型评估中，我们使用了多种指标来全面了解模型的性能，包括准确率、精确率、召回率、F1-score、ROC曲线和混淆矩阵等。这些指标各有侧重，适用于不同的场景和需求。在实际应用中，我们需要根据具体任务的特点，选择合适的评估指标，以便更好地优化和改进模型。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>交叉熵</title>
