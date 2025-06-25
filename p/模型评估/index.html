@@ -10,7 +10,7 @@
 <meta property='og:description' content="模型评估 我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。\n准确率（Accuracy） 准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下： ">
 <meta property='og:url' content='https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-23T16:18:21&#43;08:00'/><meta property='article:modified_time' content='2025-06-23T16:43:47&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-23T16:18:21&#43;08:00'/><meta property='article:modified_time' content='2025-06-25T22:08:52&#43;08:00'/>
 <meta name="twitter:title" content="模型评估">
 <meta name="twitter:description" content="模型评估 我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。\n准确率（Accuracy） 准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下： ">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -327,6 +327,7 @@
         <li><a href="#召回率和精确率的平衡">召回率和精确率的平衡</a></li>
         <li><a href="#roc曲线和auc">ROC曲线和AUC</a></li>
         <li><a href="#混淆矩阵">混淆矩阵</a></li>
+        <li><a href="#混淆矩阵的可视化">混淆矩阵的可视化</a></li>
         <li><a href="#总结">总结</a></li>
       </ol>
     </li>
@@ -532,7 +533,43 @@ ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下�
   </tbody>
 </table></div>
 <p>混淆矩阵可以帮助我们更好地理解模型的预测结果，识别出哪些类别容易被混淆，以及模型在不同类别上的表现。</p>
-<h3 id="总结">总结
+<h3 id="混淆矩阵的可视化">混淆矩阵的可视化
+</h3><p>我们可以使用Python中的<code>seaborn</code>库来可视化混淆矩阵。以下是一个示例代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
+</span></span><span class="line"><span class="cl"><span class="c1"># 假设y_true和y_pred是实际标签和预测标签</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">],</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="总结">总结
 </h3><p>在模型评估中，我们使用了多种指标来全面了解模型的性能，包括准确率、精确率、召回率、F1-score、ROC曲线和混淆矩阵等。这些指标各有侧重，适用于不同的场景和需求。在实际应用中，我们需要根据具体任务的特点，选择合适的评估指标，以便更好地优化和改进模型。</p>
 
 </section>
@@ -551,7 +588,7 @@ ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下�
 
 
         <span>
-            最后更新于 2025-06-23 16:43
+            最后更新于 2025-06-25 22:08
         </span>
     </section></footer>
 
