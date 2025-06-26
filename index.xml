@@ -7,6 +7,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>线性模型</title>
+        <link>https://blogbook.eu.org/p/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</link>
+        <pubDate>Fri, 27 Jun 2025 00:38:46 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</guid>
+        <description>&lt;h2 id=&#34;维度诅咒&#34;&gt;维度诅咒
+&lt;/h2&gt;&lt;p&gt;在深度学习中，维度诅咒（Curse of Dimensionality）是指随着特征维度的增加，数据变得越来越稀疏，从而导致模型训练和预测的困难。高维数据通常会导致以下问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数据稀疏性&lt;/strong&gt;：随着维度的增加，数据点之间的距离变得更大，导致数据变得稀疏。这使得模型难以找到有效的模式和关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过拟合&lt;/strong&gt;：高维数据容易导致模型过拟合，因为模型可能会学习到噪声而不是实际的模式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算复杂性&lt;/strong&gt;：高维数据需要更多的计算资源和时间来处理，这可能导致训练时间过长。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;可视化困难&lt;/strong&gt;：高维数据难以可视化和理解，使得模型的解释性降低。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;特征选择困难&lt;/strong&gt;：在高维空间中，选择最相关的特征变得更加困难，因为许多特征可能是冗余的或无关的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;还有一个就是特征越多需要的样本量就越多,也就是需要更多的数据来训练模型,否则就会导致模型的过拟合。但是我们有标注的数据集成本是非常昂贵的,所以我们需要一些方法来减少特征的维度。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>模型评估</title>
         <link>https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</link>
         <pubDate>Mon, 23 Jun 2025 16:18:21 +0800</pubDate>

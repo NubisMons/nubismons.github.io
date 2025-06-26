@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-06-25T22:08:52+08:00</lastmod>
+    <lastmod>2025-06-27T00:42:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-06-25T22:08:52+08:00</lastmod>
+    <lastmod>2025-06-27T00:42:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -27,6 +27,12 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/post/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-06-27T00:42:54+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-06-27T00:42:54+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2025-06-25T22:08:52+08:00</lastmod>
