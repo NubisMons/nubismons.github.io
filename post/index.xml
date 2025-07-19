@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Thu, 03 Jul 2025 15:00:56 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 20 Jul 2025 01:46:36 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>矩阵乘法</title>
         <link>https://blogbook.eu.org/p/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
         <pubDate>Sun, 29 Jun 2025 21:48:44 +0800</pubDate>
@@ -25,7 +25,7 @@ $$m \times p$$&lt;p&gt;的矩阵.
 也就是这个乘积的行数是A的行数,列数是B的列数.
 也就是说A的维度从$n$变成了$p$,也就是A的维度从变成了B的维度.这种矩阵相乘的方式,其实就是一个线性变换的过程.
 也就是A的每一行和B的每一列进行点积,然后得到一个新的矩阵.这个新的矩阵就是A到B的一个线性映射.&lt;/p&gt;
-&lt;p&gt;#########&lt;/p&gt;
+&lt;p&gt;############&lt;/p&gt;
 </description>
         </item>
         <item>
