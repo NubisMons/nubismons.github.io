@@ -36,64 +36,36 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;均值方差误差(Mean Squared Error, MSE):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;其中几个变量的含义如下:&lt;/p&gt;
+$$
+   MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+   $$&lt;p&gt;其中几个变量的含义如下:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;\( n \): 样本数量&lt;/li&gt;
 &lt;li&gt;\( y_i \): 第 \( i \) 个样本的真实值&lt;/li&gt;
 &lt;li&gt;\( \hat{y}_i \): 第 \( i \) 个样本的预测值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;可微性(公式如下):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\frac{\partial MSE}{\partial \hat{y}_i} = -\frac{2}{n} (y_i - \hat{y}_i)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
+$$
+   \frac{\partial MSE}{\partial \hat{y}_i} = -\frac{2}{n} (y_i - \hat{y}_i)
+   $$&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;平均绝对误差(Mean Absolute Error, MAE):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;其中关键的参数含义如下:&lt;/p&gt;
+$$
+   MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+   $$&lt;p&gt;其中关键的参数含义如下:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;\( n \): 样本数量&lt;/li&gt;
 &lt;li&gt;\( y_i \): 第 \( i \) 个样本的真实值&lt;/li&gt;
 &lt;li&gt;\(\hat{y}_i\): 第 \( i \)个样本的预测值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;也称为L1损失函数,其可微性如下:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\frac{\partial MAE}{\partial \hat{y}_i} = \begin{cases}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-\frac{1}{n}, &amp;amp; \text{if } \hat{y}_i &amp;lt; y_i \\
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\frac{1}{n}, &amp;amp; \text{if } \hat{y}_i &amp;gt; y_i \\
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0, &amp;amp;  \text{if } \hat{y}_i = y_i
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\end{cases}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
+$$
+   \frac{\partial MAE}{\partial \hat{y}_i} = \begin{cases}
+   -\frac{1}{n}, &amp; \text{if } \hat{y}_i &lt; y_i \\
+   \frac{1}{n}, &amp; \text{if } \hat{y}_i &gt; y_i \\
+   0, &amp;  \text{if } \hat{y}_i = y_i
+   \end{cases}
+   $$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;分类任务classification-tasks&#34;&gt;分类任务(Classification Tasks)
 &lt;/h4&gt;&lt;p&gt;分类任务也是机器学习的监督学习问题,其目标是根据输入特征将数据点分配到预定义的类别中.分类任务广泛应用于垃圾邮件检测、图像识别和情感分析等领域.&lt;/p&gt;
