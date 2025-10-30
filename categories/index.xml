@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Fri, 27 Jun 2025 00:42:54 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 22:51:44 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>DeepLearning</title>
+        <link>https://blogbook.eu.org/categories/deeplearning/</link>
+        <pubDate>Thu, 30 Oct 2025 19:03:23 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/categories/deeplearning/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>深度学习</title>
         <link>https://blogbook.eu.org/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Fri, 27 Jun 2025 00:38:46 +0800</pubDate>

@@ -383,7 +383,9 @@ p&lt;/p&gt;</description>
 &lt;li&gt;以运算器为中心&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;因为其以运算器为中心所以这个计算机的能力受到了运算器的运算能力的限制,也有其改进型以存储器为中心&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;因为其以运算器为中心所以这个计算机的能力受到了运算器的运算能力的限制,也有其改进型以存储器为中心&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;cpu&#34;&gt;CPU
 &lt;/h3&gt;&lt;p&gt;CPU主要由控制器和运算器构成,而控制器是由PC(program Counter)程序计数器,IR(Instruction Register)指令寄存器,CU(Control Unit)组成,PC存放执行指令的地址,而IR是存放当前取出的指令,CU操作控制.运算器是由ACC(ACCumulator)累加器,ALU算术逻辑单元,MQ(Multiplier-Quotient Register)乘商寄存器,X为操作数寄存器组成&lt;/p&gt;
 &lt;h3 id=&#34;主存储器&#34;&gt;主存储器
@@ -395,7 +397,8 @@ p&lt;/p&gt;</description>
 &lt;li&gt;取指令&lt;/li&gt;
 &lt;li&gt;分析指令&lt;/li&gt;
 &lt;li&gt;执行指令&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;举一个具体的例子
 取数指令的执行过程:首先pc-&amp;gt;MAR-&amp;gt;M-&amp;gt;MDR-&amp;gt;IR
 分析指令: (OP)IR&amp;ndash;&amp;gt;CU

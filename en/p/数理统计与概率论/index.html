@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://blogbook.eu.org/en/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/'>
 
-<link rel="stylesheet" href="/scss/style.min.9dd6f25885002759c6b8702ee8bd063a2f1d77080acd4e4ba3ae8c31e6ce062a.css"><meta property='og:title' content="数理统计与概率论">
+<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="数理统计与概率论">
 <meta property='og:description' content="基本概念 随机试验\n可以在相同的条件下重复进行. 每次实验的结果可能不止一个,且能事先明确所有结果. 进行一次试验之前不能确定哪一个结果会出现. 样本空间\n随机试验所有可能结果的集合\n">
 <meta property='og:url' content='https://blogbook.eu.org/en/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
@@ -339,27 +339,32 @@
 <li>可以在相同的条件下重复进行.</li>
 <li>每次实验的结果可能不止一个,且能事先明确所有结果.</li>
 <li>进行一次试验之前不能确定哪一个结果会出现.</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 </li>
 <li>
 <p>样本空间</p>
 <blockquote>
-<p>随机试验所有可能结果的集合</p></blockquote>
+<p>随机试验所有可能结果的集合</p>
+</blockquote>
 </li>
 <li>
 <p>基本事件</p>
 <blockquote>
-<p>由一个样本点组成的单点集</p></blockquote>
+<p>由一个样本点组成的单点集</p>
+</blockquote>
 </li>
 <li>
 <p>必然事件</p>
 <blockquote>
-<p>每次试验中都必然发生的事件(S事件)</p></blockquote>
+<p>每次试验中都必然发生的事件(S事件)</p>
+</blockquote>
 </li>
 <li>
 <p>不可能事件</p>
 <blockquote>
-<p>每次试验中都不可能发生的事件,也就是一个空集</p></blockquote>
+<p>每次试验中都不可能发生的事件,也就是一个空集</p>
+</blockquote>
 </li>
 </ol>
 <h2 id="事件的关系与运算">事件的关系与运算
@@ -367,17 +372,20 @@
 <li>
 <p>包含</p>
 <blockquote>
-<p>$A \subset B$,表示A发生B必然发生</p></blockquote>
+<p>$A \subset B$,表示A发生B必然发生</p>
+</blockquote>
 </li>
 <li>
 <p>和事件</p>
 <blockquote>
-<p>$A \cup B$,表示A与B至少有一个发生</p></blockquote>
+<p>$A \cup B$,表示A与B至少有一个发生</p>
+</blockquote>
 </li>
 <li>
 <p>积事件</p>
 <blockquote>
-<p>$A \cap B$或$AB$,表示A与B同时发生</p></blockquote>
+<p>$A \cap B$或$AB$,表示A与B同时发生</p>
+</blockquote>
 </li>
 </ol>
 <p>// &hellip;existing code&hellip;</p>
@@ -393,13 +401,15 @@
 <li>$\overline{A \cap B} = \overline{A} \cup \overline{B}$</li>
 </ul>
 </li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <h2 id="概率的定义与性质">概率的定义与性质
 </h2><ol>
 <li>
 <p>古典概型概率: $P(A) = A$ 包含的基本事件数/S中基本事件的总数.</p>
 <blockquote>
-<p>这个S,是所有事件的总数</p></blockquote>
+<p>这个S,是所有事件的总数</p>
+</blockquote>
 </li>
 <li>
 <p>几何概型概率: $P(A)=A$ 的几何度量/S的几何度量</p>
@@ -415,7 +425,8 @@
 <li>$P(A)=1$ 表示这个事件是一定会发生</li>
 <li>对于互不相容的事件序列$A_1,A_2,&hellip;$,有:
 $P(A_1 \cup A_2 \cup &hellip;) = P(A_1) + P(A_2) + &hellip;$</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 </li>
 </ol>
 <h2 id="概率的类型">概率的类型
@@ -432,7 +443,8 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$</blockquo
 <h2 id="独立事件">独立事件
 </h2><p>核心概率:</p>
 <blockquote>
-<p>如果两件事情的发生互不影响,那么它们就是独立事件.也就是说,一个事件的发生或不发生并不会改变另一个事件发生的概率.</p></blockquote>
+<p>如果两件事情的发生互不影响,那么它们就是独立事件.也就是说,一个事件的发生或不发生并不会改变另一个事件发生的概率.</p>
+</blockquote>
 <p>正式的定义:</p>
 <blockquote>
 <p>对于两个事件 A 和 B，如果满足以下任一条件（这些条件是等价的，只要其中一个成立，其他也成立），则称 A 和 B 是独立事件：</p>
@@ -441,14 +453,17 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$</blockquo
 <li>联合概率的乘积:
 $$P(A\cap B)=P(A)P(B)$$
 这是独立事件最常用的定义，也是最普遍适用的定义.即使这个$P(A)=0$或者$P(B)=0$也是适用的.</li>
-</ol></blockquote></blockquote>
+</ol>
+</blockquote>
+</blockquote>
 <h2 id="联合概率">联合概率
 </h2><p>联合概率其实就是指两个或多个事件同时发生的概率.对于两个事件A和B,它们的联合概率记为$P(A\cap B)$或P(A,B).$A\cap B$表示就是事件A与B的发生交集.</p>
 <ol>
 <li>核心思想:</li>
 </ol>
 <blockquote>
-<p>与单个事件的概率$P(A)$(只关心A是否发生)或B是否发生不同，联合概率关心的是A和B两个条件是否同时满足．</p></blockquote>
+<p>与单个事件的概率$P(A)$(只关心A是否发生)或B是否发生不同，联合概率关心的是A和B两个条件是否同时满足．</p>
+</blockquote>
 <ol start="2">
 <li>&ldquo;统计&quot;的含义与联合概率</li>
 </ol>
@@ -462,7 +477,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 这种方法其实就是基于大数定律的经验公式.</p>
 <ul>
 <li>联合概率分布的概率: 对于随机变量,我们讨论它们的联合概率分布.这描述了两个或多个随机变量同时取特定值或落在特定范围内的概率。在统计学中，我们经常从样本数据来推断或描述这种联合分布。</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 
 </section>
 

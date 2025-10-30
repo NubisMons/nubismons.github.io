@@ -7,7 +7,33 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Sun, 20 Jul 2025 01:46:36 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 22:51:44 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>在深度学习和机器学习中常用的损失函数和性能指标</title>
+        <link>https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</link>
+        <pubDate>Thu, 30 Oct 2025 19:03:23 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</guid>
+        <description>&lt;h3 id=&#34;损失函数loss-functions&#34;&gt;损失函数（Loss Functions）
+&lt;/h3&gt;&lt;p&gt;在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.&lt;/p&gt;
+&lt;h4 id=&#34;损失函数的一些特点&#34;&gt;损失函数的一些特点:
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;凹凸性(Convexity)
+一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可微性(Differentiability)
+可微的损失函数,使得我们可以使用梯度下降等优化算法.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;鲁棒性(Robustness)
+一些损失函数对异常值不敏感,这使得模型在面对噪声数据时表现更好.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;分任务讨论&#34;&gt;分任务讨论
+&lt;/h3&gt;</description>
+        </item>
+        <item>
         <title>矩阵乘法</title>
         <link>https://blogbook.eu.org/p/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
         <pubDate>Sun, 29 Jun 2025 21:48:44 +0800</pubDate>
@@ -794,12 +820,14 @@ $$Z = X_{centered} U_k$$&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;什么是统计学习&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;就是基于数据建构一个概率统计模型并对数据进行一个预测.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;就是基于数据建构一个概率统计模型并对数据进行一个预测.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;统计学习的对象&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其实就是数据,只不过这些数据的来源是多种多样的,比如文字,图像,视频,音频数据或者是它们的组合,关于数据的有一个基本假设就是迷人同类数据具有共同的性质的数据,比如说英文的文章,网页之类的.由于它们具有统计的规律性.所以可以用概率统计方法去处理它们.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;其实就是数据,只不过这些数据的来源是多种多样的,比如文字,图像,视频,音频数据或者是它们的组合,关于数据的有一个基本假设就是迷人同类数据具有共同的性质的数据,比如说英文的文章,网页之类的.由于它们具有统计的规律性.所以可以用概率统计方法去处理它们.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;统计学习方法的三要素&#34;&gt;统计学习方法的三要素
@@ -1177,27 +1205,32 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;可以在相同的条件下重复进行.&lt;/li&gt;
 &lt;li&gt;每次实验的结果可能不止一个,且能事先明确所有结果.&lt;/li&gt;
 &lt;li&gt;进行一次试验之前不能确定哪一个结果会出现.&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;样本空间&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;随机试验所有可能结果的集合&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;随机试验所有可能结果的集合&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基本事件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;由一个样本点组成的单点集&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;由一个样本点组成的单点集&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;必然事件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;每次试验中都必然发生的事件(S事件)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;每次试验中都必然发生的事件(S事件)&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;不可能事件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;每次试验中都不可能发生的事件,也就是一个空集&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;每次试验中都不可能发生的事件,也就是一个空集&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;事件的关系与运算&#34;&gt;事件的关系与运算
@@ -1205,17 +1238,20 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;
 &lt;p&gt;包含&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;$A \subset B$,表示A发生B必然发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;$A \subset B$,表示A发生B必然发生&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;和事件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;$A \cup B$,表示A与B至少有一个发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;$A \cup B$,表示A与B至少有一个发生&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;积事件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;$A \cap B$或$AB$,表示A与B同时发生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;$A \cap B$或$AB$,表示A与B同时发生&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;// &amp;hellip;existing code&amp;hellip;&lt;/p&gt;
@@ -1231,13 +1267,15 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;$\overline{A \cap B} = \overline{A} \cup \overline{B}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;概率的定义与性质&#34;&gt;概率的定义与性质
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;古典概型概率: $P(A) = A$ 包含的基本事件数/S中基本事件的总数.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这个S,是所有事件的总数&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;这个S,是所有事件的总数&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;几何概型概率: $P(A)=A$ 的几何度量/S的几何度量&lt;/p&gt;
@@ -1253,7 +1291,8 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;li&gt;$P(A)=1$ 表示这个事件是一定会发生&lt;/li&gt;
 &lt;li&gt;对于互不相容的事件序列$A_1,A_2,&amp;hellip;$,有:
 $P(A_1 \cup A_2 \cup &amp;hellip;) = P(A_1) + P(A_2) + &amp;hellip;$&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;概率的类型&#34;&gt;概率的类型
@@ -1270,7 +1309,8 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$&lt;/block
 &lt;h2 id=&#34;独立事件&#34;&gt;独立事件
 &lt;/h2&gt;&lt;p&gt;核心概率:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;如果两件事情的发生互不影响,那么它们就是独立事件.也就是说,一个事件的发生或不发生并不会改变另一个事件发生的概率.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;如果两件事情的发生互不影响,那么它们就是独立事件.也就是说,一个事件的发生或不发生并不会改变另一个事件发生的概率.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;正式的定义:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对于两个事件 A 和 B，如果满足以下任一条件（这些条件是等价的，只要其中一个成立，其他也成立），则称 A 和 B 是独立事件：&lt;/p&gt;
@@ -1279,14 +1319,17 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$&lt;/block
 &lt;li&gt;联合概率的乘积:
 $$P(A\cap B)=P(A)P(B)$$
 这是独立事件最常用的定义，也是最普遍适用的定义.即使这个$P(A)=0$或者$P(B)=0$也是适用的.&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;联合概率&#34;&gt;联合概率
 &lt;/h2&gt;&lt;p&gt;联合概率其实就是指两个或多个事件同时发生的概率.对于两个事件A和B,它们的联合概率记为$P(A\cap B)$或P(A,B).$A\cap B$表示就是事件A与B的发生交集.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;核心思想:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;与单个事件的概率$P(A)$(只关心A是否发生)或B是否发生不同，联合概率关心的是A和B两个条件是否同时满足．&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;与单个事件的概率$P(A)$(只关心A是否发生)或B是否发生不同，联合概率关心的是A和B两个条件是否同时满足．&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&amp;ldquo;统计&amp;quot;的含义与联合概率&lt;/li&gt;
 &lt;/ol&gt;
@@ -1300,7 +1343,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 这种方法其实就是基于大数定律的经验公式.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;联合概率分布的概率: 对于随机变量,我们讨论它们的联合概率分布.这描述了两个或多个随机变量同时取特定值或落在特定范围内的概率。在统计学中，我们经常从样本数据来推断或描述这种联合分布.&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         <item>
@@ -1317,7 +1361,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 &lt;p&gt;卷积这个东西有三层含义:
 1.第一个就是稳定的输出和不稳定的输入求其的系统存量
 2.周围像素点是如何影响的
-3.一个像素点的试探,就是起到一个过滤器的作用把我们需要的特征提取出来&lt;/p&gt;&lt;/blockquote&gt;
+3.一个像素点的试探,就是起到一个过滤器的作用把我们需要的特征提取出来&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;什么是神经网络&lt;/li&gt;
 &lt;/ol&gt;
@@ -1336,7 +1381,8 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 	
 &gt;
 为了解决这个问题提出多层神经网络,通过多个感知机进行解决
-盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;&lt;/blockquote&gt;
+盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;测试&#34;&gt;测试
 &lt;/h2&gt;</description>
         </item>
@@ -1716,7 +1762,9 @@ p&lt;/p&gt;</description>
 &lt;li&gt;以运算器为中心&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;因为其以运算器为中心所以这个计算机的能力受到了运算器的运算能力的限制,也有其改进型以存储器为中心&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;因为其以运算器为中心所以这个计算机的能力受到了运算器的运算能力的限制,也有其改进型以存储器为中心&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;cpu&#34;&gt;CPU
 &lt;/h3&gt;&lt;p&gt;CPU主要由控制器和运算器构成,而控制器是由PC(program Counter)程序计数器,IR(Instruction Register)指令寄存器,CU(Control Unit)组成,PC存放执行指令的地址,而IR是存放当前取出的指令,CU操作控制.运算器是由ACC(ACCumulator)累加器,ALU算术逻辑单元,MQ(Multiplier-Quotient Register)乘商寄存器,X为操作数寄存器组成&lt;/p&gt;
 &lt;h3 id=&#34;主存储器&#34;&gt;主存储器
@@ -1728,7 +1776,8 @@ p&lt;/p&gt;</description>
 &lt;li&gt;取指令&lt;/li&gt;
 &lt;li&gt;分析指令&lt;/li&gt;
 &lt;li&gt;执行指令&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;举一个具体的例子
 取数指令的执行过程:首先pc-&amp;gt;MAR-&amp;gt;M-&amp;gt;MDR-&amp;gt;IR
 分析指令: (OP)IR&amp;ndash;&amp;gt;CU

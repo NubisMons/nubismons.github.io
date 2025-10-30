@@ -435,12 +435,14 @@ $$Z = X_{centered} U_k$$&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;什么是统计学习&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;就是基于数据建构一个概率统计模型并对数据进行一个预测.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;就是基于数据建构一个概率统计模型并对数据进行一个预测.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;统计学习的对象&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其实就是数据,只不过这些数据的来源是多种多样的,比如文字,图像,视频,音频数据或者是它们的组合,关于数据的有一个基本假设就是迷人同类数据具有共同的性质的数据,比如说英文的文章,网页之类的.由于它们具有统计的规律性.所以可以用概率统计方法去处理它们.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;其实就是数据,只不过这些数据的来源是多种多样的,比如文字,图像,视频,音频数据或者是它们的组合,关于数据的有一个基本假设就是迷人同类数据具有共同的性质的数据,比如说英文的文章,网页之类的.由于它们具有统计的规律性.所以可以用概率统计方法去处理它们.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;统计学习方法的三要素&#34;&gt;统计学习方法的三要素
@@ -807,7 +809,8 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 &lt;p&gt;卷积这个东西有三层含义:
 1.第一个就是稳定的输出和不稳定的输入求其的系统存量
 2.周围像素点是如何影响的
-3.一个像素点的试探,就是起到一个过滤器的作用把我们需要的特征提取出来&lt;/p&gt;&lt;/blockquote&gt;
+3.一个像素点的试探,就是起到一个过滤器的作用把我们需要的特征提取出来&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;什么是神经网络&lt;/li&gt;
 &lt;/ol&gt;
@@ -826,7 +829,8 @@ $$P(Y=k|x) = \frac{e^{\theta_k^T x}}{\sum_{j=1}^K e^{\theta_j^T x}}$$&lt;h3 id=&
 	
 &gt;
 为了解决这个问题提出多层神经网络,通过多个感知机进行解决
-盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;&lt;/blockquote&gt;
+盖尔定理进行如果在低维的情况下想要进行线性可分比较困难,那我们可以进行一个升维进行&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;测试&#34;&gt;测试
 &lt;/h2&gt;</description>
         </item>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>DeepLearning on 云雾中的山-NubisMons</title>
+        <link>https://blogbook.eu.org/categories/deeplearning/</link>
+        <description>Recent content in DeepLearning on 云雾中的山-NubisMons</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisMons</copyright>
+        <lastBuildDate>Thu, 30 Oct 2025 22:51:44 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/deeplearning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>在深度学习和机器学习中常用的损失函数和性能指标</title>
+        <link>https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</link>
+        <pubDate>Thu, 30 Oct 2025 19:03:23 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</guid>
+        <description>&lt;h3 id=&#34;损失函数loss-functions&#34;&gt;损失函数（Loss Functions）
+&lt;/h3&gt;&lt;p&gt;在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.&lt;/p&gt;
+&lt;h4 id=&#34;损失函数的一些特点&#34;&gt;损失函数的一些特点:
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;凹凸性(Convexity)
+一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可微性(Differentiability)
+可微的损失函数,使得我们可以使用梯度下降等优化算法.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;鲁棒性(Robustness)
+一些损失函数对异常值不敏感,这使得模型在面对噪声数据时表现更好.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;分任务讨论&#34;&gt;分任务讨论
+&lt;/h3&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
