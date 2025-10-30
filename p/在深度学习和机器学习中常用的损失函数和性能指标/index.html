@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点: 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
 <title>在深度学习和机器学习中常用的损失函数和性能指标</title>
 
 <link rel='canonical' href='https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/'>
 
 <link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="在深度学习和机器学习中常用的损失函数和性能指标">
-<meta property='og:description' content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点: 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
+<meta property='og:description' content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
 <meta property='og:url' content='https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-10-30T19:03:23&#43;08:00'/><meta property='article:modified_time' content='2025-10-30T22:51:44&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-10-30T19:03:23&#43;08:00'/><meta property='article:modified_time' content='2025-10-30T23:09:18&#43;08:00'/>
 <meta name="twitter:title" content="在深度学习和机器学习中常用的损失函数和性能指标">
-<meta name="twitter:description" content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点: 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
+<meta name="twitter:description" content="损失函数（Loss Functions） 在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.\n损失函数的一些特点 凹凸性(Convexity) 一个损失函数如果是凸的,那么它在优化过程中更容易找到全局.\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script>
@@ -322,10 +322,15 @@
       <ol>
         <li><a href="#损失函数loss-functions">损失函数（Loss Functions）</a>
           <ol>
-            <li><a href="#损失函数的一些特点">损失函数的一些特点:</a></li>
+            <li><a href="#损失函数的一些特点">损失函数的一些特点</a></li>
           </ol>
         </li>
-        <li><a href="#分任务讨论">分任务讨论</a></li>
+        <li><a href="#分任务讨论">分任务讨论</a>
+          <ol>
+            <li><a href="#回归任务regression-tasks">回归任务(Regression Tasks)</a></li>
+            <li><a href="#分类任务classification-tasks">分类任务(Classification Tasks)</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -392,7 +397,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -409,7 +414,7 @@
     
     <h3 id="损失函数loss-functions">损失函数（Loss Functions）
 </h3><p>在学习中,损失函数通常被用于优化模型的参数,以最小化模型的预测和真实标签之间的差异.</p>
-<h4 id="损失函数的一些特点">损失函数的一些特点:
+<h4 id="损失函数的一些特点">损失函数的一些特点
 </h4><ol>
 <li>
 <p>凹凸性(Convexity)
@@ -425,7 +430,75 @@
 </li>
 </ol>
 <h3 id="分任务讨论">分任务讨论
-</h3>
+</h3><h4 id="回归任务regression-tasks">回归任务(Regression Tasks)
+</h4><p>回归是机器学习中监督学习问题,其目标是根据一个和多个输入特征预测连续的输出值.回归应用于多个领域,如房价预测、股票价格预测和气温预测等.</p>
+<p>我们常见的回归损失函数有:</p>
+<ol>
+<li>
+<p>均值方差误差(Mean Squared Error, MSE):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中几个变量的含义如下:</p>
+<ul>
+<li>\( n \): 样本数量</li>
+<li>\( y_i \): 第 \( i \) 个样本的真实值</li>
+<li>\( \hat{y}_i \): 第 \( i \) 个样本的预测值</li>
+</ul>
+<p>可微性(公式如下):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\frac{\partial MSE}{\partial \hat{y}_i} = -\frac{2}{n} (y_i - \hat{y}_i)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>平均绝对误差(Mean Absolute Error, MAE):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中关键的参数含义如下:</p>
+<ul>
+<li>\( n \): 样本数量</li>
+<li>\( y_i \): 第 \( i \) 个样本的真实值</li>
+<li>\(\hat{y}_i\): 第 \( i \)个样本的预测值</li>
+</ul>
+<p>也称为L1损失函数,其可微性如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\frac{\partial MAE}{\partial \hat{y}_i} = \begin{cases}
+</span></span><span class="line"><span class="cl">-\frac{1}{n}, &amp; \text{if } \hat{y}_i &lt; y_i \\
+</span></span><span class="line"><span class="cl">\frac{1}{n}, &amp; \text{if } \hat{y}_i &gt; y_i \\
+</span></span><span class="line"><span class="cl">0, &amp;  \text{if } \hat{y}_i = y_i
+</span></span><span class="line"><span class="cl">\end{cases}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h4 id="分类任务classification-tasks">分类任务(Classification Tasks)
+</h4><p>分类任务也是机器学习的监督学习问题,其目标是根据输入特征将数据点分配到预定义的类别中.分类任务广泛应用于垃圾邮件检测、图像识别和情感分析等领域.</p>
+<p>有如下几种分类任务,一个二分类任务,多分类任务,以及多标签分类任务.</p>
+
 </section>
 
 
@@ -442,7 +515,7 @@
 
 
         <span>
-            最后更新于 2025-10-30 22:51
+            最后更新于 2025-10-30 23:09
         </span>
     </section></footer>
 
