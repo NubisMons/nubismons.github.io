@@ -2,8 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blogbook.eu.org/tags/ai/</loc>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/tags/ai/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/tags/ai/"
+                />
+  </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-10-30T23:23:27+08:00</lastmod>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,11 +28,14 @@
                 href="https://blogbook.eu.org/categories/"
                 />
   </url><url>
-    <loc>https://blogbook.eu.org/categories/deeplearning/</loc>
-    <lastmod>2025-10-30T23:23:27+08:00</lastmod>
+    <loc>https://blogbook.eu.org/tags/deeplearning/</loc>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/medicalimaging/</loc>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-10-30T23:23:27+08:00</lastmod>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -30,6 +46,25 @@
                 hreflang="zh-cn"
                 href="https://blogbook.eu.org/post/"
                 />
+  </url><url>
+    <loc>https://blogbook.eu.org/tags/</loc>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blogbook.eu.org/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://blogbook.eu.org/tags/"
+                />
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E5%85%B3%E4%BA%8Emri%E6%B2%BB%E7%96%97%E8%AE%BA%E6%96%87%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-11-02T15:54:03+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/categories/deeplearning/</loc>
+    <lastmod>2025-10-30T23:23:27+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E5%9C%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</loc>
     <lastmod>2025-10-30T23:23:27+08:00</lastmod>
@@ -76,32 +111,6 @@
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%9D%82%E7%AC%94/</loc>
     <lastmod>2025-05-14T23:46:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/tags/ai/</loc>
-    <lastmod>2025-05-12T15:07:18+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blogbook.eu.org/en/tags/ai/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blogbook.eu.org/tags/ai/"
-                />
-  </url><url>
-    <loc>https://blogbook.eu.org/tags/</loc>
-    <lastmod>2025-05-14T23:43:32+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blogbook.eu.org/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blogbook.eu.org/tags/"
-                />
   </url><url>
     <loc>https://blogbook.eu.org/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
     <lastmod>2025-05-12T15:07:18+08:00</lastmod>
