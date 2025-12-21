@@ -440,12 +440,12 @@
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;cppbuild&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;C/C++: gcc.exe 生成活动文件&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">//注意这里填你自己 mingw-w64 下的 gcc.exe 目录
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;E:\\software\\mingw-w64\\mingw64\\bin\\gcc.exe&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;E:\\software\\mingw-w64\\mingw64\\bin\\gcc.exe&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;-fdiagnostics-color=always&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;-g&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">//&#34;${file}&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="s2">&#34;${fileDirname}\\*.c&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">                <span class="s2">&#34;${fileDirname}\\*.c&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;-o&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;${fileDirname}\\${fileBasenameNoExtension}.exe&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">],</span>
@@ -580,10 +580,10 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;javascript&#34;</span><span class="p">:</span> <span class="s2">&#34;node&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;java&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; javac $fileName &amp;&amp; java $fileNameWithoutExt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//&#34;c&#34;: &#34;cd $dir &amp;&amp; gcc $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nt">&#34;cpp&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; g++ $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nt">&#34;cpp&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; g++ $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;c&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; gcc *.c -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//&#34;cpp&#34;: &#34;cd $dir &amp;&amp; g++ *.cpp -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nt">&#34;objective-c&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; gcc -framework Cocoa $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nt">&#34;objective-c&#34;</span><span class="p">:</span> <span class="s2">&#34;cd $dir &amp;&amp; gcc -framework Cocoa $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;php&#34;</span><span class="p">:</span> <span class="s2">&#34;php&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;python&#34;</span><span class="p">:</span> <span class="s2">&#34;python -u&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;perl&#34;</span><span class="p">:</span> <span class="s2">&#34;perl&#34;</span><span class="p">,</span>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blogbook.eu.org/categories/</loc>
-    <lastmod>2025-12-08T16:42:52+08:00</lastmod>
+    <lastmod>2025-12-21T12:08:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,24 +15,20 @@
                 href="https://blogbook.eu.org/categories/"
                 />
   </url><url>
+    <loc>https://blogbook.eu.org/categories/measuretheory/</loc>
+    <lastmod>2025-12-21T12:08:17+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-12-21T12:08:17+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/p/%E8%AE%B2%E7%A8%BFl_space%E7%A9%BA%E9%97%B4-the-space-l-infinity/</loc>
+    <lastmod>2025-12-21T12:08:17+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/tags/mri/</loc>
     <lastmod>2025-12-08T16:42:52+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/mri%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2025-12-08T16:42:52+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/post/</loc>
-    <lastmod>2025-12-08T16:42:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blogbook.eu.org/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://blogbook.eu.org/post/"
-                />
   </url><url>
     <loc>https://blogbook.eu.org/categories/record/</loc>
     <lastmod>2025-12-08T16:42:52+08:00</lastmod>

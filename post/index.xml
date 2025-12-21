@@ -7,7 +7,134 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright>
-        <lastBuildDate>Mon, 08 Dec 2025 16:42:52 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 21 Dec 2025 12:08:17 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>讲稿L_Space空间 (The Space L-Infinity)</title>
+        <link>https://blogbook.eu.org/p/%E8%AE%B2%E7%A8%BFl_space%E7%A9%BA%E9%97%B4-the-space-l-infinity/</link>
+        <pubDate>Sun, 21 Dec 2025 12:06:48 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E8%AE%B2%E7%A8%BFl_space%E7%A9%BA%E9%97%B4-the-space-l-infinity/</guid>
+        <description>&lt;h1 id=&#34;讲稿l-空间-the-space-l-infinity&#34;&gt;讲稿：L∞ 空间 (The Space L-Infinity)
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心目标&lt;/strong&gt;：讲清楚 Essential Supremum（本质确界）的定义，以及 L∞ 收敛为什么等价于“除去零测集后的一致收敛”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;0-开场引入-introduction&#34;&gt;0. 开场：引入 (Introduction)
+&lt;/h2&gt;&lt;h3 id=&#34;-板书--board&#34;&gt;🟢 [板书 | Board]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2.4.15 The Space $L^\infty$&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Recall $L^p$ ($1 \le p &amp;lt; \infty$):&lt;/strong&gt; Control size via $\int |f|^p d\mu$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem:&lt;/strong&gt; If $p=\infty$, integral def fails. $\sup |f|$ is sensitive to measure-0 sets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Control &amp;ldquo;peak&amp;rdquo; value, ignoring &amp;ldquo;noise&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-讲稿--script&#34;&gt;🗣️ [讲稿 | Script]
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;(面向听众)&lt;/strong&gt; 大家好。我们之前已经详细讨论了 $L^p$ 空间（$1 \le p &amp;lt; \infty$），那是通过积分来控制函数大小的。&lt;/li&gt;
+&lt;li&gt;今天我们要看 $p=\infty$ 的情况。直观上，我们需要控制函数的“最大值”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;(指板书 Problem)&lt;/strong&gt; 但是，如果我们直接用普通的 Supremum (上确界)，会有一个问题：它对&lt;strong&gt;零测集&lt;/strong&gt;太敏感了。改变一个点的函数值，最大值会剧烈变化，这不符合测度论的精神。&lt;/li&gt;
+&lt;li&gt;所以，我们需要一个新工具：&lt;strong&gt;本质确界 (Essential Supremum)&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-核心定义本质确界-the-definition&#34;&gt;1. 核心定义：本质确界 (The Definition)
+&lt;/h2&gt;&lt;h3 id=&#34;-板书--board-1&#34;&gt;🟢 [板书 | Board]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1. Essential Supremum&lt;/strong&gt;
+Let $g$ be measurable.
+&lt;/p&gt;
+$$S = \{ c \in \bar{R} : \mu(\{ g &gt; c \}) = 0 \}$$&lt;p&gt;
+&lt;em&gt;(Set of &amp;ldquo;valid upper bounds&amp;rdquo; ignoring null sets)&lt;/em&gt;&lt;/p&gt;
+$$\text{ess sup } g = \inf S$$&lt;h3 id=&#34;-讲稿--script-1&#34;&gt;🗣️ [讲稿 | Script]
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;(一边写公式一边解释)&lt;/strong&gt; 请看定义。&lt;/li&gt;
+&lt;li&gt;这里的 $c$ 是一个候选的“天花板”。&lt;/li&gt;
+&lt;li&gt;如果集合 ${ g &amp;gt; c }$ 的测度为 0，说明函数 $g$ 只有在微不足道的地方才比 $c$ 大。那么 $c$ 就是一个“本质上合格”的上界。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;(关键点)&lt;/strong&gt; 这样的 $c$ 可能有很多。为了找到&lt;strong&gt;最紧&lt;/strong&gt;的那个界，我们取这些 $c$ 的 &lt;strong&gt;下确界 ($\inf$)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;这就是 &lt;code&gt;ess sup g&lt;/code&gt;。一句话总结：它是忽略掉零测集上的“噪点”后的最大值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-空间与范数-space--norm&#34;&gt;2. 空间与范数 (Space &amp;amp; Norm)
+&lt;/h2&gt;&lt;h3 id=&#34;-板书--board-2&#34;&gt;🟢 [板书 | Board]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2. The Space $L^\infty$&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$$L^\infty = \{ f : \|f\|_\infty &lt; \infty \}$$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Norm:&lt;/strong&gt; $|f|_\infty = \text{ess sup } |f|$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Triangle Inequality:&lt;/strong&gt;
+$|f+g|&lt;em&gt;\infty \le |f|&lt;/em&gt;\infty + |g|_\infty$ (a.e.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-讲稿--script-2&#34;&gt;🗣️ [讲稿 | Script]
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;有了这个定义，$L^\infty$ 就是所有&lt;strong&gt;本质有界&lt;/strong&gt;函数的集合。&lt;/li&gt;
+&lt;li&gt;书上验证了它满足三角不等式（Minkowski 不等式）。&lt;/li&gt;
+&lt;li&gt;理由很简单：$|f+g| \le |f| + |g|$ 是逐点成立的，所以在“几乎处处”的意义下，取本质确界后不等式依然成立。&lt;/li&gt;
+&lt;li&gt;这确认了 $L^\infty$ 是一个线性空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-收敛性重难点-convergence&#34;&gt;3. 收敛性：重难点 (Convergence)
+&lt;/h2&gt;&lt;h3 id=&#34;-板书--board-3&#34;&gt;🟢 [板书 | Board]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;3. Convergence&lt;/strong&gt;
+&lt;strong&gt;Theorem:&lt;/strong&gt; $|f_n - f|_\infty \to 0 \iff f_n \to f$ &lt;strong&gt;uniformly a.e.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof Sketch:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Given $|f_n - f|_\infty \to 0$. For each $m$, exists $A_m$ (null set) where error $&amp;gt; 1/m$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Trick:&lt;/strong&gt; Let $A = \bigcup_{m=1}^{\infty} A_m$.
+&lt;ul&gt;
+&lt;li&gt;$\mu(A) = 0$ (Countable union of null sets).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;On $A^c$:&lt;/strong&gt; $|f_n - f| &amp;lt; 1/m$ for all large $n$.
+$\implies$ Uniform Convergence.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;-讲稿--script-3&#34;&gt;🗣️ [讲稿 | Script]
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;(敲重点)&lt;/strong&gt; 接下来是这一节的核心：&lt;strong&gt;在 $L^\infty$ 中收敛意味着什么？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;结论是：它等价于&lt;strong&gt;几乎处处一致收敛&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;书上的证明用了一个很巧妙的构造。&lt;/li&gt;
+&lt;li&gt;假设范数收敛，那么对于每一个精度 $1/m$，可能都有一个“坏点集合” $A_m$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;(停顿，强调)&lt;/strong&gt; 我们把所有精度的坏点集合并起来：$A = \bigcup A_m$。&lt;/li&gt;
+&lt;li&gt;因为 $m$ 是可数的，可数个零测集的并集还是零测集，所以 $\mu(A)=0$。&lt;/li&gt;
+&lt;li&gt;当我们挖掉这个“总垃圾桶” $A$ 后，在剩下的 $A^c$ 上，函数序列就对&lt;strong&gt;所有精度&lt;/strong&gt;都成立，也就是&lt;strong&gt;一致收敛&lt;/strong&gt;了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-完备性与性质-completeness--properties&#34;&gt;4. 完备性与性质 (Completeness &amp;amp; Properties)
+&lt;/h2&gt;&lt;h3 id=&#34;-板书--board-4&#34;&gt;🟢 [板书 | Board]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;4. Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Completeness:&lt;/strong&gt; $L^\infty$ is a &lt;strong&gt;Banach Space&lt;/strong&gt;.
+&lt;em&gt;(Uniform limits of bounded functions are bounded).&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contrast with $L^p$ ($p&amp;lt;\infty$):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Simple/Continuous functions are &lt;strong&gt;NOT&lt;/strong&gt; dense.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Theorem 2.4.14 fails&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-讲稿--script-4&#34;&gt;🗣️ [讲稿 | Script]
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;最后，关于空间的性质。&lt;/li&gt;
+&lt;li&gt;第一，$L^\infty$ 是完备的（Banach Space）。这利用了刚才的一致收敛结论。&lt;/li&gt;
+&lt;li&gt;第二，要注意它和 $L^p$ ($p&amp;lt;\infty$) 的巨大区别。&lt;/li&gt;
+&lt;li&gt;在 $L^\infty$ 里，&lt;strong&gt;连续函数通常不是稠密的&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;也就是说，我们没法用连续函数去在“最大误差”意义下任意逼近一个复杂的函数（比如方波）。这个定理在这里失效了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-答辩提问作弊条-qa-cheat-sheet&#34;&gt;🛡️ 答辩/提问作弊条 (Q&amp;amp;A Cheat Sheet)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Q1: 为什么不用普通的 Sup？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; 普通 Sup 对零测集敏感。改动一个点的值，Sup 变了但积分性质没变。Ess Sup 解决了这个问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Q2: 举个 Sup 和 Ess Sup 不一样的例子？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; &lt;strong&gt;Dirichlet 函数&lt;/strong&gt;（有理数1，无理数0）。Sup 是 1，但 Ess Sup 是 0（因为有理数集测度为0，忽略后函数全为0）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Q3: 证明里为什么要取并集 $A = \bigcup A_m$？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; 为了处理&lt;strong&gt;所有&lt;/strong&gt;精度。每个 $A_m$ 只负责精度 $1/m$。取并集后，在 $A$ 之外的地方，才能保证对任意 $\epsilon$ 都成立，从而得到一致收敛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Q4: $l^\infty$ (小写) 是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; 它是计数测度下的 $L^\infty$（数列空间）。因为计数测度里唯一的零测集是空集，所以 Ess Sup 退化为普通的 Sup。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>MRI实验记录</title>
         <link>https://blogbook.eu.org/p/mri%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</link>
         <pubDate>Fri, 07 Nov 2025 13:01:28 +0800</pubDate>
@@ -1631,12 +1758,12 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cppbuild&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;C/C++: gcc.exe 生成活动文件&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//注意这里填你自己 mingw-w64 下的 gcc.exe 目录
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;#34;command&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;E:\\software\\mingw-w64\\mingw64\\bin\\gcc.exe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;#34;command&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;E:\\software\\mingw-w64\\mingw64\\bin\\gcc.exe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;#34;args&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;-fdiagnostics-color=always&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;-g&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;c1&#34;&gt;//&amp;#34;${file}&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;${fileDirname}\\*.c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;${fileDirname}\\*.c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;-o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;${fileDirname}\\${fileBasenameNoExtension}.exe&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
@@ -1771,10 +1898,10 @@ $$P(A\cap B)\approx\frac{事件A和事件B同时发生的次数}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;javascript&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;node&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;java&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; javac $fileName &amp;amp;&amp;amp; java $fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//&amp;#34;c&amp;#34;: &amp;#34;cd $dir &amp;amp;&amp;amp; gcc $fileName -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; g++ $fileName -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; g++ $fileName -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; gcc *.c -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//&amp;#34;cpp&amp;#34;: &amp;#34;cd $dir &amp;amp;&amp;amp; g++ *.cpp -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;objective-c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; gcc -framework Cocoa $fileName -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;objective-c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cd $dir &amp;amp;&amp;amp; gcc -framework Cocoa $fileName -o $fileNameWithoutExt &amp;amp;&amp;amp; $dir$fileNameWithoutExt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;php&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;php&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;python&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;python -u&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;perl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;perl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
