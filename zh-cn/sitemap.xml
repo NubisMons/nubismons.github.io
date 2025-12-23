@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blogbook.eu.org/p/my_view_on_/</loc>
+    <lastmod>2025-12-23T12:28:02+08:00</lastmod>
+  </url><url>
+    <loc>https://blogbook.eu.org/post/</loc>
+    <lastmod>2025-12-23T12:28:02+08:00</lastmod>
+  </url><url>
     <loc>https://blogbook.eu.org/categories/</loc>
     <lastmod>2025-12-21T12:08:17+08:00</lastmod>
     <xhtml:link
@@ -16,9 +22,6 @@
                 />
   </url><url>
     <loc>https://blogbook.eu.org/categories/measuretheory/</loc>
-    <lastmod>2025-12-21T12:08:17+08:00</lastmod>
-  </url><url>
-    <loc>https://blogbook.eu.org/post/</loc>
     <lastmod>2025-12-21T12:08:17+08:00</lastmod>
   </url><url>
     <loc>https://blogbook.eu.org/p/%E8%AE%B2%E7%A8%BFl_space%E7%A9%BA%E9%97%B4-the-space-l-infinity/</loc>
