@@ -7,6 +7,231 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisMons</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>5.5到5.53前的翻译和讲稿</title>
+        <link>https://blogbook.eu.org/p/5.5%E5%88%B05.53%E5%89%8D%E7%9A%84%E7%BF%BB%E8%AF%91%E5%92%8C%E8%AE%B2%E7%A8%BF/</link>
+        <pubDate>Sat, 03 Jan 2026 22:33:03 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/5.5%E5%88%B05.53%E5%89%8D%E7%9A%84%E7%BF%BB%E8%AF%91%E5%92%8C%E8%AE%B2%E7%A8%BF/</guid>
+        <description>&lt;h2 id=&#34;55到553的翻译&#34;&gt;5.5到5.53的翻译
+&lt;/h2&gt;&lt;h1 id=&#34;55-条件期望的性质-properties-of-conditional-expectation&#34;&gt;5.5 条件期望的性质 (Properties of Conditional Expectation)
+&lt;/h1&gt;&lt;p&gt;条件期望 $E(Y|X=x)$ 是一个比条件期望 $E(Y|\mathscr{G})$ 更直观的对象；然而，这种直观性很难推广到 $X$ 是有限维随机向量以外的情形。因此，在 $\mathscr{G}$ 是任意 $\sigma$-代数的形式化论证中，我们被迫使用 $E(Y|\mathscr{G})$。&lt;/p&gt;
+&lt;p&gt;为了方便起见，我们将成对地推导条件期望的基本性质：一个关于 $E(Y|\mathscr{G})$ 的论证，另一个（通常非常相似）关于 $E(Y|X=x)$ 的论证。关于条件概率的定理可以通过将 $Y$ 替换为指示函数 $I_B$ 获得，而关于 $E(Y|X)$ 的结果可以通过令 $\mathscr{G} = \sigma(X)$ 获得。&lt;/p&gt;
+&lt;p&gt;在接下来的讨论中，$Y, Y_1, Y_2, \dots$ 是 $(\Omega, \mathscr{F}, P)$ 上的广义随机变量（extended random variables），并假设所有期望都存在；$X: (\Omega, \mathscr{F}) \to (\Omega&amp;rsquo;, \mathscr{F}&amp;rsquo;)$ 是一个随机对象，$\mathscr{G}$ 是 $\mathscr{F}$ 的子 $\sigma$-代数。若短语“a.e.”（几乎处处）没有指定测度，则总是指 a.e. $[P]$。如果 $Z: (\Omega, \mathscr{G}) \to (\bar{\mathbb{R}}, \mathscr{B})$，我们称 $Z$ 是 $\mathscr{G}$-可测的；如果 $g: (\Omega&amp;rsquo;, \mathscr{F}&amp;rsquo;) \to (\bar{\mathbb{R}}, \mathscr{B})$，我们称 $g$ 是 $\mathscr{F}&amp;rsquo;$-可测的。&lt;/p&gt;
+&lt;h3 id=&#34;551-定理-theorem&#34;&gt;5.5.1 定理 (Theorem)
+&lt;/h3&gt;&lt;p&gt;如果 $Y$ 几乎处处 (a.e.) 为常数 $k$，则
+(a) $E(Y|\mathscr{G}) = k$ a.e.
+(a&amp;rsquo;) $E(Y|X=x) = k$ a.e. $[P_X]$.&lt;/p&gt;
+&lt;p&gt;如果 $Y_1 \le Y_2$ a.e.，则
+(b) $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$ a.e.
+(b&amp;rsquo;) $E(Y_1|X=x) \le E(Y_2|X=x)$ a.e. $[P_X]$.&lt;/p&gt;
+&lt;p&gt;[注：诸如 $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$ a.e. 这样的陈述意味着：如果 $Z_j$ 是 $E(Y_j|\mathscr{G})$ 的一个版本（version），换句话说，$Z_j$ 满足定义要求 5.4.3，则 $Z_1 \le Z_2$ a.e.]&lt;/p&gt;
+&lt;p&gt;(c) $|E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$ a.e.
+(c&amp;rsquo;) $|E(Y|X=x)| \le E(|Y| \big| X=x)$ a.e. $[P_X]$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;证明 (PROOF):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;(a) 常数函数 $k$ 是 $\mathscr{G}$-可测的，并且
+&lt;/p&gt;
+$$
+\int_C Y dP = \int_C k dP, \quad C \in \mathscr{G}.
+$$&lt;p&gt;(a&amp;rsquo;) 如果 $g(x) \equiv k, x \in \Omega&amp;rsquo;$，则 $g$ 是 $\mathscr{F}&amp;rsquo;$-可测的，并且
+&lt;/p&gt;
+$$
+\int_{\{X \in A\}} Y dP = \int_A k dP_X.
+$$&lt;p&gt;(b) $\int_C Y_1 dP \le \int_C Y_2 dP$；因此
+&lt;/p&gt;
+$$
+\int_C E(Y_1|\mathscr{G}) dP \le \int_C E(Y_2|\mathscr{G}) dP \quad \text{对任意 } C \in \mathscr{G}.
+$$&lt;p&gt;
+该结论由 [引理] 1.6.11 得出。&lt;/p&gt;
+&lt;p&gt;(b&amp;rsquo;) $\int_{{X \in A}} Y_1 dP \le \int_{{X \in A}} Y_2 dP$；因此
+&lt;/p&gt;
+$$
+\int_A E(Y_1|X=x) dP_X \le \int_A E(Y_2|X=x) dP_X \quad \text{对任意 } A \in \mathscr{F}&#39;.
+$$&lt;p&gt;
+该结论由 1.6.11 得出。&lt;/p&gt;
+&lt;p&gt;(c) 和 (c&amp;rsquo;) 由 (b) 和 (b&amp;rsquo;) 以及观察到 $-|Y| \le Y \le |Y|$ 得出。 $\square$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我们现在证明条件期望的一个可加性定理。&lt;/p&gt;
+&lt;h3 id=&#34;552-定理-theorem&#34;&gt;5.5.2 定理 (Theorem)
+&lt;/h3&gt;&lt;p&gt;(a) 如果 $a, b \in \mathbb{R}$，并且 $aE(Y_1) + bE(Y_2)$ 定义良好（即不是 $\infty - \infty$ 的形式），则 $E(aY_1 + bY_2|\mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})$ a.e.&lt;/p&gt;
+&lt;p&gt;(a&amp;rsquo;) 如果 $a, b \in \mathbb{R}$，并且 $aE(Y_1) + bE(Y_2)$ 定义良好，则
+&lt;/p&gt;
+$$
+E(aY_1 + bY_2|X=x) = aE(Y_1|X=x) + bE(Y_2|X=x) \text{ a.e. } [P_X].
+$$&lt;p&gt;&lt;strong&gt;证明 (PROOF):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;(a) 如果 $C \in \mathscr{G}$，
+&lt;/p&gt;
+$$
+\begin{aligned}
+\int_C (aY_1 + bY_2) dP &amp;= \int_C aY_1 dP + \int_C bY_2 dP \\
+&amp;\quad \text{(由积分的可加性定理)} \\
+&amp;= \int_C aE(Y_1|\mathscr{G}) dP + \int_C bE(Y_2|\mathscr{G}) dP \\
+&amp;\quad \text{(由条件期望的定义)}
+\end{aligned}
+$$&lt;p&gt;
+因此 $\int_C aE(Y_1|\mathscr{G}) dP + \int_C bE(Y_2|\mathscr{G}) dP$ 定义良好，再次利用积分的可加性定理，
+&lt;/p&gt;
+$$
+\int_C (aY_1 + bY_2) dP = \int_C [aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})] dP,
+$$&lt;p&gt;
+正如所需证明的那样。&lt;/p&gt;
+&lt;p&gt;(a&amp;rsquo;) 这与 (a) 的做法一样，只需将 $C$ 替换为 ${X \in A}$ 并将
+&lt;/p&gt;
+$$
+\int_C E(Y_j|\mathscr{G}) dP \quad \text{替换为} \quad \int_A E(Y_j|X=x) dP_X.
+$$&lt;p&gt;在未来，我们将用诸如“同 (a)”这样的短语来处理此类证明。 $\square$&lt;/p&gt;
+&lt;p&gt;单调收敛定理（The monotone convergence theorem）以及非负级数可以逐项积分的事实，在条件期望中都有确切的对应结论。&lt;/p&gt;
+&lt;h1 id=&#34;theorem-551-证明讲述脚本&#34;&gt;Theorem 5.5.1 证明讲述脚本
+&lt;/h1&gt;&lt;h2 id=&#34;0-开场与准备-recap-definition&#34;&gt;0. 开场与准备 (Recap Definition)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“各位老师/同学好，接下来我来讲解 &lt;strong&gt;Theorem 5.5.1&lt;/strong&gt;。
+这个定理给出了条件期望的三个基本性质：常数性、单调性和模不等式。
+证明这三个性质的核心逻辑是一致的，就是&lt;strong&gt;回到定义（Check the Definition）&lt;/strong&gt;。
+所以在开始之前，我们先快速回顾一下 $Z = E(Y|\mathscr{G})$ 的定义需要满足哪两个条件。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;em&gt;(在黑板最上方写下定义，作为后续引用的依据)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Def:&lt;/strong&gt; $Z = E(Y|\mathscr{G})$ iff:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$Z$ is $\mathscr{G}$-measurable.&lt;/li&gt;
+&lt;li&gt;$\forall C \in \mathscr{G}, \quad \int_C Z , dP = \int_C Y , dP$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-证明性质-a-常数性-constant&#34;&gt;1. 证明性质 (a): 常数性 (Constant)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“首先看性质 (a)。如果 $Y$ 几乎处处等于常数 $k$，我们要证它的条件期望也是 $k$。
+这非常直观。我们在数学上只需要验证常数 $k$ 是否满足上面的积分等式。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;strong&gt;(a) If $Y = k$ a.e., then $E(Y|\mathscr{G}) = k$.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Proof:
+Check definition for $Z = k$:
+&lt;/p&gt;
+$$\int_C k \, dP = \int_C Y \, dP \quad (\text{Since } Y=k \text{ a.e.})$$&lt;p&gt;
+$\therefore$ Holds for all $C \in \mathscr{G}$.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-证明性质-b-单调性-monotonicity&#34;&gt;2. 证明性质 (b): 单调性 (Monotonicity)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“接下来是性质 (b)，单调性。这是后续很多证明的基础。
+已知 $Y_1 \le Y_2$，我们要证明条件期望也保持这个序关系。
+证明分三步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用普通积分的单调性。&lt;/li&gt;
+&lt;li&gt;代入条件期望的定义。&lt;/li&gt;
+&lt;li&gt;利用测度论的一个重要引理（Lemma 1.6.11）：如果在一个 $\sigma$-代数的所有集合上积分都保持大小关系，那么被积函数本身也保持大小关系。”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;strong&gt;(b) If $Y_1 \le Y_2$ a.e., then $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Proof:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Since $Y_1 \le Y_2$, for any $C \in \mathscr{G}$:
+&lt;/p&gt;
+$$\int_C Y_1 \, dP \le \int_C Y_2 \, dP$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;By definition of Conditional Expectation:
+&lt;/p&gt;
+$$\int_C E(Y_1|\mathscr{G}) \, dP \le \int_C E(Y_2|\mathscr{G}) \, dP$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since this holds $\forall C \in \mathscr{G}$, by &lt;strong&gt;Lemma 1.6.11&lt;/strong&gt;:
+&lt;/p&gt;
+$$E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G}) \quad \text{a.e.}$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-证明性质-c-模不等式-triangle-inequality&#34;&gt;3. 证明性质 (c): 模不等式 (Triangle Inequality)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“最后是性质 (c)，$|E(Y|\mathscr{G})| \le E(|Y||\mathscr{G})$。
+这个性质其实是单调性的直接推论。我们不需要重新积分，只需要利用绝对值的夹逼性质。
+既然 $-|Y| \le Y \le |Y|$，我们可以对这三项同时取条件期望。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;strong&gt;(c) $|E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Proof:
+We know:
+&lt;/p&gt;
+$$-|Y| \le Y \le |Y|$$&lt;p&gt;Apply monotonicity (b):
+&lt;/p&gt;
+$$E(-|Y| \big| \mathscr{G}) \le E(Y|\mathscr{G}) \le E(|Y| \big| \mathscr{G})$$&lt;p&gt;Linearlity (pull out -1):
+&lt;/p&gt;
+$$-E(|Y| \big| \mathscr{G}) \le E(Y|\mathscr{G}) \le E(|Y| \big| \mathscr{G})$$&lt;p&gt;$\therefore |E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-结尾补充-关于-xx-的情况&#34;&gt;4. 结尾补充 (关于 $X=x$ 的情况)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“最后稍微提一下，对于定理中提到的 (a&amp;rsquo;), (b&amp;rsquo;), (c&amp;rsquo;) 关于 $E(Y|X=x)$ 的情况。
+证明逻辑是完全一样的（Same logic）。
+区别仅仅在于我们把积分区域从 $C$ 换成了它的原像 ${X \in A}$，把测度 $P$ 换成了分布 $P_X$。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;em&gt;(这里不需要写详细证明，写个对应关系即可)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note on (a&amp;rsquo;), (b&amp;rsquo;):&lt;/strong&gt;
+Replace $\int_C \dots dP$ with $\int_{{X \in A}} \dots dP = \int_A \dots dP_X$.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;552-定理-证明讲述脚本&#34;&gt;5.5.2 定理 证明讲述脚本
+&lt;/h2&gt;&lt;h1 id=&#34;theorem-552-证明讲述脚本&#34;&gt;Theorem 5.5.2 证明讲述脚本
+&lt;/h1&gt;&lt;h2 id=&#34;0-引入定理-introduction&#34;&gt;0. 引入定理 (Introduction)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“接下来我们证明 Theorem 5.5.2，也就是条件期望的&lt;strong&gt;线性性质 (Linearity)&lt;/strong&gt;。
+这是我们在实际计算中最常用的性质：线性组合的条件期望，等于条件期望的线性组合。
+这里有一个前提条件：$aE(Y_1) + bE(Y_2)$ 必须是定义良好的（即不能出现 $\infty - \infty$ 的情况）。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;strong&gt;Theorem 5.5.2 (Linearity)&lt;/strong&gt;
+&lt;/p&gt;
+$$E(aY_1 + bY_2 | \mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) \quad \text{a.e.}$$&lt;p&gt;
+&lt;em&gt;(Condition: RHS is well-defined)&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-证明的核心推导-the-derivation&#34;&gt;1. 证明的核心推导 (The Derivation)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“证明的思路依然是&lt;strong&gt;验证法&lt;/strong&gt;。我们需要证明右边的式子满足条件期望的积分定义。
+也就是要证明：对于任意的 $C \in \mathscr{G}$，两边的积分相等。&lt;/p&gt;
+&lt;p&gt;让我们从左边一项的积分开始推导。这是一个三步走的过程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;拆分&lt;/strong&gt;：利用普通积分的线性性把式子拆开。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;替换（关键步骤）&lt;/strong&gt;：根据条件期望的定义，把 $\int Y$ 替换为 $\int E(Y|\mathscr{G})$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合并&lt;/strong&gt;：再次利用普通积分的线性性把式子合起来。”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;strong&gt;Proof:&lt;/strong&gt;
+For any $C \in \mathscr{G}$:&lt;/p&gt;
+$$
+\begin{aligned}
+\text{LHS Integral} &amp;= \int_C (aY_1 + bY_2) \, dP \\
+\\
+&amp;\downarrow \text{ (1. Linearity of Integral)} \\
+\\
+&amp;= a\int_C Y_1 \, dP + b\int_C Y_2 \, dP \\
+\\
+&amp;\downarrow \text{ (2. Def of Conditional Expectation)} \\
+\\
+&amp;= a\int_C E(Y_1|\mathscr{G}) \, dP + b\int_C E(Y_2|\mathscr{G}) \, dP \\
+\\
+&amp;\downarrow \text{ (3. Linearity of Integral)} \\
+\\
+&amp;= \int_C [ aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) ] \, dP
+\end{aligned}
+$$&lt;hr&gt;
+&lt;h2 id=&#34;2-结论-conclusion&#34;&gt;2. 结论 (Conclusion)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“大家请看板书的头和尾。
+我们要寻找的目标函数是 $aY_1 + bY_2$ 的条件期望。
+我们发现，函数 $Z = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})$ 完美满足了积分等式：
+&lt;/p&gt;
+$$\int_C (Target) = \int_C (Z)$$&lt;p&gt;
+而且，$Z$ 显然是 $\mathscr{G}$-可测的（因为它是两个可测函数的线性组合）。&lt;/p&gt;
+&lt;p&gt;因此，根据定义，括号里的这一项就是 $aY_1 + bY_2$ 的条件期望。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+$\because$ Equation holds $\forall C \in \mathscr{G}$,
+$\therefore$ By definition:
+&lt;/p&gt;
+$$E(aY_1 + bY_2 | \mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) \quad \text{a.e.}$$&lt;hr&gt;
+&lt;h2 id=&#34;3-补充说明-关于-xx&#34;&gt;3. 补充说明 (关于 X=x)
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;【🗣️ 口述】&lt;/strong&gt;
+“最后，关于 (a&amp;rsquo;) 部分，也就是 $E(\cdot|X=x)$ 的情况。
+证明方法完全一致（Same as (a)）。
+书上也提到，只需要把积分区域 $C$ 替换为 ${X \in A}$，把测度换成 $P_X$ 即可。
+以后遇到类似的证明，我们都可以用‘同上’来处理。”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【✍️ 板书】&lt;/strong&gt;
+&lt;em&gt;(可选写)&lt;/em&gt;
+For (a&amp;rsquo;) $E(\cdot|X=x)$:
+Replace $C$ with ${X \in A}$, same logic.&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>My_View_on_</title>
         <link>https://blogbook.eu.org/p/my_view_on_/</link>
         <pubDate>Tue, 23 Dec 2025 12:17:22 +0800</pubDate>

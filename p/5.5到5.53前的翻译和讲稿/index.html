@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="模型评估 我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。\n准确率（Accuracy） 准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下： ">
-<title>模型评估</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="5.5到5.53的翻译 5.5 条件期望的性质 (Properties of Conditional Expectation) 条件期望 $E(Y|X=x)$ 是一个比条件期望 $E(Y|\\mathscr{G})$ 更直观的对象；然而，这种直观性很难推广到 $X$ 是有限维随机向量以外的情形。因此，在 $\\mathscr{G}$ 是任意 $\\sigma$-代数的形式化论证中，我们被迫使用 $E(Y|\\mathscr{G})$。\n">
+<title>5.5到5.53前的翻译和讲稿</title>
 
-<link rel='canonical' href='https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/'>
+<link rel='canonical' href='https://blogbook.eu.org/p/5.5%E5%88%B05.53%E5%89%8D%E7%9A%84%E7%BF%BB%E8%AF%91%E5%92%8C%E8%AE%B2%E7%A8%BF/'>
 
-<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="模型评估">
-<meta property='og:description' content="模型评估 我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。\n准确率（Accuracy） 准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下： ">
-<meta property='og:url' content='https://blogbook.eu.org/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/'>
+<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="5.5到5.53前的翻译和讲稿">
+<meta property='og:description' content="5.5到5.53的翻译 5.5 条件期望的性质 (Properties of Conditional Expectation) 条件期望 $E(Y|X=x)$ 是一个比条件期望 $E(Y|\\mathscr{G})$ 更直观的对象；然而，这种直观性很难推广到 $X$ 是有限维随机向量以外的情形。因此，在 $\\mathscr{G}$ 是任意 $\\sigma$-代数的形式化论证中，我们被迫使用 $E(Y|\\mathscr{G})$。\n">
+<meta property='og:url' content='https://blogbook.eu.org/p/5.5%E5%88%B05.53%E5%89%8D%E7%9A%84%E7%BF%BB%E8%AF%91%E5%92%8C%E8%AE%B2%E7%A8%BF/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-23T16:18:21&#43;08:00'/><meta property='article:modified_time' content='2025-06-25T22:08:52&#43;08:00'/>
-<meta name="twitter:title" content="模型评估">
-<meta name="twitter:description" content="模型评估 我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。\n准确率（Accuracy） 准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下： ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-03T22:33:03&#43;08:00'/><meta property='article:modified_time' content='2026-01-03T22:55:10&#43;08:00'/>
+<meta name="twitter:title" content="5.5到5.53前的翻译和讲稿">
+<meta name="twitter:description" content="5.5到5.53的翻译 5.5 条件期望的性质 (Properties of Conditional Expectation) 条件期望 $E(Y|X=x)$ 是一个比条件期望 $E(Y|\\mathscr{G})$ 更直观的对象；然而，这种直观性很难推广到 $X$ 是有限维随机向量以外的情形。因此，在 $\\mathscr{G}$ 是任意 $\\sigma$-代数的形式化论证中，我们被迫使用 $E(Y|\\mathscr{G})$。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script>
@@ -318,19 +318,32 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#模型评估">模型评估</a>
+    <li><a href="#55到553的翻译">5.5到5.53的翻译</a></li>
+  </ol>
+
+  <ol>
+    <li>
       <ol>
-        <li><a href="#准确率accuracy">准确率（Accuracy）</a></li>
-        <li><a href="#精确率precision">精确率（Precision）</a></li>
-        <li><a href="#召回率recall">召回率（Recall）</a></li>
-        <li><a href="#f1-score">F1-score</a></li>
-        <li><a href="#召回率和精确率的平衡">召回率和精确率的平衡</a></li>
-        <li><a href="#roc曲线和auc">ROC曲线和AUC</a></li>
-        <li><a href="#混淆矩阵">混淆矩阵</a></li>
-        <li><a href="#混淆矩阵的可视化">混淆矩阵的可视化</a></li>
-        <li><a href="#总结">总结</a></li>
+        <li><a href="#551-定理-theorem">5.5.1 定理 (Theorem)</a></li>
+        <li><a href="#552-定理-theorem">5.5.2 定理 (Theorem)</a></li>
       </ol>
     </li>
+  </ol>
+
+  <ol>
+    <li><a href="#0-开场与准备-recap-definition">0. 开场与准备 (Recap Definition)</a></li>
+    <li><a href="#1-证明性质-a-常数性-constant">1. 证明性质 (a): 常数性 (Constant)</a></li>
+    <li><a href="#2-证明性质-b-单调性-monotonicity">2. 证明性质 (b): 单调性 (Monotonicity)</a></li>
+    <li><a href="#3-证明性质-c-模不等式-triangle-inequality">3. 证明性质 (c): 模不等式 (Triangle Inequality)</a></li>
+    <li><a href="#4-结尾补充-关于-xx-的情况">4. 结尾补充 (关于 $X=x$ 的情况)</a></li>
+    <li><a href="#552-定理-证明讲述脚本">5.5.2 定理 证明讲述脚本</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#0-引入定理-introduction">0. 引入定理 (Introduction)</a></li>
+    <li><a href="#1-证明的核心推导-the-derivation">1. 证明的核心推导 (The Derivation)</a></li>
+    <li><a href="#2-结论-conclusion">2. 结论 (Conclusion)</a></li>
+    <li><a href="#3-补充说明-关于-xx">3. 补充说明 (关于 X=x)</a></li>
   </ol>
 </nav>
         </div>
@@ -347,18 +360,10 @@
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" >
-                机器学习
-            </a>
-        
-    </header>
-    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">模型评估</a>
+            <a href="/p/5.5%E5%88%B05.53%E5%89%8D%E7%9A%84%E7%BF%BB%E8%AF%91%E5%92%8C%E8%AE%B2%E7%A8%BF/">5.5到5.53前的翻译和讲稿</a>
         </h2>
     
         
@@ -380,7 +385,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2025-06-23</time>
+                <time class="article-time--published">2026-01-03</time>
             </div>
         
 
@@ -395,7 +400,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 4 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -410,167 +415,223 @@
     <section class="article-content">
     
     
-    <h2 id="模型评估">模型评估
-</h2><p>我们就在这篇文章来说一下,模型的一些评估指标.以便更好地理解模型的性能。</p>
-<h3 id="准确率accuracy">准确率（Accuracy）
-</h3><p>准确率是最常用的评估指标之一，表示模型预测正确的样本占总样本的比例。公式如下：
+    <h2 id="55到553的翻译">5.5到5.53的翻译
+</h2><h1 id="55-条件期望的性质-properties-of-conditional-expectation">5.5 条件期望的性质 (Properties of Conditional Expectation)
+</h1><p>条件期望 $E(Y|X=x)$ 是一个比条件期望 $E(Y|\mathscr{G})$ 更直观的对象；然而，这种直观性很难推广到 $X$ 是有限维随机向量以外的情形。因此，在 $\mathscr{G}$ 是任意 $\sigma$-代数的形式化论证中，我们被迫使用 $E(Y|\mathscr{G})$。</p>
+<p>为了方便起见，我们将成对地推导条件期望的基本性质：一个关于 $E(Y|\mathscr{G})$ 的论证，另一个（通常非常相似）关于 $E(Y|X=x)$ 的论证。关于条件概率的定理可以通过将 $Y$ 替换为指示函数 $I_B$ 获得，而关于 $E(Y|X)$ 的结果可以通过令 $\mathscr{G} = \sigma(X)$ 获得。</p>
+<p>在接下来的讨论中，$Y, Y_1, Y_2, \dots$ 是 $(\Omega, \mathscr{F}, P)$ 上的广义随机变量（extended random variables），并假设所有期望都存在；$X: (\Omega, \mathscr{F}) \to (\Omega&rsquo;, \mathscr{F}&rsquo;)$ 是一个随机对象，$\mathscr{G}$ 是 $\mathscr{F}$ 的子 $\sigma$-代数。若短语“a.e.”（几乎处处）没有指定测度，则总是指 a.e. $[P]$。如果 $Z: (\Omega, \mathscr{G}) \to (\bar{\mathbb{R}}, \mathscr{B})$，我们称 $Z$ 是 $\mathscr{G}$-可测的；如果 $g: (\Omega&rsquo;, \mathscr{F}&rsquo;) \to (\bar{\mathbb{R}}, \mathscr{B})$，我们称 $g$ 是 $\mathscr{F}&rsquo;$-可测的。</p>
+<h3 id="551-定理-theorem">5.5.1 定理 (Theorem)
+</h3><p>如果 $Y$ 几乎处处 (a.e.) 为常数 $k$，则
+(a) $E(Y|\mathscr{G}) = k$ a.e.
+(a&rsquo;) $E(Y|X=x) = k$ a.e. $[P_X]$.</p>
+<p>如果 $Y_1 \le Y_2$ a.e.，则
+(b) $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$ a.e.
+(b&rsquo;) $E(Y_1|X=x) \le E(Y_2|X=x)$ a.e. $[P_X]$.</p>
+<p>[注：诸如 $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$ a.e. 这样的陈述意味着：如果 $Z_j$ 是 $E(Y_j|\mathscr{G})$ 的一个版本（version），换句话说，$Z_j$ 满足定义要求 5.4.3，则 $Z_1 \le Z_2$ a.e.]</p>
+<p>(c) $|E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$ a.e.
+(c&rsquo;) $|E(Y|X=x)| \le E(|Y| \big| X=x)$ a.e. $[P_X]$.</p>
+<p><strong>证明 (PROOF):</strong></p>
+<p>(a) 常数函数 $k$ 是 $\mathscr{G}$-可测的，并且
 </p>
 $$
-\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}
+\int_C Y dP = \int_C k dP, \quad C \in \mathscr{G}.
+$$<p>(a&rsquo;) 如果 $g(x) \equiv k, x \in \Omega&rsquo;$，则 $g$ 是 $\mathscr{F}&rsquo;$-可测的，并且
+</p>
+$$
+\int_{\{X \in A\}} Y dP = \int_A k dP_X.
+$$<p>(b) $\int_C Y_1 dP \le \int_C Y_2 dP$；因此
+</p>
+$$
+\int_C E(Y_1|\mathscr{G}) dP \le \int_C E(Y_2|\mathscr{G}) dP \quad \text{对任意 } C \in \mathscr{G}.
 $$<p>
-其中：</p>
-<ul>
-<li>TP（True Positive）：真正例，模型正确预测为正类的样本数</li>
-<li>TN（True Negative）：真负例，模型正确预测为负类的样本数</li>
-<li>FP（False Positive）：假正例，模型错误预测为正类的样本数</li>
-<li>FN（False Negative）：假负例，模型错误预测为负类的样本数</li>
-</ul>
-<p>也就是其实就是这个模型对于所有样本的预测正确率。但是如果它这个样本不平衡的话,也就是正样本和负样本的比例不平衡的话,这个准确率就不是一个很好的指标了。就是比如说在一个数据集中，95%的样本是负类，5%的样本是正类。也就是它只要把样本全部预测成负类也有95%的准确率，这样就会导致模型的评估不准确。</p>
-<h3 id="精确率precision">精确率（Precision）
-</h3><p>精确率是指在所有被预测为正类的样本中，实际为正类的比例。公式如下：
+该结论由 [引理] 1.6.11 得出。</p>
+<p>(b&rsquo;) $\int_{{X \in A}} Y_1 dP \le \int_{{X \in A}} Y_2 dP$；因此
 </p>
-$$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}$$<p>
-精确率反映了模型在正类预测中的准确性。高精确率意味着模型在预测正类时较少出现误报。</p>
-<p>通过这指标我们就可以看到我们的模型在预测正类时的准确性.</p>
-<h3 id="召回率recall">召回率（Recall）
-</h3><p>召回率是指在所有实际为正类的样本中，模型正确预测为正类的比例。公式如下：
+$$
+\int_A E(Y_1|X=x) dP_X \le \int_A E(Y_2|X=x) dP_X \quad \text{对任意 } A \in \mathscr{F}'.
+$$<p>
+该结论由 1.6.11 得出。</p>
+<p>(c) 和 (c&rsquo;) 由 (b) 和 (b&rsquo;) 以及观察到 $-|Y| \le Y \le |Y|$ 得出。 $\square$</p>
+<hr>
+<p>我们现在证明条件期望的一个可加性定理。</p>
+<h3 id="552-定理-theorem">5.5.2 定理 (Theorem)
+</h3><p>(a) 如果 $a, b \in \mathbb{R}$，并且 $aE(Y_1) + bE(Y_2)$ 定义良好（即不是 $\infty - \infty$ 的形式），则 $E(aY_1 + bY_2|\mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})$ a.e.</p>
+<p>(a&rsquo;) 如果 $a, b \in \mathbb{R}$，并且 $aE(Y_1) + bE(Y_2)$ 定义良好，则
 </p>
-$$\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}$$<p>
-召回率反映了模型对正类样本的捕捉能力。高召回率意味着模型能够识别出大部分正类样本。</p>
-<p>通过这个指标我们就可以看到我们的模型对于正类样本的捕捉能力.</p>
-<h3 id="f1-score">F1-score
-</h3><p>F1-score是精确率和召回率的调和平均数，用于综合评估模型的性能。公式如下：
+$$
+E(aY_1 + bY_2|X=x) = aE(Y_1|X=x) + bE(Y_2|X=x) \text{ a.e. } [P_X].
+$$<p><strong>证明 (PROOF):</strong></p>
+<p>(a) 如果 $C \in \mathscr{G}$，
 </p>
-$$\text{F1-score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$<p>
-F1-score在精确率和召回率之间取得平衡，适用于需要同时考虑这两个指标的场景。它特别适用于正负样本不平衡的情况。
-F1-score的值越高，表示模型的综合性能越好。</p>
-<h3 id="召回率和精确率的平衡">召回率和精确率的平衡
-</h3><p>召回率和精确率之间通常存在一定的权衡关系。提高召回率可能会导致精确率下降，反之亦然。因此，在实际应用中，需要根据具体任务的需求来选择合适的评估指标。例如，在医疗诊断中，可能更关注召回率，以确保尽可能多地识别出患病患者；而在垃圾邮件过滤中，可能更关注精确率，以减少误报。</p>
-<h3 id="roc曲线和auc">ROC曲线和AUC
-</h3><p>ROC曲线（Receiver Operating Characteristic Curve）是一个用于评估二分类模型性能的图形工具。它通过绘制真正率（TPR）和假正率（FPR）来展示模型在不同阈值下的表现。AUC（Area Under the Curve）是ROC曲线下的面积，用于量化模型的整体性能。AUC的值介于0和1之间，值越大表示模型性能越好。如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623162855.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="20250623162855"
-	
-	
-></p>
-<p>什么是ROC曲线和AUC？
-ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下的性能。横轴表示假正率（FPR），纵轴表示真正率（TPR）。AUC是ROC曲线下的面积，表示模型的整体性能。也就是这个AUC的值越大，表示模型性能越好。</p>
-<p>看一下几种情况,当auc=1时,如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163326.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="20250623163326"
-	
-	
-></p>
-<p>也就是存在一个阈值,使得模型的假正率为0，真正率为1，这种情况是理想的。</p>
-<p>当auc=0.7时,如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163512.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="20250623163512"
-	
-	
-></p>
-<p>也就是,这个阈值并不可以使得模型的假正率为0，真正率为1，这种情况是比较常见的。也就是有一些假正例和假负例没有被正确分类。</p>
-<p>当auc=0.5时,如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163626.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="20250623163626"
-	
-	
-></p>
-<p>也就是,这个阈值并不能使得模型的假正率为0，真正率为1，这种情况是最差的。也就是模型的预测结果和随机猜测没有区别。</p>
-<p>还有一种就是auc=0时,如图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NubisMons/hugoimg/20250623163732.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="20250623163732"
-	
-	
-></p>
-<p>这个也挺好的,也是完全区分正负判例,与只不过反了而已.</p>
-<h3 id="混淆矩阵">混淆矩阵
-</h3><p>混淆矩阵是一个用于可视化分类模型性能的工具，它展示了模型在不同类别上的预测结果。混淆矩阵通常是一个二维表格，其中行表示实际类别，列表示预测类别。通过混淆矩阵，我们可以直观地看到模型在各个类别上的预测情况。
-混淆矩阵的形式如下：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>实际/预测</th>
-          <th>正类</th>
-          <th>负类</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>正类</td>
-          <td>TP</td>
-          <td>FN</td>
-      </tr>
-      <tr>
-          <td>负类</td>
-          <td>FP</td>
-          <td>TN</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>混淆矩阵可以帮助我们更好地理解模型的预测结果，识别出哪些类别容易被混淆，以及模型在不同类别上的表现。</p>
-<h3 id="混淆矩阵的可视化">混淆矩阵的可视化
-</h3><p>我们可以使用Python中的<code>seaborn</code>库来可视化混淆矩阵。以下是一个示例代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
-</span></span><span class="line"><span class="cl"><span class="c1"># 假设y_true和y_pred是实际标签和预测标签</span>
-</span></span><span class="line"><span class="cl"><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">],</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="总结">总结
-</h3><p>在模型评估中，我们使用了多种指标来全面了解模型的性能，包括准确率、精确率、召回率、F1-score、ROC曲线和混淆矩阵等。这些指标各有侧重，适用于不同的场景和需求。在实际应用中，我们需要根据具体任务的特点，选择合适的评估指标，以便更好地优化和改进模型。</p>
+$$
+\begin{aligned}
+\int_C (aY_1 + bY_2) dP &= \int_C aY_1 dP + \int_C bY_2 dP \\
+&\quad \text{(由积分的可加性定理)} \\
+&= \int_C aE(Y_1|\mathscr{G}) dP + \int_C bE(Y_2|\mathscr{G}) dP \\
+&\quad \text{(由条件期望的定义)}
+\end{aligned}
+$$<p>
+因此 $\int_C aE(Y_1|\mathscr{G}) dP + \int_C bE(Y_2|\mathscr{G}) dP$ 定义良好，再次利用积分的可加性定理，
+</p>
+$$
+\int_C (aY_1 + bY_2) dP = \int_C [aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})] dP,
+$$<p>
+正如所需证明的那样。</p>
+<p>(a&rsquo;) 这与 (a) 的做法一样，只需将 $C$ 替换为 ${X \in A}$ 并将
+</p>
+$$
+\int_C E(Y_j|\mathscr{G}) dP \quad \text{替换为} \quad \int_A E(Y_j|X=x) dP_X.
+$$<p>在未来，我们将用诸如“同 (a)”这样的短语来处理此类证明。 $\square$</p>
+<p>单调收敛定理（The monotone convergence theorem）以及非负级数可以逐项积分的事实，在条件期望中都有确切的对应结论。</p>
+<h1 id="theorem-551-证明讲述脚本">Theorem 5.5.1 证明讲述脚本
+</h1><h2 id="0-开场与准备-recap-definition">0. 开场与准备 (Recap Definition)
+</h2><p><strong>【🗣️ 口述】</strong>
+“各位老师/同学好，接下来我来讲解 <strong>Theorem 5.5.1</strong>。
+这个定理给出了条件期望的三个基本性质：常数性、单调性和模不等式。
+证明这三个性质的核心逻辑是一致的，就是<strong>回到定义（Check the Definition）</strong>。
+所以在开始之前，我们先快速回顾一下 $Z = E(Y|\mathscr{G})$ 的定义需要满足哪两个条件。”</p>
+<p><strong>【✍️ 板书】</strong>
+<em>(在黑板最上方写下定义，作为后续引用的依据)</em></p>
+<p><strong>Def:</strong> $Z = E(Y|\mathscr{G})$ iff:</p>
+<ol>
+<li>$Z$ is $\mathscr{G}$-measurable.</li>
+<li>$\forall C \in \mathscr{G}, \quad \int_C Z , dP = \int_C Y , dP$.</li>
+</ol>
+<hr>
+<h2 id="1-证明性质-a-常数性-constant">1. 证明性质 (a): 常数性 (Constant)
+</h2><p><strong>【🗣️ 口述】</strong>
+“首先看性质 (a)。如果 $Y$ 几乎处处等于常数 $k$，我们要证它的条件期望也是 $k$。
+这非常直观。我们在数学上只需要验证常数 $k$ 是否满足上面的积分等式。”</p>
+<p><strong>【✍️ 板书】</strong>
+<strong>(a) If $Y = k$ a.e., then $E(Y|\mathscr{G}) = k$.</strong></p>
+<p>Proof:
+Check definition for $Z = k$:
+</p>
+$$\int_C k \, dP = \int_C Y \, dP \quad (\text{Since } Y=k \text{ a.e.})$$<p>
+$\therefore$ Holds for all $C \in \mathscr{G}$.</p>
+<hr>
+<h2 id="2-证明性质-b-单调性-monotonicity">2. 证明性质 (b): 单调性 (Monotonicity)
+</h2><p><strong>【🗣️ 口述】</strong>
+“接下来是性质 (b)，单调性。这是后续很多证明的基础。
+已知 $Y_1 \le Y_2$，我们要证明条件期望也保持这个序关系。
+证明分三步：</p>
+<ol>
+<li>利用普通积分的单调性。</li>
+<li>代入条件期望的定义。</li>
+<li>利用测度论的一个重要引理（Lemma 1.6.11）：如果在一个 $\sigma$-代数的所有集合上积分都保持大小关系，那么被积函数本身也保持大小关系。”</li>
+</ol>
+<p><strong>【✍️ 板书】</strong>
+<strong>(b) If $Y_1 \le Y_2$ a.e., then $E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G})$.</strong></p>
+<p>Proof:</p>
+<ol>
+<li>
+<p>Since $Y_1 \le Y_2$, for any $C \in \mathscr{G}$:
+</p>
+$$\int_C Y_1 \, dP \le \int_C Y_2 \, dP$$</li>
+<li>
+<p>By definition of Conditional Expectation:
+</p>
+$$\int_C E(Y_1|\mathscr{G}) \, dP \le \int_C E(Y_2|\mathscr{G}) \, dP$$</li>
+<li>
+<p>Since this holds $\forall C \in \mathscr{G}$, by <strong>Lemma 1.6.11</strong>:
+</p>
+$$E(Y_1|\mathscr{G}) \le E(Y_2|\mathscr{G}) \quad \text{a.e.}$$</li>
+</ol>
+<hr>
+<h2 id="3-证明性质-c-模不等式-triangle-inequality">3. 证明性质 (c): 模不等式 (Triangle Inequality)
+</h2><p><strong>【🗣️ 口述】</strong>
+“最后是性质 (c)，$|E(Y|\mathscr{G})| \le E(|Y||\mathscr{G})$。
+这个性质其实是单调性的直接推论。我们不需要重新积分，只需要利用绝对值的夹逼性质。
+既然 $-|Y| \le Y \le |Y|$，我们可以对这三项同时取条件期望。”</p>
+<p><strong>【✍️ 板书】</strong>
+<strong>(c) $|E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$.</strong></p>
+<p>Proof:
+We know:
+</p>
+$$-|Y| \le Y \le |Y|$$<p>Apply monotonicity (b):
+</p>
+$$E(-|Y| \big| \mathscr{G}) \le E(Y|\mathscr{G}) \le E(|Y| \big| \mathscr{G})$$<p>Linearlity (pull out -1):
+</p>
+$$-E(|Y| \big| \mathscr{G}) \le E(Y|\mathscr{G}) \le E(|Y| \big| \mathscr{G})$$<p>$\therefore |E(Y|\mathscr{G})| \le E(|Y| \big| \mathscr{G})$.</p>
+<hr>
+<h2 id="4-结尾补充-关于-xx-的情况">4. 结尾补充 (关于 $X=x$ 的情况)
+</h2><p><strong>【🗣️ 口述】</strong>
+“最后稍微提一下，对于定理中提到的 (a&rsquo;), (b&rsquo;), (c&rsquo;) 关于 $E(Y|X=x)$ 的情况。
+证明逻辑是完全一样的（Same logic）。
+区别仅仅在于我们把积分区域从 $C$ 换成了它的原像 ${X \in A}$，把测度 $P$ 换成了分布 $P_X$。”</p>
+<p><strong>【✍️ 板书】</strong>
+<em>(这里不需要写详细证明，写个对应关系即可)</em></p>
+<p><strong>Note on (a&rsquo;), (b&rsquo;):</strong>
+Replace $\int_C \dots dP$ with $\int_{{X \in A}} \dots dP = \int_A \dots dP_X$.</p>
+<hr>
+<h2 id="552-定理-证明讲述脚本">5.5.2 定理 证明讲述脚本
+</h2><h1 id="theorem-552-证明讲述脚本">Theorem 5.5.2 证明讲述脚本
+</h1><h2 id="0-引入定理-introduction">0. 引入定理 (Introduction)
+</h2><p><strong>【🗣️ 口述】</strong>
+“接下来我们证明 Theorem 5.5.2，也就是条件期望的<strong>线性性质 (Linearity)</strong>。
+这是我们在实际计算中最常用的性质：线性组合的条件期望，等于条件期望的线性组合。
+这里有一个前提条件：$aE(Y_1) + bE(Y_2)$ 必须是定义良好的（即不能出现 $\infty - \infty$ 的情况）。”</p>
+<p><strong>【✍️ 板书】</strong>
+<strong>Theorem 5.5.2 (Linearity)</strong>
+</p>
+$$E(aY_1 + bY_2 | \mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) \quad \text{a.e.}$$<p>
+<em>(Condition: RHS is well-defined)</em></p>
+<hr>
+<h2 id="1-证明的核心推导-the-derivation">1. 证明的核心推导 (The Derivation)
+</h2><p><strong>【🗣️ 口述】</strong>
+“证明的思路依然是<strong>验证法</strong>。我们需要证明右边的式子满足条件期望的积分定义。
+也就是要证明：对于任意的 $C \in \mathscr{G}$，两边的积分相等。</p>
+<p>让我们从左边一项的积分开始推导。这是一个三步走的过程：</p>
+<ol>
+<li><strong>拆分</strong>：利用普通积分的线性性把式子拆开。</li>
+<li><strong>替换（关键步骤）</strong>：根据条件期望的定义，把 $\int Y$ 替换为 $\int E(Y|\mathscr{G})$。</li>
+<li><strong>合并</strong>：再次利用普通积分的线性性把式子合起来。”</li>
+</ol>
+<p><strong>【✍️ 板书】</strong>
+<strong>Proof:</strong>
+For any $C \in \mathscr{G}$:</p>
+$$
+\begin{aligned}
+\text{LHS Integral} &= \int_C (aY_1 + bY_2) \, dP \\
+\\
+&\downarrow \text{ (1. Linearity of Integral)} \\
+\\
+&= a\int_C Y_1 \, dP + b\int_C Y_2 \, dP \\
+\\
+&\downarrow \text{ (2. Def of Conditional Expectation)} \\
+\\
+&= a\int_C E(Y_1|\mathscr{G}) \, dP + b\int_C E(Y_2|\mathscr{G}) \, dP \\
+\\
+&\downarrow \text{ (3. Linearity of Integral)} \\
+\\
+&= \int_C [ aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) ] \, dP
+\end{aligned}
+$$<hr>
+<h2 id="2-结论-conclusion">2. 结论 (Conclusion)
+</h2><p><strong>【🗣️ 口述】</strong>
+“大家请看板书的头和尾。
+我们要寻找的目标函数是 $aY_1 + bY_2$ 的条件期望。
+我们发现，函数 $Z = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G})$ 完美满足了积分等式：
+</p>
+$$\int_C (Target) = \int_C (Z)$$<p>
+而且，$Z$ 显然是 $\mathscr{G}$-可测的（因为它是两个可测函数的线性组合）。</p>
+<p>因此，根据定义，括号里的这一项就是 $aY_1 + bY_2$ 的条件期望。”</p>
+<p><strong>【✍️ 板书】</strong>
+$\because$ Equation holds $\forall C \in \mathscr{G}$,
+$\therefore$ By definition:
+</p>
+$$E(aY_1 + bY_2 | \mathscr{G}) = aE(Y_1|\mathscr{G}) + bE(Y_2|\mathscr{G}) \quad \text{a.e.}$$<hr>
+<h2 id="3-补充说明-关于-xx">3. 补充说明 (关于 X=x)
+</h2><p><strong>【🗣️ 口述】</strong>
+“最后，关于 (a&rsquo;) 部分，也就是 $E(\cdot|X=x)$ 的情况。
+证明方法完全一致（Same as (a)）。
+书上也提到，只需要把积分区域 $C$ 替换为 ${X \in A}$，把测度换成 $P_X$ 即可。
+以后遇到类似的证明，我们都可以用‘同上’来处理。”</p>
+<p><strong>【✍️ 板书】</strong>
+<em>(可选写)</em>
+For (a&rsquo;) $E(\cdot|X=x)$:
+Replace $C$ with ${X \in A}$, same logic.</p>
+<hr>
 
 </section>
 
@@ -588,7 +649,7 @@ ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下�
 
 
         <span>
-            最后更新于 2025-06-25 22:08
+            最后更新于 2026-01-03 22:55
         </span>
     </section></footer>
 
@@ -599,54 +660,6 @@ ROC曲线是一个二维图形，用于展示二分类模型在不同阈值下�
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/p/%E4%BA%A4%E5%8F%89%E7%86%B5/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">交叉熵</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">数据预处理与特征工程</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%BA/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">数理统计与概率论</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
