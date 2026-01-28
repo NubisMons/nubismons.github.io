@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Translation on 云雾中的山-NubisMons</title>
+        <link>https://blogbook.eu.org/categories/translation/</link>
+        <description>Recent content in Translation on 云雾中的山-NubisMons</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisMons</copyright>
+        <lastBuildDate>Thu, 29 Jan 2026 00:16:16 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/translation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)</title>
+        <link>https://blogbook.eu.org/p/imagenet-classification-with-deep-convolutional-neural-networks-alexnet/</link>
+        <pubDate>Wed, 28 Jan 2026 23:01:44 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/imagenet-classification-with-deep-convolutional-neural-networks-alexnet/</guid>
+        <description>&lt;h2 id=&#34;这个是关于alexnet的论文翻译为了可以更好的理解深度学习的发展历程和背景从这篇开始我会逐步的把一些经典的深度学习论文翻译出来方便自己和大家理解&#34;&gt;这个是关于alexnet的论文翻译,为了可以更好的理解深度学习的发展历程和背景，从这篇开始我会逐步的把一些经典的深度学习论文翻译出来，方便自己和大家理解。
+&lt;/h2&gt;&lt;h3 id=&#34;摘要&#34;&gt;摘要
+&lt;/h3&gt;&lt;p&gt;我们训练了一个大而深的卷积神经网络去分类在ImageNet LSVRC-2010的一个有1000个类别有120百万张高清晰度的图片的数据集，在测试集上，我们取得top-1和top-5错误率是37.5和17.0这个已经比当前最先进的结果都要好，这个神经网络拥有60百万个参数和65万个神经元组成，它有五层卷积层，三个全连接层，最后一个是1000路的softmax的一个输出层。为了训练更快一点，我们使用非饱和的神经元和一个非常有效率的GPU来实现卷积操作。为什么减少过拟合在全连接层我们使用现在很热的一个正则化“dropout”，我们还输入这个模型的一个变体到一个更大的数据集上在ILSVRC-2012上top-5也取得15.3%的错误率，比第二名只有26.2%的错误率好很多。&lt;/p&gt;
+&lt;h3 id=&#34;1-引言&#34;&gt;1. 引言
+&lt;/h3&gt;&lt;p&gt;当前的方法都是使用机器学习的方法去建立一个目标的识别。为了可以改善他们的性能，我们可以用一个大的数据集去学习一个更强的模型，用一个更好的的技术去预防过拟合这个问题。直到最近有标签的图片数据集还是相对较小的，就是顶多一个上万张左右，对于这种较小的数据集我们使用简单的识别模型就可以完美去解决它。尤其是使用保留标签的变换去增强。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
