@@ -151,6 +151,7 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$&lt;/block
 &lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;联合概率的乘积:
+
 $$P(A\cap B)=P(A)P(B)$$
 这是独立事件最常用的定义，也是最普遍适用的定义.即使这个$P(A)=0$或者$P(B)=0$也是适用的.&lt;/li&gt;
 &lt;/ol&gt;

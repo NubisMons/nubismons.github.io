@@ -54,7 +54,8 @@ $$\text{ess sup } g = \inf S$$&lt;h3 id=&#34;-讲稿--script-1&#34;&gt;🗣️ [
 &lt;/h2&gt;&lt;h3 id=&#34;-板书--board-2&#34;&gt;🟢 [板书 | Board]
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2. The Space $L^\infty$&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$$L^\infty = \{ f : \|f\|_\infty &lt; \infty \}$$&lt;/li&gt;
+&lt;li&gt;
+$$L^\infty = \{ f : \|f\|_\infty &lt; \infty \}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Norm:&lt;/strong&gt; $|f|_\infty = \text{ess sup } |f|$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Triangle Inequality:&lt;/strong&gt;
 $|f+g|&lt;em&gt;\infty \le |f|&lt;/em&gt;\infty + |g|_\infty$ (a.e.)&lt;/li&gt;

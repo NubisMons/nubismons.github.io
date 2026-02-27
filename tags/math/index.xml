@@ -91,7 +91,8 @@ y(4)=x(4)*h(0)+x(3)*h(1)+x(2)*h(2)+x(1)*h(3)+x(0)*h(4)&lt;/p&gt;
 &lt;li&gt;嵌入文字显示：&lt;code&gt;$...$&lt;/code&gt;
 eg: &lt;code&gt;$\sum^n_{i=1}x^i=1$&lt;/code&gt; ==&amp;gt; $\sum^n_{i=1}x^i=1$&lt;/li&gt;
 &lt;li&gt;单行显示： &lt;code&gt;$$...$$&lt;/code&gt;
-eg: &lt;code&gt;$ $\sum^n_{i=1}x^i=1$ $&lt;/code&gt; ==&amp;gt; $$\sum^n_{i=1}x^i=1$$&lt;/li&gt;
+eg: &lt;code&gt;$ $\sum^n_{i=1}x^i=1$ $&lt;/code&gt; ==&amp;gt;
+$$\sum^n_{i=1}x^i=1$$&lt;/li&gt;
 &lt;li&gt;带序号显示：&lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;
 eg:
 &lt;code&gt;\begin{equation}\sum^n_{i=1}x^i=1\end{equation}&lt;/code&gt; ==&amp;gt; \begin{equation}\sum^n_{i=1}x^i=1\end{equation}

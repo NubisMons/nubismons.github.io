@@ -363,12 +363,15 @@ $$X_{new} = \frac{X}{||X||_2}$$&lt;div class=&#34;highlight&#34;&gt;&lt;div clas
 &lt;p&gt;&lt;strong&gt;PCA数学推导简要：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;中心化数据&lt;/strong&gt;：
+
 $$X_{centered} = X - \bar{X}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;计算协方差矩阵&lt;/strong&gt;：
+
 $$C = \frac{1}{n} X_{centered}^T X_{centered}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;特征分解&lt;/strong&gt;：对协方差矩阵$C$做特征值分解，得到特征值$\lambda_i$和特征向量$u_i$。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;选取主成分&lt;/strong&gt;：按特征值从大到小排序，选取前$k$个特征向量组成投影矩阵$U_k$。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据投影&lt;/strong&gt;：
+
 $$Z = X_{centered} U_k$$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;PCA性质：&lt;/strong&gt;&lt;/p&gt;

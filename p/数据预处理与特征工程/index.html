@@ -777,12 +777,15 @@ $$X_{new} = \frac{X}{||X||_2}$$<div class="highlight"><div class="chroma">
 <p><strong>PCA数学推导简要：</strong></p>
 <ol>
 <li><strong>中心化数据</strong>：
+
 $$X_{centered} = X - \bar{X}$$</li>
 <li><strong>计算协方差矩阵</strong>：
+
 $$C = \frac{1}{n} X_{centered}^T X_{centered}$$</li>
 <li><strong>特征分解</strong>：对协方差矩阵$C$做特征值分解，得到特征值$\lambda_i$和特征向量$u_i$。</li>
 <li><strong>选取主成分</strong>：按特征值从大到小排序，选取前$k$个特征向量组成投影矩阵$U_k$。</li>
 <li><strong>数据投影</strong>：
+
 $$Z = X_{centered} U_k$$</li>
 </ol>
 <p><strong>PCA性质：</strong></p>

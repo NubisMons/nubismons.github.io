@@ -16,7 +16,7 @@
 &lt;/h2&gt;&lt;h3 id=&#34;摘要&#34;&gt;摘要
 &lt;/h3&gt;&lt;p&gt;我们训练了一个大而深的卷积神经网络去分类在ImageNet LSVRC-2010的一个有1000个类别有120百万张高清晰度的图片的数据集，在测试集上，我们取得top-1和top-5错误率是37.5和17.0这个已经比当前最先进的结果都要好，这个神经网络拥有60百万个参数和65万个神经元组成，它有五层卷积层，三个全连接层，最后一个是1000路的softmax的一个输出层。为了训练更快一点，我们使用非饱和的神经元和一个非常有效率的GPU来实现卷积操作。为什么减少过拟合在全连接层我们使用现在很热的一个正则化“dropout”，我们还输入这个模型的一个变体到一个更大的数据集上在ILSVRC-2012上top-5也取得15.3%的错误率，比第二名只有26.2%的错误率好很多。&lt;/p&gt;
 &lt;h3 id=&#34;1-引言&#34;&gt;1. 引言
-&lt;/h3&gt;&lt;p&gt;当前的方法都是使用机器学习的方法去建立一个目标的识别。为了可以改善他们的性能，我们可以用一个大的数据集去学习一个更强的模型，用一个更好的的技术去预防过拟合这个问题。直到最近有标签的图片数据集还是相对较小的，就是顶多一个上万张左右，对于这种较小的数据集我们使用简单的识别模型就可以完美去解决它。尤其是使用保留标签的变换去增强。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;当前的方法都是使用机器学习的方法去建立一个目标的识别。为了可以改善他们的性能，我们可以用一个大的数据集去学习一个更强的模型，用一个更好的的技术去预防过拟合这个问题。直到最近有标签的图片数据集还是相对较小的，就是顶多一个上万张左右，对于这种较小的数据集我们使用简单的识别模型就可以完美去解决它。尤其是使用保留标签的变换去增强。就是我们可以对图片进行一些变换去增强数据集的大小，比如说翻转，裁剪，旋转等等。对于这些小的数据集我们使用一个简单的模型就可以完美的去解决它了。比如说在MNIST上我们使用一个简单的卷积神经网络就可以达到99.7%的准确率了。但是在更大的数据集上我们需要一个更强的模型去解决它。比如说在ImageNet上我们需要一个更深的网络去解决它。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -313,7 +313,8 @@ $$\text{ess sup } g = \inf S$$&lt;h3 id=&#34;-讲稿--script-1&#34;&gt;🗣️ [
 &lt;/h2&gt;&lt;h3 id=&#34;-板书--board-2&#34;&gt;🟢 [板书 | Board]
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;2. The Space $L^\infty$&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$$L^\infty = \{ f : \|f\|_\infty &lt; \infty \}$$&lt;/li&gt;
+&lt;li&gt;
+$$L^\infty = \{ f : \|f\|_\infty &lt; \infty \}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Norm:&lt;/strong&gt; $|f|_\infty = \text{ess sup } |f|$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Triangle Inequality:&lt;/strong&gt;
 $|f+g|&lt;em&gt;\infty \le |f|&lt;/em&gt;\infty + |g|_\infty$ (a.e.)&lt;/li&gt;
@@ -1217,12 +1218,15 @@ $$X_{new} = \frac{X}{||X||_2}$$&lt;div class=&#34;highlight&#34;&gt;&lt;div clas
 &lt;p&gt;&lt;strong&gt;PCA数学推导简要：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;中心化数据&lt;/strong&gt;：
+
 $$X_{centered} = X - \bar{X}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;计算协方差矩阵&lt;/strong&gt;：
+
 $$C = \frac{1}{n} X_{centered}^T X_{centered}$$&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;特征分解&lt;/strong&gt;：对协方差矩阵$C$做特征值分解，得到特征值$\lambda_i$和特征向量$u_i$。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;选取主成分&lt;/strong&gt;：按特征值从大到小排序，选取前$k$个特征向量组成投影矩阵$U_k$。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;数据投影&lt;/strong&gt;：
+
 $$Z = X_{centered} U_k$$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;PCA性质：&lt;/strong&gt;&lt;/p&gt;
@@ -1786,6 +1790,7 @@ $$P(A)\approx\frac{事件A发生的次数}{重复试验的总次数}$$&lt;/block
 &lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;联合概率的乘积:
+
 $$P(A\cap B)=P(A)P(B)$$
 这是独立事件最常用的定义，也是最普遍适用的定义.即使这个$P(A)=0$或者$P(B)=0$也是适用的.&lt;/li&gt;
 &lt;/ol&gt;
@@ -2342,7 +2347,8 @@ y(4)=x(4)*h(0)+x(3)*h(1)+x(2)*h(2)+x(1)*h(3)+x(0)*h(4)&lt;/p&gt;
 &lt;li&gt;嵌入文字显示：&lt;code&gt;$...$&lt;/code&gt;
 eg: &lt;code&gt;$\sum^n_{i=1}x^i=1$&lt;/code&gt; ==&amp;gt; $\sum^n_{i=1}x^i=1$&lt;/li&gt;
 &lt;li&gt;单行显示： &lt;code&gt;$$...$$&lt;/code&gt;
-eg: &lt;code&gt;$ $\sum^n_{i=1}x^i=1$ $&lt;/code&gt; ==&amp;gt; $$\sum^n_{i=1}x^i=1$$&lt;/li&gt;
+eg: &lt;code&gt;$ $\sum^n_{i=1}x^i=1$ $&lt;/code&gt; ==&amp;gt;
+$$\sum^n_{i=1}x^i=1$$&lt;/li&gt;
 &lt;li&gt;带序号显示：&lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;
 eg:
 &lt;code&gt;\begin{equation}\sum^n_{i=1}x^i=1\end{equation}&lt;/code&gt; ==&amp;gt; \begin{equation}\sum^n_{i=1}x^i=1\end{equation}
