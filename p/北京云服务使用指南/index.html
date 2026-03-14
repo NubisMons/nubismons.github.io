@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="没问题，这篇博客文档我已经为你排版好了。它涵盖了从最初的 SSH 配置到解决架构冲突、安装离线包、以及最终跑通 A100 算力的全过程。\n你可以直接复制下面的内容，保存为 supercomputer_setup_guide.md。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
 <title>北京云服务使用指南</title>
 
 <link rel='canonical' href='https://blogbook.eu.org/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/'>
 
 <link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="北京云服务使用指南">
-<meta property='og:description' content="没问题，这篇博客文档我已经为你排版好了。它涵盖了从最初的 SSH 配置到解决架构冲突、安装离线包、以及最终跑通 A100 算力的全过程。\n你可以直接复制下面的内容，保存为 supercomputer_setup_guide.md。\n">
+<meta property='og:description' content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
 <meta property='og:url' content='https://blogbook.eu.org/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-14T14:23:27&#43;08:00'/><meta property='article:modified_time' content='2026-03-14T14:25:48&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-14T14:23:27&#43;08:00'/><meta property='article:modified_time' content='2026-03-15T00:11:43&#43;08:00'/>
 <meta name="twitter:title" content="北京云服务使用指南">
-<meta name="twitter:description" content="没问题，这篇博客文档我已经为你排版好了。它涵盖了从最初的 SSH 配置到解决架构冲突、安装离线包、以及最终跑通 A100 算力的全过程。\n你可以直接复制下面的内容，保存为 supercomputer_setup_guide.md。\n">
+<meta name="twitter:description" content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script>
@@ -318,27 +318,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#1-终端与-vs-code-远程连接配置">1. 终端与 VS Code 远程连接配置</a>
+    <li>
       <ol>
-        <li><a href="#11-ssh-基础配置">1.1 SSH 基础配置</a></li>
-        <li><a href="#12-免密登录避坑">1.2 免密登录避坑</a></li>
+        <li><a href="#1-交互式申请边调边练-srun">1. 交互式申请：边调边练 (srun)</a></li>
+        <li><a href="#2-离线提交正式跑实验-sbatch">2. 离线提交：正式跑实验 (sbatch)</a></li>
+        <li><a href="#3-全流程避坑总结终极版">3. 全流程避坑总结（终极版）</a></li>
+        <li><a href="#4-几个常用的救命命令">4. 几个常用的“救命”命令</a></li>
       </ol>
     </li>
-    <li><a href="#2-深度学习环境搭建-aarch64-专项">2. 深度学习环境搭建 (Aarch64 专项)</a>
-      <ol>
-        <li><a href="#21-清理环境冲突">2.1 清理环境冲突</a></li>
-        <li><a href="#22-创建环境与离线安装-pytorch">2.2 创建环境与离线安装 PyTorch</a></li>
-        <li><a href="#23-修复-numpy-20-兼容性警告">2.3 修复 NumPy 2.0 兼容性警告</a></li>
-      </ol>
-    </li>
-    <li><a href="#3-日常开发工作流-daily-routine">3. 日常开发工作流 (Daily Routine)</a>
-      <ol>
-        <li><a href="#step-1-申请资源">Step 1: 申请资源</a></li>
-        <li><a href="#step-2-环境挂载-计算节点">Step 2: 环境挂载 (计算节点)</a></li>
-        <li><a href="#step-3-gpu-连通性测试">Step 3: GPU 连通性测试</a></li>
-      </ol>
-    </li>
-    <li><a href="#4-结语与注意事项">4. 结语与注意事项</a></li>
   </ol>
 </nav>
         </div>
@@ -395,7 +382,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -410,17 +397,30 @@
     <section class="article-content">
     
     
-    <p>没问题，这篇博客文档我已经为你排版好了。它涵盖了从最初的 SSH 配置到解决架构冲突、安装离线包、以及最终跑通 A100 算力的全过程。</p>
-<p>你可以直接复制下面的内容，保存为 <code>supercomputer_setup_guide.md</code>。</p>
+    <p>在超算（HPC）环境中，<strong>登录节点（Login Node）</strong> 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 <code>import torch</code> 并进行计算，就必须<strong>申请计算节点（Compute Node）</strong>。</p>
+<p>结合你之前的报错和环境，这里是加入“申请节点”后的完整操作手册：</p>
 <hr>
-<h1 id="玩转-aarch64-架构超算a100-环境配置与-vs-code-丝滑开发指南">玩转 Aarch64 架构超算：A100 环境配置与 VS Code 丝滑开发指南
-</h1><blockquote>
-<p><strong>背景</strong>：在典型的国产化或定制化超算集群中，登录节点与计算节点往往采用 <strong>ARM (aarch64)</strong> 架构。配合 <strong>NVIDIA A100 40GB</strong> 顶级算力，这类环境在驱动、库兼容性及网络限制上有一套独特的逻辑。本文记录了从零开始搭建深度学习环境并实现 VS Code 直连的完整闭环。</p>
-</blockquote>
+<h3 id="1-交互式申请边调边练-srun">1. 交互式申请：边调边练 (srun)
+</h3><p>如果你想在终端里像在自己电脑上一样运行代码，使用 <code>srun</code> 命令。这会直接把你带到一台带 GPU 的机器上。</p>
+<p><strong>执行命令：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 申请 1 张 GPU，使用某个分区（请根据你集群的 partition 名修改，如 &#39;gpu&#39;）</span>
+</span></span><span class="line"><span class="cl">srun -p &lt;分区名&gt; --gres<span class="o">=</span>gpu:1 --cpus-per-task<span class="o">=</span><span class="m">4</span> --mem<span class="o">=</span>16G --pty bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>参数说明</strong>：<code>-p</code> 指定分区，<code>--gres=gpu:1</code> 申请一张卡，<code>--pty bash</code> 表示进入该节点的交互式终端。</li>
+<li><strong>注意</strong>：进入节点后，<strong>必须重新执行</strong> <code>module load</code> 和 <code>conda activate</code>（除非你已写进 <code>.bashrc</code>）。</li>
+</ul>
 <hr>
-<h2 id="1-终端与-vs-code-远程连接配置">1. 终端与 VS Code 远程连接配置
-</h2><h3 id="11-ssh-基础配置">1.1 SSH 基础配置
-</h3><p>在本地电脑的 <code>~/.ssh/config</code>（Windows 为 <code>C:\Users\用户名\.ssh\config</code>）中添加以下配置。通过 <code>ProxyCommand</code> 实现跳板机逻辑，让 VS Code 可以一键直达计算节点。</p>
+<h3 id="2-离线提交正式跑实验-sbatch">2. 离线提交：正式跑实验 (sbatch)
+</h3><p>这是最推荐的方式。写一个脚本交给系统排队，跑完后结果会自动存入 <code>.out</code> 文件，你不用盯着屏幕。</p>
+<p>创建一个文件，比如 <code>run_job.sh</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -440,157 +440,83 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># === 登录节点 (用于日常文件管理) ===
-</span></span><span class="line"><span class="cl">Host BSCC-Login
-</span></span><span class="line"><span class="cl">  HostName ssh.cn-zhongwei-1.paracloud.com
-</span></span><span class="line"><span class="cl">  Port 22
-</span></span><span class="line"><span class="cl">  User scx7784@BSCC-N32-H
-</span></span><span class="line"><span class="cl">  IdentityFile ~/.ssh/id_rsa
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -job-name=pytorch_test       # 任务名</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -p &lt;分区名&gt;                   # 提交到哪个分区</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 1                         # 申请 1 个节点</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --gres=gpu:1                 # 申请 1 张 GPU</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --cpus-per-task=4            # 申请 4 核 CPU</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -t 24:00:00                  # 运行时间限制 (24小时)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o %j.out                    # 标准输出文件 (%j 为任务号)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e %j.err                    # 报错输出文件</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># === 计算节点 (GPU 专用，HostName 需根据每日申请到的节点修改) ===
-</span></span><span class="line"><span class="cl">Host BSCC-Compute
-</span></span><span class="line"><span class="cl">  HostName paraai-n32-h-01-agent-13
-</span></span><span class="line"><span class="cl">  User scx7784
-</span></span><span class="line"><span class="cl">  ProxyCommand ssh scx7784@BSCC-N32-H@ssh.cn-zhongwei-1.paracloud.com -p 22 -W %h:%p
-</span></span><span class="line"><span class="cl">  IdentityFile ~/.ssh/id_rsa
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># === 全局防断开配置 ===
-</span></span><span class="line"><span class="cl">Host *
-</span></span><span class="line"><span class="cl">  ServerAliveInterval 20
-</span></span><span class="line"><span class="cl">  HostkeyAlgorithms +ssh-rsa
-</span></span><span class="line"><span class="cl">  PubkeyAcceptedAlgorithms +ssh-rsa
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="12-免密登录避坑">1.2 免密登录避坑
-</h3><p>如果连接时反复弹出密码框，需将本地公钥（<code>id_rsa.pub</code>）手动写入服务器。</p>
-<ol>
-<li>在服务器终端执行：<code>nano ~/.ssh/authorized_keys</code></li>
-<li>粘贴公钥，保存退出。</li>
-<li><strong>关键步骤</strong>：执行 <code>chmod 600 ~/.ssh/authorized_keys</code> 锁定权限，否则 SSH 服务出于安全考虑会拒绝免密登录。</li>
-</ol>
-<hr>
-<h2 id="2-深度学习环境搭建-aarch64-专项">2. 深度学习环境搭建 (Aarch64 专项)
-</h2><p>由于计算节点<strong>严格禁网</strong>且架构特殊，传统的 <code>pip install</code> 无法使用或容易装错架构。</p>
-<h3 id="21-清理环境冲突">2.1 清理环境冲突
-</h3><p>若个人目录下存在旧的 Miniconda 导致环境变量混乱，需在 <code>~/.bashrc</code> 中注释掉旧的 <code>conda initialize</code> 块，改用系统推荐的加载方式：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 加载系统官方 Conda</span>
-</span></span><span class="line"><span class="cl">module load miniforge3/24.1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="22-创建环境与离线安装-pytorch">2.2 创建环境与离线安装 PyTorch
-</h3><p>在<strong>登录节点</strong>（有网）进行操作：</p>
-<ol>
-<li><strong>创建环境</strong>：</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda create -n my_gpu_env <span class="nv">python</span><span class="o">=</span>3.9 -y
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 以下是你的环境配置 (关键) ---</span>
+</span></span><span class="line"><span class="cl">module load compilers/cuda/11.8
+</span></span><span class="line"><span class="cl">module load cudnn/8.8.1.3_cuda11.x
 </span></span><span class="line"><span class="cl"><span class="nb">source</span> activate my_gpu_env
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li><strong>本地离线安装</strong>：
-从管理员维护的公共包目录（如 <code>/home/bingxing2/apps/package/pytorch</code>）中寻找对应版本。</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 以 PyTorch 2.0.1 + CUDA 11.8 + Python 3.9 为例</span>
-</span></span><span class="line"><span class="cl">pip install /home/bingxing2/apps/package/pytorch/2.0.1+cu118_cp39/*.whl <span class="se">\
-</span></span></span><span class="line"><span class="cl">    -i https://pypi.tuna.tsinghua.edu.cn/simple --default-timeout<span class="o">=</span><span class="m">1000</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><em>注意：使用 <code>-i</code> 参数是为了联网下载必要的 Python 依赖包（如 Pillow），同时配合 <code>--default-timeout</code> 应对不稳定的跨境网络。</em></p>
-<h3 id="23-修复-numpy-20-兼容性警告">2.3 修复 NumPy 2.0 兼容性警告
-</h3><p>若运行代码报 <code>A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0</code>，需强制降级：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install <span class="s2">&#34;numpy&lt;2&#34;</span> -i https://pypi.tuna.tsinghua.edu.cn/simple
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
-<h2 id="3-日常开发工作流-daily-routine">3. 日常开发工作流 (Daily Routine)
-</h2><p>超算的计算节点是动态分配的，每天的“门牌号”（Agent ID）都会变化。</p>
-<h3 id="step-1-申请资源">Step 1: 申请资源
-</h3><p>在登录节点终端提交作业申请（<code>sbatch</code> 或 <code>srun</code>），通过 <code>squeue -u 用户名</code> 获取当天分配到的节点编号（如 <code>agent-25</code>）。</p>
-<h3 id="step-2-环境挂载-计算节点">Step 2: 环境挂载 (计算节点)
-</h3><p>进入计算节点后，必须手动挂载底层驱动库，否则 <code>import torch</code> 会报 <code>libcudnn.so</code> 缺失错误：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh paraai-n32-h-01-agent-25   <span class="c1"># 跳转到当日节点</span>
-</span></span><span class="line"><span class="cl">module load miniforge3/24.1     <span class="c1"># 加载 Conda 工具</span>
-</span></span><span class="line"><span class="cl">module load compilers/cuda/11.8 <span class="c1"># 加载 CUDA 驱动库 (关键！)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> activate my_gpu_env      <span class="c1"># 激活你的专属环境</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="step-3-gpu-连通性测试">Step 3: GPU 连通性测试
-</h3><p>使用以下脚本验证 A100 是否就绪：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Device: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;A100 Matrix Calculation Time: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 运行你的 Python 脚本 ---</span>
+</span></span><span class="line"><span class="cl">python train.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>提交任务：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sbatch run_job.sh
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
-<h2 id="4-结语与注意事项">4. 结语与注意事项
-</h2><ul>
-<li><strong>计费提醒</strong>：训练结束后务必 <code>scancel [JOBID]</code> 释放资源，防止机时费空跑。</li>
-<li><strong>存储共享</strong>：登录节点和计算节点共享 <code>/home</code> 目录，代码只需在一处修改，两处同步生效。</li>
-<li><strong>架构一致性</strong>：始终确保在 <code>aarch64</code> 环境下编译和安装包，避免混入 <code>x86_64</code> 的二进制文件。</li>
+<h3 id="3-全流程避坑总结终极版">3. 全流程避坑总结（终极版）
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作内容</th>
+          <th>关键点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>1. 登录</strong></td>
+          <td><code>ssh user@cluster</code></td>
+          <td>此时在 <strong>Login Node</strong>，别跑大程序！</td>
+      </tr>
+      <tr>
+          <td><strong>2. 申请</strong></td>
+          <td><code>srun</code> (交互) 或 <code>sbatch</code> (离线)</td>
+          <td>此时系统分配 <strong>Compute Node</strong>。</td>
+      </tr>
+      <tr>
+          <td><strong>3. 环境</strong></td>
+          <td><code>module load cudnn/...</code></td>
+          <td>解决你之前的 <code>libcudnn.so.8</code> 报错。</td>
+      </tr>
+      <tr>
+          <td><strong>4. 激活</strong></td>
+          <td><code>conda activate my_gpu_env</code></td>
+          <td>进入你的 Python 环境。</td>
+      </tr>
+      <tr>
+          <td><strong>5. 运行</strong></td>
+          <td><code>python main.py</code></td>
+          <td>此时程序在 GPU 上起飞。</td>
+      </tr>
+  </tbody>
+</table></div>
+<hr>
+<h3 id="4-几个常用的救命命令">4. 几个常用的“救命”命令
+</h3><ul>
+<li><strong>查看排队情况</strong>：<code>squeue</code> 或 <code>squeue -u &lt;你的用户名&gt;</code></li>
+<li><strong>查看节点显卡状态</strong>：<code>sinfo</code>（看看哪些节点是空的）</li>
+<li><strong>取消错误的任务</strong>：<code>scancel &lt;任务号&gt;</code></li>
+<li><strong>查看报错详情</strong>：<code>cat &lt;任务号&gt;.err</code>（如果 <code>import torch</code> 还是报错，看这个文件）</li>
 </ul>
 <hr>
-<p><strong>希望这篇存档能帮你快速找回“手感”！如果你后续要折腾模型分布式训练或者断点续训，随时叫我，我们可以继续完善你的博客内容。加油，NubisMons！</strong></p>
 
 </section>
 
@@ -608,7 +534,7 @@
 
 
         <span>
-            最后更新于 2026-03-14 14:25
+            最后更新于 2026-03-15 00:11
         </span>
     </section></footer>
 

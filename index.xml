@@ -12,17 +12,30 @@
         <pubDate>Sat, 14 Mar 2026 14:23:27 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
-        <description>&lt;p&gt;没问题，这篇博客文档我已经为你排版好了。它涵盖了从最初的 SSH 配置到解决架构冲突、安装离线包、以及最终跑通 A100 算力的全过程。&lt;/p&gt;
-&lt;p&gt;你可以直接复制下面的内容，保存为 &lt;code&gt;supercomputer_setup_guide.md&lt;/code&gt;。&lt;/p&gt;
+        <description>&lt;p&gt;在超算（HPC）环境中，&lt;strong&gt;登录节点（Login Node）&lt;/strong&gt; 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 &lt;code&gt;import torch&lt;/code&gt; 并进行计算，就必须&lt;strong&gt;申请计算节点（Compute Node）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;结合你之前的报错和环境，这里是加入“申请节点”后的完整操作手册：&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;玩转-aarch64-架构超算a100-环境配置与-vs-code-丝滑开发指南&#34;&gt;玩转 Aarch64 架构超算：A100 环境配置与 VS Code 丝滑开发指南
-&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：在典型的国产化或定制化超算集群中，登录节点与计算节点往往采用 &lt;strong&gt;ARM (aarch64)&lt;/strong&gt; 架构。配合 &lt;strong&gt;NVIDIA A100 40GB&lt;/strong&gt; 顶级算力，这类环境在驱动、库兼容性及网络限制上有一套独特的逻辑。本文记录了从零开始搭建深度学习环境并实现 VS Code 直连的完整闭环。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&#34;1-交互式申请边调边练-srun&#34;&gt;1. 交互式申请：边调边练 (srun)
+&lt;/h3&gt;&lt;p&gt;如果你想在终端里像在自己电脑上一样运行代码，使用 &lt;code&gt;srun&lt;/code&gt; 命令。这会直接把你带到一台带 GPU 的机器上。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;执行命令：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 申请 1 张 GPU，使用某个分区（请根据你集群的 partition 名修改，如 &amp;#39;gpu&amp;#39;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;srun -p &amp;lt;分区名&amp;gt; --gres&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;gpu:1 --cpus-per-task&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; --mem&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;16G --pty bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;code&gt;-p&lt;/code&gt; 指定分区，&lt;code&gt;--gres=gpu:1&lt;/code&gt; 申请一张卡，&lt;code&gt;--pty bash&lt;/code&gt; 表示进入该节点的交互式终端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：进入节点后，&lt;strong&gt;必须重新执行&lt;/strong&gt; &lt;code&gt;module load&lt;/code&gt; 和 &lt;code&gt;conda activate&lt;/code&gt;（除非你已写进 &lt;code&gt;.bashrc&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;1-终端与-vs-code-远程连接配置&#34;&gt;1. 终端与 VS Code 远程连接配置
-&lt;/h2&gt;&lt;h3 id=&#34;11-ssh-基础配置&#34;&gt;1.1 SSH 基础配置
-&lt;/h3&gt;&lt;p&gt;在本地电脑的 &lt;code&gt;~/.ssh/config&lt;/code&gt;（Windows 为 &lt;code&gt;C:\Users\用户名\.ssh\config&lt;/code&gt;）中添加以下配置。通过 &lt;code&gt;ProxyCommand&lt;/code&gt; 实现跳板机逻辑，让 VS Code 可以一键直达计算节点。&lt;/p&gt;
+&lt;h3 id=&#34;2-离线提交正式跑实验-sbatch&#34;&gt;2. 离线提交：正式跑实验 (sbatch)
+&lt;/h3&gt;&lt;p&gt;这是最推荐的方式。写一个脚本交给系统排队，跑完后结果会自动存入 &lt;code&gt;.out&lt;/code&gt; 文件，你不用盯着屏幕。&lt;/p&gt;
+&lt;p&gt;创建一个文件，比如 &lt;code&gt;run_job.sh&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -42,157 +55,83 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# === 登录节点 (用于日常文件管理) ===
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host BSCC-Login
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  HostName ssh.cn-zhongwei-1.paracloud.com
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Port 22
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  User scx7784@BSCC-N32-H
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  IdentityFile ~/.ssh/id_rsa
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -job-name=pytorch_test       # 任务名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -p &amp;lt;分区名&amp;gt;                   # 提交到哪个分区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -N 1                         # 申请 1 个节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH --gres=gpu:1                 # 申请 1 张 GPU&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH --cpus-per-task=4            # 申请 4 核 CPU&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -t 24:00:00                  # 运行时间限制 (24小时)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -o %j.out                    # 标准输出文件 (%j 为任务号)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#SBATCH -e %j.err                    # 报错输出文件&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# === 计算节点 (GPU 专用，HostName 需根据每日申请到的节点修改) ===
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host BSCC-Compute
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  HostName paraai-n32-h-01-agent-13
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  User scx7784
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  ProxyCommand ssh scx7784@BSCC-N32-H@ssh.cn-zhongwei-1.paracloud.com -p 22 -W %h:%p
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  IdentityFile ~/.ssh/id_rsa
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# === 全局防断开配置 ===
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host *
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  ServerAliveInterval 20
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  HostkeyAlgorithms +ssh-rsa
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  PubkeyAcceptedAlgorithms +ssh-rsa
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;12-免密登录避坑&#34;&gt;1.2 免密登录避坑
-&lt;/h3&gt;&lt;p&gt;如果连接时反复弹出密码框，需将本地公钥（&lt;code&gt;id_rsa.pub&lt;/code&gt;）手动写入服务器。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在服务器终端执行：&lt;code&gt;nano ~/.ssh/authorized_keys&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;粘贴公钥，保存退出。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关键步骤&lt;/strong&gt;：执行 &lt;code&gt;chmod 600 ~/.ssh/authorized_keys&lt;/code&gt; 锁定权限，否则 SSH 服务出于安全考虑会拒绝免密登录。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;2-深度学习环境搭建-aarch64-专项&#34;&gt;2. 深度学习环境搭建 (Aarch64 专项)
-&lt;/h2&gt;&lt;p&gt;由于计算节点&lt;strong&gt;严格禁网&lt;/strong&gt;且架构特殊，传统的 &lt;code&gt;pip install&lt;/code&gt; 无法使用或容易装错架构。&lt;/p&gt;
-&lt;h3 id=&#34;21-清理环境冲突&#34;&gt;2.1 清理环境冲突
-&lt;/h3&gt;&lt;p&gt;若个人目录下存在旧的 Miniconda 导致环境变量混乱，需在 &lt;code&gt;~/.bashrc&lt;/code&gt; 中注释掉旧的 &lt;code&gt;conda initialize&lt;/code&gt; 块，改用系统推荐的加载方式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 加载系统官方 Conda&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;module load miniforge3/24.1
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;22-创建环境与离线安装-pytorch&#34;&gt;2.2 创建环境与离线安装 PyTorch
-&lt;/h3&gt;&lt;p&gt;在&lt;strong&gt;登录节点&lt;/strong&gt;（有网）进行操作：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;创建环境&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;conda create -n my_gpu_env &lt;span class=&#34;nv&#34;&gt;python&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;3.9 -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- 以下是你的环境配置 (关键) ---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;module load compilers/cuda/11.8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;module load cudnn/8.8.1.3_cuda11.x
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; activate my_gpu_env
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;本地离线安装&lt;/strong&gt;：
-从管理员维护的公共包目录（如 &lt;code&gt;/home/bingxing2/apps/package/pytorch&lt;/code&gt;）中寻找对应版本。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 以 PyTorch 2.0.1 + CUDA 11.8 + Python 3.9 为例&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install /home/bingxing2/apps/package/pytorch/2.0.1+cu118_cp39/*.whl &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    -i https://pypi.tuna.tsinghua.edu.cn/simple --default-timeout&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;em&gt;注意：使用 &lt;code&gt;-i&lt;/code&gt; 参数是为了联网下载必要的 Python 依赖包（如 Pillow），同时配合 &lt;code&gt;--default-timeout&lt;/code&gt; 应对不稳定的跨境网络。&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;23-修复-numpy-20-兼容性警告&#34;&gt;2.3 修复 NumPy 2.0 兼容性警告
-&lt;/h3&gt;&lt;p&gt;若运行代码报 &lt;code&gt;A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0&lt;/code&gt;，需强制降级：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install &lt;span class=&#34;s2&#34;&gt;&amp;#34;numpy&amp;lt;2&amp;#34;&lt;/span&gt; -i https://pypi.tuna.tsinghua.edu.cn/simple
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;3-日常开发工作流-daily-routine&#34;&gt;3. 日常开发工作流 (Daily Routine)
-&lt;/h2&gt;&lt;p&gt;超算的计算节点是动态分配的，每天的“门牌号”（Agent ID）都会变化。&lt;/p&gt;
-&lt;h3 id=&#34;step-1-申请资源&#34;&gt;Step 1: 申请资源
-&lt;/h3&gt;&lt;p&gt;在登录节点终端提交作业申请（&lt;code&gt;sbatch&lt;/code&gt; 或 &lt;code&gt;srun&lt;/code&gt;），通过 &lt;code&gt;squeue -u 用户名&lt;/code&gt; 获取当天分配到的节点编号（如 &lt;code&gt;agent-25&lt;/code&gt;）。&lt;/p&gt;
-&lt;h3 id=&#34;step-2-环境挂载-计算节点&#34;&gt;Step 2: 环境挂载 (计算节点)
-&lt;/h3&gt;&lt;p&gt;进入计算节点后，必须手动挂载底层驱动库，否则 &lt;code&gt;import torch&lt;/code&gt; 会报 &lt;code&gt;libcudnn.so&lt;/code&gt; 缺失错误：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh paraai-n32-h-01-agent-25   &lt;span class=&#34;c1&#34;&gt;# 跳转到当日节点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;module load miniforge3/24.1     &lt;span class=&#34;c1&#34;&gt;# 加载 Conda 工具&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;module load compilers/cuda/11.8 &lt;span class=&#34;c1&#34;&gt;# 加载 CUDA 驱动库 (关键！)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; activate my_gpu_env      &lt;span class=&#34;c1&#34;&gt;# 激活你的专属环境&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;step-3-gpu-连通性测试&#34;&gt;Step 3: GPU 连通性测试
-&lt;/h3&gt;&lt;p&gt;使用以下脚本验证 A100 是否就绪：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;torch&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;time&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cuda&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;is_available&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Device: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cuda&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_device_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;cuda&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;device&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;cuda&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cuda&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;synchronize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matmul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cuda&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;synchronize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;A100 Matrix Calculation Time: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.4f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- 运行你的 Python 脚本 ---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python train.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;提交任务：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sbatch run_job.sh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;4-结语与注意事项&#34;&gt;4. 结语与注意事项
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;计费提醒&lt;/strong&gt;：训练结束后务必 &lt;code&gt;scancel [JOBID]&lt;/code&gt; 释放资源，防止机时费空跑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;存储共享&lt;/strong&gt;：登录节点和计算节点共享 &lt;code&gt;/home&lt;/code&gt; 目录，代码只需在一处修改，两处同步生效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;架构一致性&lt;/strong&gt;：始终确保在 &lt;code&gt;aarch64&lt;/code&gt; 环境下编译和安装包，避免混入 &lt;code&gt;x86_64&lt;/code&gt; 的二进制文件。&lt;/li&gt;
+&lt;h3 id=&#34;3-全流程避坑总结终极版&#34;&gt;3. 全流程避坑总结（终极版）
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;步骤&lt;/th&gt;
+          &lt;th&gt;操作内容&lt;/th&gt;
+          &lt;th&gt;关键点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;1. 登录&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ssh user@cluster&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;此时在 &lt;strong&gt;Login Node&lt;/strong&gt;，别跑大程序！&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;2. 申请&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;srun&lt;/code&gt; (交互) 或 &lt;code&gt;sbatch&lt;/code&gt; (离线)&lt;/td&gt;
+          &lt;td&gt;此时系统分配 &lt;strong&gt;Compute Node&lt;/strong&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;3. 环境&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;module load cudnn/...&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;解决你之前的 &lt;code&gt;libcudnn.so.8&lt;/code&gt; 报错。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;4. 激活&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;conda activate my_gpu_env&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;进入你的 Python 环境。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;5. 运行&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;python main.py&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;此时程序在 GPU 上起飞。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-几个常用的救命命令&#34;&gt;4. 几个常用的“救命”命令
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;查看排队情况&lt;/strong&gt;：&lt;code&gt;squeue&lt;/code&gt; 或 &lt;code&gt;squeue -u &amp;lt;你的用户名&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查看节点显卡状态&lt;/strong&gt;：&lt;code&gt;sinfo&lt;/code&gt;（看看哪些节点是空的）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;取消错误的任务&lt;/strong&gt;：&lt;code&gt;scancel &amp;lt;任务号&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查看报错详情&lt;/strong&gt;：&lt;code&gt;cat &amp;lt;任务号&amp;gt;.err&lt;/code&gt;（如果 &lt;code&gt;import torch&lt;/code&gt; 还是报错，看这个文件）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;希望这篇存档能帮你快速找回“手感”！如果你后续要折腾模型分布式训练或者断点续训，随时叫我，我们可以继续完善你的博客内容。加油，NubisMons！&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
