@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
-<title>北京云服务使用指南</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="记录当前超算平台上 A100 40G GPU 的申请、环境激活、任务查看与取消等常用命令。">
+<title>超算平台 GPU 使用指南（A100 40G 实测版）</title>
 
-<link rel='canonical' href='https://blogbook.eu.org/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/'>
+<link rel='canonical' href='https://blogbook.eu.org/p/gpu-guide-a100/'>
 
-<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="北京云服务使用指南">
-<meta property='og:description' content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
-<meta property='og:url' content='https://blogbook.eu.org/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/'>
+<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="超算平台 GPU 使用指南（A100 40G 实测版）">
+<meta property='og:description' content="记录当前超算平台上 A100 40G GPU 的申请、环境激活、任务查看与取消等常用命令。">
+<meta property='og:url' content='https://blogbook.eu.org/p/gpu-guide-a100/'>
 <meta property='og:site_name' content='云雾中的山-NubisMons'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-14T14:23:27&#43;08:00'/><meta property='article:modified_time' content='2026-03-15T00:11:43&#43;08:00'/>
-<meta name="twitter:title" content="北京云服务使用指南">
-<meta name="twitter:description" content="在超算（HPC）环境中，登录节点（Login Node） 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 import torch 并进行计算，就必须申请计算节点（Compute Node）。\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GPU' /><meta property='article:tag' content='A100' /><meta property='article:tag' content='Slurm' /><meta property='article:tag' content='CUDA' /><meta property='article:tag' content='Conda' /><meta property='article:published_time' content='2026-03-26T10:30:00&#43;08:00'/><meta property='article:modified_time' content='2026-03-26T10:36:08&#43;08:00'/>
+<meta name="twitter:title" content="超算平台 GPU 使用指南（A100 40G 实测版）">
+<meta name="twitter:description" content="记录当前超算平台上 A100 40G GPU 的申请、环境激活、任务查看与取消等常用命令。">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script>
@@ -318,14 +318,30 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#一平台已知情况">一、平台已知情况</a></li>
+    <li><a href="#二交互式申请-gpu">二、交互式申请 GPU</a>
       <ol>
-        <li><a href="#1-交互式申请边调边练-srun">1. 交互式申请：边调边练 (srun)</a></li>
-        <li><a href="#2-离线提交正式跑实验-sbatch">2. 离线提交：正式跑实验 (sbatch)</a></li>
-        <li><a href="#3-全流程避坑总结终极版">3. 全流程避坑总结（终极版）</a></li>
-        <li><a href="#4-几个常用的救命命令">4. 几个常用的“救命”命令</a></li>
+        <li><a href="#1-申请-2-张-gpu实测成功">1. 申请 2 张 GPU（实测成功）</a></li>
+        <li><a href="#2-其他申请规模与参数">2. 其他申请规模与参数</a></li>
       </ol>
     </li>
+    <li><a href="#三检查-gpu-状态">三、检查 GPU 状态</a></li>
+    <li><a href="#四加载系统模块">四、加载系统模块</a>
+      <ol>
+        <li><a href="#1-常用查看与清理命令">1. 常用查看与清理命令</a></li>
+        <li><a href="#2-常见依赖加载">2. 常见依赖加载</a></li>
+      </ol>
+    </li>
+    <li><a href="#五激活-conda-环境">五、激活 Conda 环境</a></li>
+    <li><a href="#六完整交互式工作流示例">六、完整交互式工作流示例</a></li>
+    <li><a href="#七批处理提交任务-sbatch">七、批处理提交任务 (<code>sbatch</code>)</a>
+      <ol>
+        <li><a href="#1-新建任务脚本-train_a100sh">1. 新建任务脚本 (<code>train_a100.sh</code>)</a></li>
+        <li><a href="#2-提交与管理任务">2. 提交与管理任务</a></li>
+        <li><a href="#3-查看后台日志">3. 查看后台日志</a></li>
+      </ol>
+    </li>
+    <li><a href="#八总结与最佳实践">八、总结与最佳实践</a></li>
   </ol>
 </nav>
         </div>
@@ -342,12 +358,28 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+            <a href="/categories/hpc/" >
+                HPC
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%8C%97%E4%BA%AC%E4%BA%91%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">北京云服务使用指南</a>
+            <a href="/p/gpu-guide-a100/">超算平台 GPU 使用指南（A100 40G 实测版）</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            记录当前超算平台上 A100 40G GPU 的申请、环境激活、任务查看与取消等常用命令。
+        </h3>
         
     </div>
 
@@ -367,7 +399,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2026-03-14</time>
+                <time class="article-time--published">2026-03-26</time>
             </div>
         
 
@@ -382,7 +414,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -398,29 +430,131 @@
     
     
     <p>在超算（HPC）环境中，<strong>登录节点（Login Node）</strong> 只能用来修改代码或简单编译，绝对不能直接运行深度学习训练。一旦你开始 <code>import torch</code> 并进行计算，就必须<strong>申请计算节点（Compute Node）</strong>。</p>
-<p>结合你之前的报错和环境，这里是加入“申请节点”后的完整操作手册：</p>
+<blockquote>
+<p><strong>提示</strong>：这篇笔记记录了在当前超算平台上使用 GPU 的常用命令，方便随时查阅。
+目前已实测成功的核心命令是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">srun --gres<span class="o">=</span>gpu:2 --pty bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>成功进入计算节点后，用 <code>nvidia-smi</code> 可以看到 <strong>2 张 NVIDIA A100-PCIE-40GB</strong>。</p>
+</blockquote>
 <hr>
-<h3 id="1-交互式申请边调边练-srun">1. 交互式申请：边调边练 (srun)
-</h3><p>如果你想在终端里像在自己电脑上一样运行代码，使用 <code>srun</code> 命令。这会直接把你带到一台带 GPU 的机器上。</p>
-<p><strong>执行命令：</strong></p>
+<h2 id="一平台已知情况">一、平台已知情况
+</h2><p>根据当前实际测试，该平台具有以下特点：</p>
+<ol>
+<li><strong>可以不手动指定分区</strong>。</li>
+<li>直接使用 <code>srun --gres=gpu:2 --pty bash</code> 就能成功申请 GPU。</li>
+<li>申请成功后会进入<strong>计算节点</strong>，不再占用登录节点资源。</li>
+<li>通过 <code>nvidia-smi</code> 可以确认 GPU 型号为 <strong>NVIDIA A100-PCIE-40GB</strong>。</li>
+<li><strong>不允许手动额外指定 <code>--mem</code></strong>，否则会报错（内存由系统自动分配）。</li>
+</ol>
+<hr>
+<h2 id="二交互式申请-gpu">二、交互式申请 GPU
+</h2><p>交互式申请非常适合：<strong>调试代码、测试环境、检查 CUDA/PyTorch 识别情况</strong> 以及 <strong>小规模实验</strong>。</p>
+<h3 id="1-申请-2-张-gpu实测成功">1. 申请 2 张 GPU（实测成功）
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">srun --gres<span class="o">=</span>gpu:2 --pty bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>成功后，终端提示符一般会从登录节点变为计算节点，例如：
+<code>[scx7784@paraai-n32-h-01-agent-9 ~]$</code>
+这说明已经进入实际的 GPU 节点了。</p>
+<h3 id="2-其他申请规模与参数">2. 其他申请规模与参数
+</h3><ul>
+<li><strong>申请 1 张 GPU</strong>：<code>srun --gres=gpu:1 --pty bash</code></li>
+<li><strong>申请 4 张 GPU</strong>：<code>srun --gres=gpu:4 --pty bash</code> (取决于平台资源和配额)</li>
+<li><strong>增加 CPU 核心数</strong>：<code>srun --gres=gpu:2 --cpus-per-task=8 --pty bash</code></li>
+</ul>
+<blockquote>
+<p><strong>⚠️ 注意：不要手动写 <code>--mem</code></strong>
+这个平台之前已经出现过报错，说明内存不是自由申请的。不要使用类似 <code>srun --gres=gpu:2 --mem=32G --pty bash</code> 的写法。</p>
+</blockquote>
+<hr>
+<h2 id="三检查-gpu-状态">三、检查 GPU 状态
+</h2><p>成功申请并进入节点后，建议第一时间运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvidia-smi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实测输出应包含类似如下信息：</p>
+<ul>
+<li><code>GPU 0: NVIDIA A100-PCIE-40GB</code></li>
+<li><code>GPU 1: NVIDIA A100-PCIE-40GB</code></li>
+</ul>
+<hr>
+<h2 id="四加载系统模块">四、加载系统模块
+</h2><p>超算环境的软件（如 CUDA、Anaconda）通常不是默认全局可用的，需要通过 <code>module</code> 系统加载。</p>
+<h3 id="1-常用查看与清理命令">1. 常用查看与清理命令
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">module avail       <span class="c1"># 查看所有可用模块</span>
+</span></span><span class="line"><span class="cl">module list        <span class="c1"># 查看当前已加载的模块</span>
+</span></span><span class="line"><span class="cl">module purge       <span class="c1"># 清空已有模块（环境乱了时非常好用）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-常见依赖加载">2. 常见依赖加载
+</h3><p>不同平台命名可能略有区别，以下为常见写法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 申请 1 张 GPU，使用某个分区（请根据你集群的 partition 名修改，如 &#39;gpu&#39;）</span>
-</span></span><span class="line"><span class="cl">srun -p &lt;分区名&gt; --gres<span class="o">=</span>gpu:1 --cpus-per-task<span class="o">=</span><span class="m">4</span> --mem<span class="o">=</span>16G --pty bash
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 加载 Anaconda</span>
+</span></span><span class="line"><span class="cl">module load anaconda3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载 CUDA</span>
+</span></span><span class="line"><span class="cl">module load cuda/11.8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载 cuDNN</span>
+</span></span><span class="line"><span class="cl">module load cudnn/8.8.1.3_cuda11.x
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li><strong>参数说明</strong>：<code>-p</code> 指定分区，<code>--gres=gpu:1</code> 申请一张卡，<code>--pty bash</code> 表示进入该节点的交互式终端。</li>
-<li><strong>注意</strong>：进入节点后，<strong>必须重新执行</strong> <code>module load</code> 和 <code>conda activate</code>（除非你已写进 <code>.bashrc</code>）。</li>
-</ul>
+</div><hr>
+<h2 id="五激活-conda-环境">五、激活 Conda 环境
+</h2><p>通常的顺序是：进入计算节点 -&gt; 加载 Anaconda 模块 -&gt; 激活环境。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda env list            <span class="c1"># 查看所有 Conda 环境</span>
+</span></span><span class="line"><span class="cl">conda activate myenv      <span class="c1"># 激活目标环境</span>
+</span></span><span class="line"><span class="cl">conda deactivate          <span class="c1"># 退出环境</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>提示</strong>：如果 <code>conda activate</code> 报错，可以尝试先执行 <code>source ~/.bashrc</code>，或者先确认是否已经 <code>module load anaconda3</code>。</p>
+</blockquote>
 <hr>
-<h3 id="2-离线提交正式跑实验-sbatch">2. 离线提交：正式跑实验 (sbatch)
-</h3><p>这是最推荐的方式。写一个脚本交给系统排队，跑完后结果会自动存入 <code>.out</code> 文件，你不用盯着屏幕。</p>
-<p>创建一个文件，比如 <code>run_job.sh</code>：</p>
+<h2 id="六完整交互式工作流示例">六、完整交互式工作流示例
+</h2><p>适合在正式跑 WSI 处理或训练模型前，先检查环境和代码是否能跑通：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -437,92 +571,146 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -job-name=pytorch_test       # 任务名</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -p &lt;分区名&gt;                   # 提交到哪个分区</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -N 1                         # 申请 1 个节点</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --gres=gpu:1                 # 申请 1 张 GPU</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --cpus-per-task=4            # 申请 4 核 CPU</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -t 24:00:00                  # 运行时间限制 (24小时)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o %j.out                    # 标准输出文件 (%j 为任务号)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e %j.err                    # 报错输出文件</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. 申请计算节点</span>
+</span></span><span class="line"><span class="cl">srun --gres<span class="o">=</span>gpu:2 --pty bash
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># --- 以下是你的环境配置 (关键) ---</span>
-</span></span><span class="line"><span class="cl">module load compilers/cuda/11.8
-</span></span><span class="line"><span class="cl">module load cudnn/8.8.1.3_cuda11.x
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> activate my_gpu_env
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. 清理并加载环境</span>
+</span></span><span class="line"><span class="cl">module purge
+</span></span><span class="line"><span class="cl">module load anaconda3
+</span></span><span class="line"><span class="cl">module load cuda/11.8
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># --- 运行你的 Python 脚本 ---</span>
-</span></span><span class="line"><span class="cl">python train.py
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. 激活 Conda 并检查 GPU</span>
+</span></span><span class="line"><span class="cl">conda activate myenv
+</span></span><span class="line"><span class="cl">nvidia-smi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. 运行训练脚本</span>
+</span></span><span class="line"><span class="cl">python train_mclam.py
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>提交任务：</strong></p>
+</div><p>如果你只是想测试 PyTorch 状态，可以进入 Python 交互界面执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sbatch run_job.sh
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>测试完毕后，输入 <code>exit</code> 即可退出计算节点并释放 GPU。</p>
+<hr>
+<h2 id="七批处理提交任务-sbatch">七、批处理提交任务 (<code>sbatch</code>)
+</h2><p>如果是正式训练（比如跑几十个 Epoch 的生存分析模型），<strong>不建议</strong>一直开着交互式终端。更推荐写成脚本后用 <code>sbatch</code> 提交后台运行。</p>
+<h3 id="1-新建任务脚本-train_a100sh">1. 新建任务脚本 (<code>train_a100.sh</code>)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -J train_mclam</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH --gres=gpu:2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -o %j.out</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#SBATCH -e %j.err</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">module purge
+</span></span><span class="line"><span class="cl">module load anaconda3
+</span></span><span class="line"><span class="cl">module load cuda/11.8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">conda activate myenv
+</span></span><span class="line"><span class="cl">nvidia-smi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python train_mclam.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-提交与管理任务">2. 提交与管理任务
+</h3><ul>
+<li><strong>提交任务</strong>：<code>sbatch train_a100.sh</code> (会返回一个任务号，如 123456)</li>
+<li><strong>查看个人任务</strong>：<code>squeue -u $USER</code></li>
+<li><strong>查看任务详情</strong>：<code>scontrol show job 123456</code></li>
+<li><strong>取消某个任务</strong>：<code>scancel 123456</code></li>
+</ul>
+<h3 id="3-查看后台日志">3. 查看后台日志
+</h3><p>任务运行时的输出会重定向到脚本中定义的 <code>.out</code> 和 <code>.err</code> 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 实时查看标准输出日志</span>
+</span></span><span class="line"><span class="cl">tail -f 123456.out
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 实时查看报错日志</span>
+</span></span><span class="line"><span class="cl">tail -f 123456.err
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
-<h3 id="3-全流程避坑总结终极版">3. 全流程避坑总结（终极版）
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>步骤</th>
-          <th>操作内容</th>
-          <th>关键点</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>1. 登录</strong></td>
-          <td><code>ssh user@cluster</code></td>
-          <td>此时在 <strong>Login Node</strong>，别跑大程序！</td>
-      </tr>
-      <tr>
-          <td><strong>2. 申请</strong></td>
-          <td><code>srun</code> (交互) 或 <code>sbatch</code> (离线)</td>
-          <td>此时系统分配 <strong>Compute Node</strong>。</td>
-      </tr>
-      <tr>
-          <td><strong>3. 环境</strong></td>
-          <td><code>module load cudnn/...</code></td>
-          <td>解决你之前的 <code>libcudnn.so.8</code> 报错。</td>
-      </tr>
-      <tr>
-          <td><strong>4. 激活</strong></td>
-          <td><code>conda activate my_gpu_env</code></td>
-          <td>进入你的 Python 环境。</td>
-      </tr>
-      <tr>
-          <td><strong>5. 运行</strong></td>
-          <td><code>python main.py</code></td>
-          <td>此时程序在 GPU 上起飞。</td>
-      </tr>
-  </tbody>
-</table></div>
-<hr>
-<h3 id="4-几个常用的救命命令">4. 几个常用的“救命”命令
-</h3><ul>
-<li><strong>查看排队情况</strong>：<code>squeue</code> 或 <code>squeue -u &lt;你的用户名&gt;</code></li>
-<li><strong>查看节点显卡状态</strong>：<code>sinfo</code>（看看哪些节点是空的）</li>
-<li><strong>取消错误的任务</strong>：<code>scancel &lt;任务号&gt;</code></li>
-<li><strong>查看报错详情</strong>：<code>cat &lt;任务号&gt;.err</code>（如果 <code>import torch</code> 还是报错，看这个文件）</li>
-</ul>
-<hr>
-
+<h2 id="八总结与最佳实践">八、总结与最佳实践
+</h2><p>交互式 (<code>srun</code>) 适合排障和测试，批处理 (<code>sbatch</code>) 适合长时间计算。对我当前这个平台来说，最成熟的流程是：</p>
+<ol>
+<li>先用 <code>srun --gres=gpu:2 --pty bash</code> 拿到节点，把数据读取、Loss 计算等流程跑通。</li>
+<li>确认无误后 <code>exit</code> 释放资源。</li>
+<li>编写 <code>train_a100.sh</code>，使用 <code>sbatch</code> 提交正式跑批。</li>
+<li>使用 <code>tail -f</code> 监控日志，或用 <code>squeue -u $USER</code> 观察状态。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">***</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">你可以直接把上面的代码块复制到你</span><span class="w"> </span><span class="n">Hugo</span><span class="w"> </span><span class="err">博客的</span><span class="w"> </span><span class="o">`</span><span class="p">.</span><span class="n">md</span><span class="o">`</span><span class="w"> </span><span class="err">文件中。需要我帮你排查或者写一份针对多模态网络专属的</span><span class="w"> </span><span class="o">`</span><span class="n">sbatch</span><span class="o">`</span><span class="w"> </span><span class="err">启动脚本吗？</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/gpu/">GPU</a>
+        
+            <a href="/tags/a100/">A100</a>
+        
+            <a href="/tags/slurm/">Slurm</a>
+        
+            <a href="/tags/cuda/">CUDA</a>
+        
+            <a href="/tags/conda/">Conda</a>
+        
+    </section>
+
 
     <section class="article-lastmod">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -534,7 +722,7 @@
 
 
         <span>
-            最后更新于 2026-03-15 00:11
+            最后更新于 2026-03-26 10:36
         </span>
     </section></footer>
 
