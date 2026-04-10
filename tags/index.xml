@@ -7,10 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 03 Apr 2026 23:58:38 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 10 Apr 2026 15:09:59 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>A100</title>
         <link>https://blogbook.eu.org/tags/a100/</link>
-        <pubDate>Thu, 26 Mar 2026 10:30:00 +0800</pubDate>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/a100/</guid>
         <description></description>
@@ -18,33 +18,49 @@
         <item>
         <title>Conda</title>
         <link>https://blogbook.eu.org/tags/conda/</link>
-        <pubDate>Thu, 26 Mar 2026 10:30:00 +0800</pubDate>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/conda/</guid>
         <description></description>
         </item>
         <item>
-        <title>CUDA</title>
-        <link>https://blogbook.eu.org/tags/cuda/</link>
-        <pubDate>Thu, 26 Mar 2026 10:30:00 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/cuda/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>GPU</title>
         <link>https://blogbook.eu.org/tags/gpu/</link>
-        <pubDate>Thu, 26 Mar 2026 10:30:00 +0800</pubDate>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/gpu/</guid>
         <description></description>
         </item>
         <item>
+        <title>Mamba</title>
+        <link>https://blogbook.eu.org/tags/mamba/</link>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/mamba/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>RTX5090</title>
+        <link>https://blogbook.eu.org/tags/rtx5090/</link>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/rtx5090/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Slurm</title>
         <link>https://blogbook.eu.org/tags/slurm/</link>
-        <pubDate>Thu, 26 Mar 2026 10:30:00 +0800</pubDate>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/slurm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Zsh</title>
+        <link>https://blogbook.eu.org/tags/zsh/</link>
+        <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/zsh/</guid>
         <description></description>
         </item>
         <item>
