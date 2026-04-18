@@ -7,55 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Sat, 18 Apr 2026 11:42:37 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Academic-Radar</title>
-        <link>https://blogbook.eu.org/tags/academic-radar/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/academic-radar/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Arxiv</title>
-        <link>https://blogbook.eu.org/tags/arxiv/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/arxiv/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Computer-Vision</title>
-        <link>https://blogbook.eu.org/tags/computer-vision/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/computer-vision/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Foundation-Model</title>
-        <link>https://blogbook.eu.org/tags/foundation-model/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/foundation-model/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Image-Segmentation</title>
-        <link>https://blogbook.eu.org/tags/image-segmentation/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/image-segmentation/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Object-Detection</title>
-        <link>https://blogbook.eu.org/tags/object-detection/</link>
-        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/object-detection/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 10 Apr 2026 15:09:59 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>A100</title>
         <link>https://blogbook.eu.org/tags/a100/</link>
         <pubDate>Fri, 10 Apr 2026 15:00:00 +0800</pubDate>
