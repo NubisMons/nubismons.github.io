@@ -7,64 +7,64 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Sat, 18 Apr 2026 11:36:36 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 18 Apr 2026 11:42:37 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学术雷达日报 2026-04-18</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</link>
-        <pubDate>Sat, 18 Apr 2026 19:36:10 +0800</pubDate>
+        <pubDate>Sat, 18 Apr 2026 19:42:04 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</guid>
         <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
-&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-18 19:36:10&lt;/p&gt;
-&lt;h3 id=&#34;1-segwithu-uncertainty-as-perturbation-energy-for-single-forward-pass-risk-aware-medical-image-segmentation&#34;&gt;1. SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-18 19:42:04&lt;/p&gt;
+&lt;h3 id=&#34;1-an-intelligent-robotic-and-bio-digestor-framework-for-smart-waste-management&#34;&gt;1. An Intelligent Robotic and Bio-Digestor Framework for Smart Waste Management
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15271v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/abs/2604.15271v1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;发布时间: 2026-04-17 01:42:42 (北京时间)&lt;/li&gt;
-&lt;li&gt;作者: Tianhao Fu, Austin Wang, Charles Chen, Roby Aldave-Garza, Yucheng Chen&lt;/li&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14882v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14882v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 19:19:36 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Radhika Khatri, Adit Tewari, Nikhil Sharma, M. B. Srinivas&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;TL;DR：提出一种名为SegWithU的后处理框架，通过轻量级不确定性头将不确定性建模为紧凑探测空间中的扰动能量，实现了单次前向传播的风险感知医学图像分割。&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种结合机器人分拣与优化生物消化器的智能废物管理框架，实现高精度自动分类与高效生物转化。&lt;/p&gt;
 &lt;p&gt;核心贡献：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;提出一种后处理框架，可在不改变或重新训练预训练分割主干网络的情况下，通过添加轻量级不确定性头进行不确定性估计。&lt;/li&gt;
-&lt;li&gt;创新地将不确定性建模为特征在紧凑探测空间中的“扰动能量”，并利用秩-1后验探针实现高效计算。&lt;/li&gt;
-&lt;li&gt;同时生成两种体素级不确定性图：用于概率校准的图与用于错误检测和选择性预测的排序图，兼顾不同下游任务需求。&lt;/li&gt;
+&lt;li&gt;集成机器人分拣与生物消化器系统，通过YOLOv8实时检测与ROS路径规划实现98%分拣精度&lt;/li&gt;
+&lt;li&gt;应用粒子群优化算法与回归模型动态调控生物消化器参数，提升消化效率与系统稳定性&lt;/li&gt;
+&lt;li&gt;构建多传感器监控网络，实时采集温度、pH、压力等参数实现闭环优化控制&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;领域启发：该工作为医学图像分割提供了一种高效、可靠且即插即用的不确定性估计方案，其单次前向传播的特性利于工程部署。其将不确定性抽象为“扰动能量”的思想，为图像分割与目标识别领域研究不确定性估计提供了新视角，可能启发更广义的、不依赖特定网络结构或多次采样的可靠性评估方法。&lt;/p&gt;
+&lt;p&gt;领域启发：该论文展示了目标检测模型（YOLOv8）与机器人系统（ROS）在复杂动态环境中的工程集成范式，为图像识别技术从算法层到物理执行层的闭环落地提供了完整案例。其高精度实时检测与机械控制协同机制，对开发面向工业场景的视觉-动作一体化系统具有参考价值，特别是在非结构化环境下的多类别物体分拣任务中，验证了轻量化检测模型与边缘计算设备（Jetson Nano）结合的实际可行性。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;2-learning-where-to-embed-noise-aware-positional-embedding-for-query-retrieval-in-small-object-detection&#34;&gt;2. Learning Where to Embed: Noise-Aware Positional Embedding for Query Retrieval in Small-Object Detection
+&lt;h3 id=&#34;2-efficient-search-of-implantable-adaptive-cells-for-medical-image-segmentation&#34;&gt;2. Efficient Search of Implantable Adaptive Cells for Medical Image Segmentation
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15065v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/abs/2604.15065v1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;发布时间: 2026-04-16 22:28:36 (北京时间)&lt;/li&gt;
-&lt;li&gt;作者: Yangchen Zeng, Zhenyu Yu, Dongming Jiang, Wenbo Zhang, Yifan Hong, Zhanhua Hu, Jiao Luo, Kangning Cui&lt;/li&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14849v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14849v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 18:34:57 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Emil Benedykciuk, Marcin Denkowski, Grzegorz M. Wójcik&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;TL;DR：提出一种噪声感知的位置-语义融合框架HELP，通过热图引导的位置嵌入抑制背景噪声并增强小目标特征，在减少解码器层数和参数量的同时保持检测精度。&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于Jensen-Shannon散度的稳定性准则，在可微分搜索过程中逐步剪枝低重要性操作，大幅加速植入式自适应细胞（IAC）的搜索效率，且性能不降。&lt;/p&gt;
 &lt;p&gt;核心贡献：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;提出热图引导的位置嵌入机制，通过梯度掩码滤波器在编码和解码阶段选择性保留前景位置信息并抑制背景噪声。&lt;/li&gt;
-&lt;li&gt;设计基于梯度的热图监督训练策略，该策略仅在训练时引入计算，推理时无额外开销。&lt;/li&gt;
-&lt;li&gt;集成线性蛇形卷积以增强复杂小目标的特征表示，缓解特征稀疏性问题。&lt;/li&gt;
+&lt;li&gt;通过分析IAC细胞在可微分搜索中的时序行为，发现最终被选中的操作通常在训练早期就已显现为强候选，且其架构参数会提前稳定。&lt;/li&gt;
+&lt;li&gt;提出一种基于Jensen-Shannon散度的稳定性准则，用于跟踪每条边上操作重要性分布的变化，并在搜索过程中逐步剪枝低重要性操作，从而构建了加速框架IAC-LTH。&lt;/li&gt;
+&lt;li&gt;IAC-LTH在多个公开医学图像分割基准、骨干网络及nnU-Net流程上，将神经架构搜索的耗时降低了3.7倍至16倍，同时发现的细胞性能与原完整搜索相当或略有提升。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;领域启发：该研究为小目标检测中的噪声抑制和特征增强提供了可解释的解决方案，其热图引导机制和轻量化设计思路可直接迁移至图像分割的上下文建模与目标识别的特征提取阶段，有助于在实际工程中平衡精度与计算效率，特别是在无人机巡检、医学影像分析等小目标密集场景中具有应用潜力。&lt;/p&gt;
+&lt;p&gt;领域启发：该工作为在医学图像分割中高效设计自适应模块（如跳跃连接）提供了实用化路径。其“早期稳定”的观察和渐进式剪枝策略，可推广至其他需要架构搜索的目标识别与分割任务中，有助于在有限算力下平衡模型性能与搜索成本，推动NAS技术在资源受限场景（如医疗、嵌入式）的工程落地。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;3-fsdetr-frequency-spatial-feature-enhancement-for-small-object-detection&#34;&gt;3. FSDETR: Frequency-Spatial Feature Enhancement for Small Object Detection
+&lt;h3 id=&#34;3-zero-shot-retail-theft-detection-via-orchestrated-vision-models-a-model-agnostic-cost-effective-alternative-to-trained-single-model-systems&#34;&gt;3. Zero-Shot Retail Theft Detection via Orchestrated Vision Models: A Model-Agnostic, Cost-Effective Alternative to Trained Single-Model Systems
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14884v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/abs/2604.14884v1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;发布时间: 2026-04-16 19:22:13 (北京时间)&lt;/li&gt;
-&lt;li&gt;作者: Jianchao Huang, Fengming Zhang, Haibo Zhu, Tao Yan&lt;/li&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14846v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14846v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 18:32:20 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Haileab Yagersew&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;TL;DR：提出基于RT-DETR的FSDETR框架，通过频域-空间协同建模增强小目标检测特征，有效应对下采样特征退化、密集遮挡与背景干扰。&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种无需训练、通过编排多个现成视觉模型实现零样本零售偷窃检测的框架，在显著降低成本的同时保证了高精度和低误报率。&lt;/p&gt;
 &lt;p&gt;核心贡献：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;提出空间分层注意力模块，通过局部细节与全局依赖的协同建模增强语义表征能力。&lt;/li&gt;
-&lt;li&gt;设计基于可变形注意力的尺度内特征交互模块，通过动态采样聚焦信息区域以缓解密集遮挡。&lt;/li&gt;
-&lt;li&gt;构建频域-空间特征金字塔网络，通过跨域频域-空间块融合频域滤波与空间边缘提取以保留细粒度细节。&lt;/li&gt;
+&lt;li&gt;提出一种分层编排的零样本检测框架，通过廉价的目标检测和姿态估计模型持续运行，并结合多信号预筛选机制（停留时间+行为信号）仅在必要时调用昂贵的视觉语言模型，将VLM调用频率降低240倍。&lt;/li&gt;
+&lt;li&gt;设计了模型无关的架构，VLM组件兼容任何OpenAI标准接口，允许无缝切换不同模型（如Gemma 4、GPT-4o等），使系统能随VLM技术演进自动提升性能。&lt;/li&gt;
+&lt;li&gt;构建了详细的成本模型与隐私保护设计，实现了单GPU服务10-20家门店、月成本50-100美元的经济可行性，并在检测流程中对面部进行模糊化处理。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;领域启发：该工作通过频域-空间双域特征增强与动态注意力机制，为小目标检测中的特征退化与密集遮挡问题提供了新思路；其轻量化设计（14.7M参数）与公开代码对无人机巡检、遥感分析等工程场景的落地具有参考价值，同时其跨域特征融合思想可延伸至小目标分割任务中。&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别领域提供了一种高效的“模型编排”工程范式，证明通过合理组合现有专用模型（如目标检测、姿态估计）与通用大模型（VLM），可在不重新训练的情况下解决复杂行为识别任务。这降低了定制化模型开发成本，并突出了在工程落地中平衡精度、速度与成本的重要性，为零售安防、行为分析等场景提供了可复用的架构参考。&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
