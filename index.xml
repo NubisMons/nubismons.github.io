@@ -7,6 +7,101 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-18</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</link>
+        <pubDate>Sat, 18 Apr 2026 19:59:56 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-18 19:59:56&lt;/p&gt;
+&lt;h3 id=&#34;1-segwithu-uncertainty-as-perturbation-energy-for-single-forward-pass-risk-aware-medical-image-segmentation&#34;&gt;1. SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15271v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.15271v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-17 01:42:42 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Tianhao Fu, Austin Wang, Charles Chen, Roby Aldave-Garza, Yucheng Chen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种名为SegWithU的后处理框架，通过轻量级不确定性头建模扰动能量，实现了单次前向传播即可生成高质量不确定性估计的医学图像分割方法。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种后处理不确定性估计框架，可在不改变或重训练已冻结预训练分割主干网络的前提下，通过添加轻量级不确定性头进行增强。&lt;/li&gt;
+&lt;li&gt;创新性地将不确定性建模为紧凑探测空间中的扰动能量，并利用秩-1后验探针从主干中间特征提取信息。&lt;/li&gt;
+&lt;li&gt;设计生成两种体素级不确定性图：面向校准的概率调节图和面向排名的错误检测与选择性预测图，兼顾不同下游需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究为图像分割与目标识别领域提供了一种高效、可靠的不确定性量化新思路。其单次前向传播的设定显著提升了在医疗等实时性要求高场景的工程落地可行性，而扰动能量的建模方法为理解模型决策脆弱性提供了新视角，有助于推动可信赖AI在关键领域的发展。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-learning-where-to-embed-noise-aware-positional-embedding-for-query-retrieval-in-small-object-detection&#34;&gt;2. Learning Where to Embed: Noise-Aware Positional Embedding for Query Retrieval in Small-Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15065v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.15065v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 22:28:36 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yangchen Zeng, Zhenyu Yu, Dongming Jiang, Wenbo Zhang, Yifan Hong, Zhanhua Hu, Jiao Luo, Kangning Cui&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种噪声感知的位置-语义融合框架HELP，通过热图引导的位置嵌入抑制背景噪声并增强小目标检测中的查询检索效率。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出热图引导的位置嵌入机制，通过梯度掩码滤波器在解码前过滤背景主导的嵌入，实现噪声抑制的位置编码选择性保留。&lt;/li&gt;
+&lt;li&gt;设计线性蛇形卷积模块，针对复杂小目标的特征稀疏性问题增强检索相关表示。&lt;/li&gt;
+&lt;li&gt;引入仅训练时使用的梯度热图监督机制，在推理时不增加计算开销，大幅减少解码器层数与参数量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究为小目标检测中的噪声抑制和特征增强提供了可解释的嵌入学习范式，其热图可视化机制有助于模型诊断与调优；线性蛇形卷积和轻量化解码器设计对资源受限的实时识别场景具有工程参考价值，尤其适用于遥感、医疗影像等小目标密集的分割与检测任务。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-fsdetr-frequency-spatial-feature-enhancement-for-small-object-detection&#34;&gt;3. FSDETR: Frequency-Spatial Feature Enhancement for Small Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14884v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14884v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 19:22:13 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jianchao Huang, Fengming Zhang, Haibo Zhu, Tao Yan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出基于RT-DETR的FSDETR框架，通过频域-空间协同建模增强小目标检测能力。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出空间分层注意力模块（SHAB），同时捕获局部细节与全局依赖以增强语义表征。&lt;/li&gt;
+&lt;li&gt;设计基于可变形注意力的尺度内特征交互模块（DA-AIFI），通过动态采样聚焦密集遮挡场景中的有效区域。&lt;/li&gt;
+&lt;li&gt;构建频域-空间特征金字塔网络（FSFPN），利用跨域频域-空间块（CFSB）融合频域滤波与空间边缘提取，保留细粒度细节。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作通过频域分析补充空间特征退化问题，为小目标检测提供了新思路；其轻量化设计（14.7M参数）与模块化结构易于移植到图像分割任务中，对无人机巡检、遥感影像分析等工程场景具有实用价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-an-intelligent-robotic-and-bio-digestor-framework-for-smart-waste-management&#34;&gt;4. An Intelligent Robotic and Bio-Digestor Framework for Smart Waste Management
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14882v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14882v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 19:19:36 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Radhika Khatri, Adit Tewari, Nikhil Sharma, M. B. Srinivas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种结合机器人分拣与优化生物消化器的智能废物管理框架，实现高精度实时分类与高效生物转化。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出集成机器人分拣与生物消化器的协同框架，通过YOLOv8实时检测与ROS路径规划实现98%分拣精度&lt;/li&gt;
+&lt;li&gt;在生物消化器中引入PSO算法与回归模型动态优化温度、pH等参数，提升消化效率与系统稳定性&lt;/li&gt;
+&lt;li&gt;构建软硬件一体化系统（MyCobot机械臂+多传感器网络），验证框架在动态环境下的实际可行性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究展示了YOLOv8在复杂动态场景（如非结构化废物堆叠）中高精度实时检测的工程潜力，为图像识别算法在机器人抓取、多目标交错场景下的鲁棒性优化提供参考；其ROS与视觉系统的集成范式对目标识别技术的嵌入式部署与跨平台协同具有示范价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-efficient-search-of-implantable-adaptive-cells-for-medical-image-segmentation&#34;&gt;5. Efficient Search of Implantable Adaptive Cells for Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14849v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14849v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 18:34:57 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Emil Benedykciuk, Marcin Denkowski, Grzegorz M. Wójcik&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于Jensen-Shannon散度的稳定性准则，在可微分搜索过程中逐步剪枝低重要性操作，大幅加速植入式自适应细胞（IAC）的搜索效率，且性能不降。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过分析IAC在可微分搜索中的时序行为，发现最终被选中的操作通常在训练早期就已显现为强候选，且架构参数提前稳定。&lt;/li&gt;
+&lt;li&gt;提出基于Jensen-Shannon散度的稳定性准则，动态跟踪每条边上操作重要性分布的变化，并在搜索过程中逐步剪枝低重要性操作，从而显著减少搜索耗时。&lt;/li&gt;
+&lt;li&gt;构建了加速框架IAC-LTH，在多个公开医学图像分割数据集和骨干网络上，将神经架构搜索（NAS）的耗时降低3.7倍至16倍，同时保持甚至略微提升分割性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为在医学图像分割中高效、低成本地应用神经架构搜索（NAS）提供了实用方案。它通过“早停”和动态剪枝思想，显著降低了自适应模块（如跳跃连接优化）的设计成本，使得在有限算力下进行模型结构自动优化更具可行性。这不仅推动了NAS在资源敏感场景（如医疗）的落地，其“基于早期稳定性识别有效子结构”的思路，也对通用图像分割和目标识别领域的自动化网络结构设计具有启发意义。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>Test</title>
         <link>https://blogbook.eu.org/p/test/</link>
         <pubDate>Sat, 18 Apr 2026 19:31:26 +0800</pubDate>
