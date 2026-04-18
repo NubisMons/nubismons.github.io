@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Sat, 18 Apr 2026 12:00:52 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 18 Apr 2026 20:12:08 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学术雷达日报 2026-04-18</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</link>
         <pubDate>Sat, 18 Apr 2026 19:59:56 +0800</pubDate>
@@ -103,12 +103,37 @@
 </description>
         </item>
         <item>
-        <title>Test</title>
-        <link>https://blogbook.eu.org/p/test/</link>
+        <title>学术雷达</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE/</link>
         <pubDate>Sat, 18 Apr 2026 19:31:26 +0800</pubDate>
         
-        <guid>https://blogbook.eu.org/p/test/</guid>
-        <description>&lt;p&gt;test,test,test,test&lt;/p&gt;
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE/</guid>
+        <description>&lt;p&gt;我来给你加一个“总开关”，放在工作流层：你在仓库 Variables 里改一个值就能启停学术雷达，不需要再改代码。先改 AcademicRadar.yaml 并校验。
+已加好“停用开关”。&lt;/p&gt;
+&lt;p&gt;改动：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 AcademicRadar.yaml 的 &lt;code&gt;jobs.academic-radar&lt;/code&gt; 增加了条件：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;if: ${{ vars.ACADEMIC_RADAR_ENABLED != &#39;false&#39; }}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;怎么用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开仓库 Settings -&amp;gt; Secrets and variables -&amp;gt; Actions -&amp;gt; Variables&lt;/li&gt;
+&lt;li&gt;新建变量 &lt;code&gt;ACADEMIC_RADAR_ENABLED&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;赋值规则：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;false&lt;/code&gt;：停用学术雷达（job 会被跳过）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt; 或不设置：启用学术雷达&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是“软开关”，不会删 workflow，只是让任务跳过。&lt;/li&gt;
+&lt;li&gt;文件已校验无错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;已进行更改。&lt;/p&gt;
 </description>
         </item>
         <item>
