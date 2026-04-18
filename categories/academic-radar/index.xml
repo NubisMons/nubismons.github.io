@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Academic Radar on 云雾中的山-Nubislab</title>
+        <link>https://blogbook.eu.org/categories/academic-radar/</link>
+        <description>Recent content in Academic Radar on 云雾中的山-Nubislab</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisLab</copyright>
+        <lastBuildDate>Sat, 18 Apr 2026 11:50:53 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-18</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</link>
+        <pubDate>Sat, 18 Apr 2026 19:50:26 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-18 19:50:26&lt;/p&gt;
+&lt;h3 id=&#34;1-segwithu-uncertainty-as-perturbation-energy-for-single-forward-pass-risk-aware-medical-image-segmentation&#34;&gt;1. SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15271v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.15271v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-17 01:42:42 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Tianhao Fu, Austin Wang, Charles Chen, Roby Aldave-Garza, Yucheng Chen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种名为SegWithU的后处理框架，通过轻量级不确定性头建模扰动能量，实现了单次前向传播即可生成高质量不确定性估计的医学图像分割方法。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种后处理框架，可在不改变或重新训练预训练分割主干网络的情况下，通过添加轻量级不确定性头来估计不确定性。&lt;/li&gt;
+&lt;li&gt;创新地将不确定性建模为紧凑探测空间中的“扰动能量”，并利用秩-1后验探针从主干中间特征中提取信息。&lt;/li&gt;
+&lt;li&gt;同时生成两种体素级不确定性图：一种用于概率校准，另一种用于错误检测和选择性预测，提升了风险感知能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究为图像分割，特别是对可靠性要求极高的医学图像分割，提供了一种高效、实用的不确定性估计新范式。其“单次前向传播”的设计显著提升了计算效率，利于工程落地；而将不确定性解耦为校准和排序两种用途的思路，对提升目标识别系统的可解释性和安全决策支持具有重要参考价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-learning-where-to-embed-noise-aware-positional-embedding-for-query-retrieval-in-small-object-detection&#34;&gt;2. Learning Where to Embed: Noise-Aware Positional Embedding for Query Retrieval in Small-Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.15065v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.15065v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 22:28:36 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yangchen Zeng, Zhenyu Yu, Dongming Jiang, Wenbo Zhang, Yifan Hong, Zhanhua Hu, Jiao Luo, Kangning Cui&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种噪声感知的位置-语义融合框架HELP，通过热图引导的位置嵌入机制抑制背景噪声并增强小目标特征，在显著降低模型复杂度的同时保持检测精度。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出热图引导的位置嵌入机制，通过梯度掩码滤波器在解码前过滤背景主导的嵌入，实现噪声抑制的高质量查询检索&lt;/li&gt;
+&lt;li&gt;设计仅训练时使用的基于梯度的热图监督机制，在推理时不增加计算开销&lt;/li&gt;
+&lt;li&gt;集成线性蛇形卷积以丰富复杂小目标的特征表示，解决特征稀疏性问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究为小目标检测中的噪声抑制和特征增强提供了可解释的解决方案，其热图可视化机制有助于模型诊断和调优；提出的轻量化架构设计（减少解码器层数和参数量）对边缘设备部署具有工程参考价值，同时位置嵌入的选择性保留策略对图像分割中的前景-背景区分任务具有借鉴意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-fsdetr-frequency-spatial-feature-enhancement-for-small-object-detection&#34;&gt;3. FSDETR: Frequency-Spatial Feature Enhancement for Small Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.14884v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.14884v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-16 19:22:13 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jianchao Huang, Fengming Zhang, Haibo Zhu, Tao Yan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出基于RT-DETR的FSDETR框架，通过频域-空间协同建模增强小目标检测能力。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出空间分层注意力模块（SHAB），同时捕获局部细节与全局依赖以增强语义表征。&lt;/li&gt;
+&lt;li&gt;设计基于可变形注意力的尺度内特征交互模块（DA-AIFI），通过动态采样聚焦密集遮挡场景中的有效区域。&lt;/li&gt;
+&lt;li&gt;构建频域-空间特征金字塔网络（FSFPN），利用跨域频域-空间块（CFSB）融合频域滤波与空间边缘提取，保留细粒度细节。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作通过频域分析补充空间特征退化问题，为小目标检测提供了新思路；其轻量化设计（14.7M参数）与模块化结构易于移植到图像分割任务中，对无人机巡检、遥感影像分析等工程场景具有实用价值。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
