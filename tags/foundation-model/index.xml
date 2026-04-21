@@ -7,7 +7,68 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Sat, 18 Apr 2026 12:00:52 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/foundation-model/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Apr 2026 14:55:53 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/foundation-model/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-21</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-21/</link>
+        <pubDate>Tue, 21 Apr 2026 22:55:13 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-21/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-21 22:55:13&lt;/p&gt;
+&lt;h3 id=&#34;1-t-ren-learning-text-aligned-region-tokens-improves-dense-vision-language-alignment-and-scalability&#34;&gt;1. T-REN: Learning Text-Aligned Region Tokens Improves Dense Vision-Language Alignment and Scalability
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.18573v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.18573v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-21 01:57:02 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Savya Khosla, Sethuraman T, Aryan Chadha, Alex Schwing, Derek Hoiem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出T-REN模型，通过轻量级网络将图像特征聚合成少量文本对齐的区域级表征，显著提升了密集视觉-语言对齐能力并极大降低了视觉令牌数量。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种高效的文本对齐区域编码器网络（T-REN），它通过在冻结的视觉主干上添加轻量级网络，将图像块级特征聚合成语义区域级的紧凑表征（区域令牌）。&lt;/li&gt;
+&lt;li&gt;实现了视觉特征与语言在区域级别的强对齐，通过利用区域级文本标注进行训练，显著增强了密集跨模态理解能力。&lt;/li&gt;
+&lt;li&gt;在极低参数量增加（仅3.7%）的前提下，将图像和视频的视觉令牌数量分别降低了超过24倍和187倍，大幅提升了模型处理细粒度视觉内容（尤其是长视频）的可扩展性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为开放词汇语义分割、视频场景解析等密集预测任务提供了高效的解决方案。其“区域令牌”思想将细粒度视觉信息压缩为语义对齐的紧凑表征，不仅提升了模型在跨模态检索、分割定位等任务上的性能，还通过大幅减少计算与内存开销，为在资源受限或长序列（如长视频分析）场景下的工程落地提供了新的可行路径。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-advancing-vision-transformer-with-enhanced-spatial-priors&#34;&gt;2. Advancing Vision Transformer with Enhanced Spatial Priors
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.18549v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.18549v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-21 01:41:00 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Qihang Fan, Huaibo Huang, Mingrui Chen, Hongmin Liu, Ran He&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种通过欧氏距离衰减增强空间先验的视觉Transformer（EVT），在多项视觉任务上取得优异性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出使用欧氏距离衰减（替代RMT中的曼哈顿距离）来更精确地建模Self-Attention中的空间关系。&lt;/li&gt;
+&lt;li&gt;采用空间无关的分组注意力机制（替代RMT的分解注意力），以更灵活地控制组内token数量并简化计算。&lt;/li&gt;
+&lt;li&gt;构建了EVT模型，在ImageNet分类等任务上实现了高性能（如86.6% top-1准确率），无需额外训练数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作通过显式且更合理的空间先验增强Self-Attention，为图像分割与目标识别任务提供了更强的空间关系建模能力。其分组注意力机制在计算效率与灵活性上的改进，有助于推动高性能视觉Transformer在计算资源受限场景（如移动端或实时分割/检测系统）中的工程落地。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-semlt3d-semantic-guided-expert-distillation-for-camera-only-long-tailed-3d-object-detection&#34;&gt;3. SemLT3D: Semantic-Guided Expert Distillation for Camera-only Long-Tailed 3D Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.18476v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.18476v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-21 00:28:01 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Hao Vo, Khoa Vo, Thinh Phan, Ngo Xuan Cuong, Gianfranco Doretto, Hien Nguyen, Anh Nguyen, Ngan Le&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种语义引导的专家蒸馏框架，通过语义先验增强长尾类别表征，以提升纯视觉3D目标检测在类别不平衡场景下的性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出语言引导的专家混合模块，根据语义亲和性将3D查询路由至专用专家，以更好地区分易混淆类别并专注尾部数据分布&lt;/li&gt;
+&lt;li&gt;设计语义投影蒸馏流程，将3D查询与CLIP引导的2D语义对齐，生成跨多样视觉表现的一致且判别性强的特征&lt;/li&gt;
+&lt;li&gt;框架虽针对长尾不平衡设计，但其语义结构化学习能提升模型在更广泛外观变化和挑战性极端场景下的鲁棒性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别领域提供了处理类别不平衡问题的新范式，其语义引导的专家路由机制可迁移至2D实例分割中的长尾类别区分；语义对齐蒸馏方法对跨模态特征融合具有参考价值，尤其在数据稀缺的工业场景中，能通过先验知识增强模型对罕见但关键目标的识别能力，提升自动驾驶等安全关键系统的工程可靠性。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-18</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-18/</link>
         <pubDate>Sat, 18 Apr 2026 19:59:56 +0800</pubDate>
