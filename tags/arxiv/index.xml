@@ -7,7 +7,85 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 21 Apr 2026 14:55:53 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 22 Apr 2026 14:56:43 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-22</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-22/</link>
+        <pubDate>Wed, 22 Apr 2026 22:55:50 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-22/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-22 22:55:50&lt;/p&gt;
+&lt;h3 id=&#34;1-medflowseg-flow-matching-for-medical-image-segmentation-with-frequency-aware-attention&#34;&gt;1. MedFlowSeg: Flow Matching for Medical Image Segmentation with Frequency-Aware Attention
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.19675v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.19675v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-22 00:54:43 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Zhi Chen, Runze Hu, Le Zhang&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出首个基于条件流匹配的医学图像分割框架MedFlowSeg，通过双分支空间注意力与频率感知注意力模块实现高效确定性推理。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出条件流匹配框架，将医学图像分割建模为学习从简单先验分布到目标分割分布的连续时间向量场，实现单步确定性推理&lt;/li&gt;
+&lt;li&gt;设计双分支空间注意力模块，通过注入多尺度结构信息增强流场对全局解剖结构的建模能力&lt;/li&gt;
+&lt;li&gt;提出频率感知注意力模块，通过差异感知融合和时间相关调制建模空间域与频谱域的跨域交互，提升对细粒度边界细节的捕捉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为生成式医学图像分割提供了理论严谨且计算高效的新范式，其流匹配框架可显著降低推理计算成本，对实时医疗影像分析具有工程价值；频率感知注意力机制为多模态特征融合提供了新思路，对改善复杂边界分割具有普适参考意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-coco-sam3-harnessing-concept-conflict-in-open-vocabulary-semantic-segmentation&#34;&gt;2. CoCo-SAM3: Harnessing Concept Conflict in Open-Vocabulary Semantic Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.19648v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.19648v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-22 00:37:18 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yanhui Chen, Baoyao Yang, Siqi Liu, Jingchao Wang&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出CoCo-SAM3方法，通过显式解耦类内增强与类间竞争，在无需额外训练的情况下稳定并提升了开放词汇语义分割的多类别推理性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种提示驱动的掩码生成新范式，将开放词汇语义分割推理显式解耦为&lt;strong&gt;类内证据增强&lt;/strong&gt;和&lt;strong&gt;类间统一竞争&lt;/strong&gt;两个阶段。&lt;/li&gt;
+&lt;li&gt;设计了&lt;strong&gt;类内概念对齐机制&lt;/strong&gt;，通过聚合同义提示的证据来强化概念一致性，缓解类内语义漂移。&lt;/li&gt;
+&lt;li&gt;引入了&lt;strong&gt;基于统一可比尺度的类间竞争机制&lt;/strong&gt;，使所有候选类别能在像素级别进行直接、公平的比较，有效缓解掩码重叠与冲突。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为开放世界下的图像理解提供了新思路，其解耦推理框架对处理复杂场景中的类别模糊与竞争问题具有普适参考价值。工程上，其“无需训练即插即用”的特性易于集成到现有SAM等基础模型生态中，能直接提升分割系统在真实多类别、开放词汇场景下的鲁棒性与实用性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-volume-transformer-revisiting-vanilla-transformers-for-3d-scene-understanding&#34;&gt;3. Volume Transformer: Revisiting Vanilla Transformers for 3D Scene Understanding
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.19609v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.19609v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-21 23:56:26 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Kadir Yilmaz, Adrian Kruse, Tristan Höfer, Daan de Geus, Bastian Leibe&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于标准Transformer编码器的最小化修改3D场景理解通用骨干网络Volume Transformer，并通过数据高效训练方案与多数据集联合监督实现SOTA性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将标准Transformer编码器适配到3D场景：通过体素块划分构建序列输入，采用全局自注意力机制，并创新性扩展旋转位置编码至3D空间&lt;/li&gt;
+&lt;li&gt;提出针对3D小规模监督的数据高效训练方案：结合强三维数据增强、正则化技术与卷积教师模型蒸馏策略&lt;/li&gt;
+&lt;li&gt;验证跨数据集联合训练的规模化优势：证明通用Transformer架构相比领域专用模型能从扩大数据规模中获得更大收益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该研究为3D视觉任务提供了与主流Transformer生态兼容的通用解决方案，其模块化设计便于集成到现有分割与检测流程中，实验表明通用架构通过规模化数据训练可超越手工设计的专用网络，这为开发统一的多模态视觉基础模型提供了技术路径，同时其蒸馏策略对解决实际应用中标注数据稀缺问题具有工程参考价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-rf-hit-rectified-flow-hierarchical-transformer-for-general-medical-image-segmentation&#34;&gt;4. RF-HiT: Rectified Flow Hierarchical Transformer for General Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.19570v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.19570v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-21 23:24:39 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Ahmed Marouane Djouama, Abir Belaala, Abdellah Zakaria Sellam, Salah Eddine Bekhouche, Cosimo Distante, Abdenour Hadid&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种结合整流流与分层Transformer的高效医学图像分割模型，在保持高性能的同时显著降低计算复杂度和推理延迟。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出Rectified Flow Hierarchical Transformer（RF-HiT）架构，将沙漏形Transformer主干与多尺度分层编码器结合，实现解剖结构引导的特征条件化&lt;/li&gt;
+&lt;li&gt;采用整流流（Rectified Flow）机制替代传统扩散方法，仅需少量离散化步骤即可实现线性计算复杂度，大幅提升推理效率&lt;/li&gt;
+&lt;li&gt;通过可学习的插值方法融合多分辨率条件特征，以最小计算开销实现有效的多尺度表征学习&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为图像分割领域提供了高效Transformer与生成模型融合的新范式，其线性复杂度设计和极简推理步骤（仅需3步）显著提升了模型在实时临床场景中的落地可行性，同时为资源受限环境下的高精度目标识别任务提供了轻量级架构设计参考。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-21</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-21/</link>
         <pubDate>Tue, 21 Apr 2026 22:55:13 +0800</pubDate>
