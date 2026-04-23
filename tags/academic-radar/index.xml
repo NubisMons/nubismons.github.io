@@ -7,7 +7,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 22 Apr 2026 14:56:43 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 23 Apr 2026 15:23:04 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-23</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-23/</link>
+        <pubDate>Thu, 23 Apr 2026 23:22:56 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-23/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-23 23:22:56&lt;/p&gt;
+&lt;h3 id=&#34;1-global-offshore-wind-infrastructure-deployment-and-operational-dynamics-from-dense-sentinel-1-time-series&#34;&gt;1. Global Offshore Wind Infrastructure: Deployment and Operational Dynamics from Dense Sentinel-1 Time Series
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.20822v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.20822v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-23 01:47:33 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Thorsten Hoeser, Felix Bachofer, Claudia Kuenzer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文构建了一个基于密集Sentinel-1 SAR时间序列的全球海上风电基础设施部署与运行动态数据集，并提供了规则分类基线及专家标注基准，支持大规模时空监测。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建了全球首个密集时间序列（2016Q1-2025Q1）的Sentinel-1 SAR海上风电基础设施数据集，包含15,606个位置的时间序列和14,840,637个事件级1D SAR后向散射剖面。&lt;/li&gt;
+&lt;li&gt;提出了一个基于规则的分类器，生成事件级语义标签，在事件评估中达到0.84的宏F1分数，并引入时间一致性评估指标（AUC=0.785）。&lt;/li&gt;
+&lt;li&gt;提供了专家标注的基准数据集（553个时间序列，328,657个事件标签），支持全球部署动态分析、区域模式差异识别、船舶交互及运行事件监测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）展示了如何将SAR图像中的空间目标检测（如风电基础设施）转化为时间序列分类问题，为时序遥感分析提供了新范式；2）其密集时间序列数据与事件级标签可直接用于训练和评估时序分割/分类模型，推动从静态图像分割向动态事件识别演进；3）规则分类器与专家标注的结合为弱监督学习提供了基准，启发在目标识别中融合时空上下文信息以提升鲁棒性。工程落地上，该方法可扩展至其他基础设施（如电网、桥梁）的长期监测，降低人工标注成本。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-22</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-22/</link>
         <pubDate>Wed, 22 Apr 2026 22:55:50 +0800</pubDate>
