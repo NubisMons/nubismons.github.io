@@ -7,7 +7,51 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 23 Apr 2026 15:23:04 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 Apr 2026 15:41:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-28</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-28/</link>
+        <pubDate>Tue, 28 Apr 2026 23:41:20 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-28/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-28 23:41:20&lt;/p&gt;
+&lt;h3 id=&#34;1-diffusam-diffusion-based-prompt-free-sam2-for-few-shot-and-source-free-medical-image-segmentation&#34;&gt;1. DiffuSAM: Diffusion-Based Prompt-Free SAM2 for Few-Shot and Source-Free Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.24719v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.24719v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-28 01:29:53 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Tal Grossman, Noa Cahan, Lev Ayzenberg, Hayit Greenspan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出DiffuSAM，利用扩散模型从冻结的SAM2图像特征生成无提示分割嵌入，实现无需用户交互的医学图像分割，在少样本和无源域适应场景下表现优异。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出基于扩散先验的无提示分割嵌入生成方法，从冻结的SAM2图像特征中合成掩码嵌入，消除对用户提示的依赖。&lt;/li&gt;
+&lt;li&gt;设计轻量级扩散先验模块，仅需少量可训练参数即可适配医学图像域，支持少样本和无源域无监督域适应（SF-UDA）场景。&lt;/li&gt;
+&lt;li&gt;引入切片间空间一致性条件化机制，利用先前分割切片约束扩散生成过程，增强三维体积分割的时序连贯性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别研究提供了两个重要方向：一是展示了扩散模型作为“嵌入生成器”与基础分割模型（如SAM2）协同工作的潜力，可降低对人工标注和提示的依赖；二是在少样本和源域缺失场景下，通过轻量级适配实现域迁移，这对医学影像等标注稀缺领域的工程落地具有直接价值，例如CT/MRI的自动分割系统可减少专家干预成本。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-wildlift-lifting-monocular-drone-video-to-3d-for-species-agnostic-wildlife-monitoring&#34;&gt;2. WildLIFT: Lifting monocular drone video to 3D for species-agnostic wildlife monitoring
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.24718v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.24718v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-28 01:29:22 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Vandita Shukla, Fabio Remondino, Blair Costelloe, Benjamin Risse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：WildLIFT通过融合单目无人机视频的3D场景几何与开放词汇2D实例分割，实现了物种无关的3D检测与跟踪，显著减少了人工标注并提升了多动物场景的身份一致性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种结合单目深度估计与开放词汇分割的框架，将2D无人机视频提升为3D场景几何表示，支持物种无关的野生动物监测。&lt;/li&gt;
+&lt;li&gt;引入带语义面信息的定向3D边界框标注，实现视点覆盖和动物间遮挡的定量评估，为生态分析生成结构化元数据。&lt;/li&gt;
+&lt;li&gt;通过关键帧精化策略，大幅降低3D标注工作量，并在多动物场景中保持高身份一致性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文展示了如何将开放词汇分割（如SAM、CLIP）与3D几何重建结合，为图像分割与目标识别领域提供了新思路：一方面，通过3D信息增强2D分割的鲁棒性（如处理遮挡和视角变化）；另一方面，利用开放词汇能力实现跨物种通用检测，减少对特定数据集标注的依赖。在工程落地上，该方法可推广至无人机生态监测、野生动物保护等场景，降低部署成本并提升自动化分析效率。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-23</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-23/</link>
         <pubDate>Thu, 23 Apr 2026 23:22:56 +0800</pubDate>
