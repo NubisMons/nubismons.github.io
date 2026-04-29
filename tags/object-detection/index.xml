@@ -7,7 +7,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 15:41:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/object-detection/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 29 Apr 2026 15:30:17 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/object-detection/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-04-29</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-29/</link>
+        <pubDate>Wed, 29 Apr 2026 23:30:08 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-29/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-04-29 23:30:08&lt;/p&gt;
+&lt;h3 id=&#34;1-no-pedestrian-left-behind-real-time-detection-and-tracking-of-vulnerable-road-users-for-adaptive-traffic-signal-control&#34;&gt;1. No Pedestrian Left Behind: Real-Time Detection and Tracking of Vulnerable Road Users for Adaptive Traffic Signal Control
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.25887v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.25887v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-04-29 01:29:23 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Anas Gamal Aly, Hala ElAarag&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出NPLB自适应交通信号系统，通过YOLOv12+ByteTrack实时检测跟踪弱势道路使用者，动态延长信号时间，将行人滞留率从9.10%降至2.60%。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出基于YOLOv12的弱势道路使用者实时检测模型，在BGVP数据集上达到0.756 &lt;a class=&#34;link&#34; href=&#34;mailto:mAP@0.5&#34; &gt;mAP@0.5&lt;/a&gt;，兼顾精度与速度&lt;/li&gt;
+&lt;li&gt;集成ByteTrack多目标跟踪与自适应信号控制器，当剩余时间低于临界阈值时自动延长行人相位&lt;/li&gt;
+&lt;li&gt;通过10,000次蒙特卡洛仿真验证系统有效性，在仅12.1%的过街周期触发延时的条件下，将VRU安全性提升71.4%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作展示了目标检测与多目标跟踪在智能交通系统中的落地价值，为图像分割与目标识别研究提供了两个重要方向：一是面向边缘部署的轻量化模型设计（如YOLOv12的实时性优势），二是检测-跟踪-决策的端到端系统集成范式。其自适应控制策略对行人分割、姿态估计等细粒度视觉任务在交通场景中的工程化应用具有直接参考意义。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-28</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-28/</link>
         <pubDate>Tue, 28 Apr 2026 23:41:20 +0800</pubDate>

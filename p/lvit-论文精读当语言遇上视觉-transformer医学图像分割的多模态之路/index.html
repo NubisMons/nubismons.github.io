@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="深入解析 LViT（Language meets Vision Transformer）架构：U-Net + 多尺度 ViT + BERT 文本融合，含完整数据流、关键代码走读、已知问题与改进方向。">
+<title>LViT 论文精读：当语言遇上视觉 Transformer，医学图像分割的多模态之路</title>
+
+<link rel='canonical' href='https://blogbook.eu.org/p/lvit-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E5%BD%93%E8%AF%AD%E8%A8%80%E9%81%87%E4%B8%8A%E8%A7%86%E8%A7%89-transformer%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B9%8B%E8%B7%AF/'>
+
+<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="LViT 论文精读：当语言遇上视觉 Transformer，医学图像分割的多模态之路">
+<meta property='og:description' content="深入解析 LViT（Language meets Vision Transformer）架构：U-Net + 多尺度 ViT + BERT 文本融合，含完整数据流、关键代码走读、已知问题与改进方向。">
+<meta property='og:url' content='https://blogbook.eu.org/p/lvit-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E5%BD%93%E8%AF%AD%E8%A8%80%E9%81%87%E4%B8%8A%E8%A7%86%E8%A7%89-transformer%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B9%8B%E8%B7%AF/'>
+<meta property='og:site_name' content='云雾中的山-Nubislab'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='deep-learning' /><meta property='article:tag' content='image-segmentation' /><meta property='article:tag' content='medical-image' /><meta property='article:tag' content='vision-transformer' /><meta property='article:tag' content='multimodal' /><meta property='article:tag' content='paper-reading' /><meta property='article:tag' content='LViT' /><meta property='article:published_time' content='2026-04-29T22:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-04-29T21:08:38&#43;08:00'/>
+<meta name="twitter:title" content="LViT 论文精读：当语言遇上视觉 Transformer，医学图像分割的多模态之路">
+<meta name="twitter:description" content="深入解析 LViT（Language meets Vision Transformer）架构：U-Net + 多尺度 ViT + BERT 文本融合，含完整数据流、关键代码走读、已知问题与改进方向。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_753105a7bfb94ca6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♾️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">云雾中的山-Nubislab</a></h1>
+            <h2 class="site-description">欢迎来到我的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/290719760'
+                        target="_blank"
+                        
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M488.6 104.1C505.3 122.2 513 143.8 511.9 169.8V372.2C511.5 398.6 502.7 420.3 485.4 437.3C468.2 454.3 446.3 463.2 419.9 464H92.02C65.57 463.2 43.81 454.2 26.74 436.8C9.682 419.4 .7667 396.5 0 368.2V169.8C.7667 143.8 9.682 122.2 26.74 104.1C43.81 87.75 65.57 78.77 92.02 78H121.4L96.05 52.19C90.3 46.46 87.42 39.19 87.42 30.4C87.42 21.6 90.3 14.34 96.05 8.603C101.8 2.868 109.1 0 117.9 0C126.7 0 134 2.868 139.8 8.603L213.1 78H301.1L375.6 8.603C381.7 2.868 389.2 0 398 0C406.8 0 414.1 2.868 419.9 8.603C425.6 14.34 428.5 21.6 428.5 30.4C428.5 39.19 425.6 46.46 419.9 52.19L394.6 78L423.9 78C450.3 78.77 471.9 87.75 488.6 104.1H488.6zM449.8 173.8C449.4 164.2 446.1 156.4 439.1 150.3C433.9 144.2 425.1 140.9 416.4 140.5H96.05C86.46 140.9 78.6 144.2 72.47 150.3C66.33 156.4 63.07 164.2 62.69 173.8V368.2C62.69 377.4 65.95 385.2 72.47 391.7C78.99 398.2 86.85 401.5 96.05 401.5H416.4C425.6 401.5 433.4 398.2 439.7 391.7C446 385.2 449.4 377.4 449.8 368.2L449.8 173.8zM185.5 216.5C191.8 222.8 195.2 230.6 195.6 239.7V273C195.2 282.2 191.9 289.9 185.8 296.2C179.6 302.5 171.8 305.7 162.2 305.7C152.6 305.7 144.7 302.5 138.6 296.2C132.5 289.9 129.2 282.2 128.8 273V239.7C129.2 230.6 132.6 222.8 138.9 216.5C145.2 210.2 152.1 206.9 162.2 206.5C171.4 206.9 179.2 210.2 185.5 216.5H185.5zM377 216.5C383.3 222.8 386.7 230.6 387.1 239.7V273C386.7 282.2 383.4 289.9 377.3 296.2C371.2 302.5 363.3 305.7 353.7 305.7C344.1 305.7 336.3 302.5 330.1 296.2C323.1 289.9 320.7 282.2 320.4 273V239.7C320.7 230.6 324.1 222.8 330.4 216.5C336.7 210.2 344.5 206.9 353.7 206.5C362.9 206.9 370.7 210.2 377 216.5H377z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/NubisMons'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://blogbook.eu.org/en/" >English</option>
+                                
+                                    <option value="https://blogbook.eu.org/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#写在前面">写在前面</a></li>
+    <li><a href="#一动机文本能带来什么">一、动机：文本能带来什么？</a></li>
+    <li><a href="#二整体架构">二、整体架构</a></li>
+    <li><a href="#三关键模块拆解">三、关键模块拆解</a>
+      <ol>
+        <li><a href="#31-图像编码器标准-u-net-encoder">3.1 图像编码器（标准 U-Net Encoder）</a></li>
+        <li><a href="#32-vit-多尺度分支">3.2 ViT 多尺度分支</a></li>
+        <li><a href="#33-文本降维管道">3.3 文本降维管道</a></li>
+        <li><a href="#34-文本-视觉融合">3.4 文本-视觉融合</a></li>
+        <li><a href="#35-pixlevelmodule像素级注意力">3.5 PixLevelModule（像素级注意力）</a></li>
+        <li><a href="#36-reconstructtoken-回到空间">3.6 Reconstruct：Token 回到空间</a></li>
+      </ol>
+    </li>
+    <li><a href="#四损失函数">四、损失函数</a></li>
+    <li><a href="#五训练策略">五、训练策略</a></li>
+    <li><a href="#六实验结果">六、实验结果</a></li>
+    <li><a href="#七代码走读中的发现">七、代码走读中的发现</a>
+      <ol>
+        <li><a href="#71-text234-是死代码">7.1 text2/3/4 是死代码</a></li>
+        <li><a href="#72-lr-scheduler-从未生效">7.2 LR Scheduler 从未生效</a></li>
+        <li><a href="#73-bert-编码无缓存">7.3 BERT 编码无缓存</a></li>
+        <li><a href="#74-文本融合方式较朴素">7.4 文本融合方式较朴素</a></li>
+      </ol>
+    </li>
+    <li><a href="#八值得思考的问题">八、值得思考的问题</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" >
+                论文精读
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/lvit-%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E5%BD%93%E8%AF%AD%E8%A8%80%E9%81%87%E4%B8%8A%E8%A7%86%E8%A7%89-transformer%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E4%B9%8B%E8%B7%AF/">LViT 论文精读：当语言遇上视觉 Transformer，医学图像分割的多模态之路</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            深入解析 LViT（Language meets Vision Transformer）架构：U-Net &#43; 多尺度 ViT &#43; BERT 文本融合，含完整数据流、关键代码走读、已知问题与改进方向。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-04-29</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="写在前面">写在前面
+</h2><p>最近在看医学图像分割的多模态方法，读到 IEEE TMI 2023 的 LViT（Language meets Vision Transformer in Medical Image Segmentation），觉得它的设计思路很有意思——把放射科医生的文本描述（比如&quot;边界清晰的圆形病灶&quot;）直接用 BERT 编码后注入分割网络。</p>
+<p>这篇博客是我对 LViT 的完整走读，包含架构拆解、数据流追踪、关键代码分析和一些发现的问题。论文链接在 <a class="link" href="https://arxiv.org/abs/2206.14718"  target="_blank" rel="noopener"
+    >arXiv:2206.14718</a>。</p>
+<h2 id="一动机文本能带来什么">一、动机：文本能带来什么？
+</h2><p>纯视觉的医学图像分割有个痛点：病灶形态千变万化，单靠像素级标注训练出来的模型泛化能力有限。LViT 的核心假设是：</p>
+<blockquote>
+<p>放射科医生的文本描述包含了<strong>高级语义先验</strong>（位置、形状、大小、边界特征），这些信息可以作为视觉特征的辅助，引导模型关注正确的区域。</p>
+</blockquote>
+<p>比如 &ldquo;a small round ground-glass opacity in the left upper lobe&rdquo; 这句话，同时告诉了模型：位置（左上叶）、大小（small）、形状（round）、类型（GGO）。这比单纯给一张 mask 要丰富得多。</p>
+<h2 id="二整体架构">二、整体架构
+</h2><p>LViT 不是简单地把 ViT 接在 U-Net 后面。它的设计可以拆成三条并行的信息流：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">输入</span><span class="p">:</span> <span class="err">图像</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">]</span>  <span class="o">+</span>  <span class="err">文本</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">768</span><span class="p">]</span><span class="err">（</span><span class="n">BERT</span> <span class="err">预编码）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="err">┌─────</span> <span class="err">图像编码器</span> <span class="err">─────┐</span>    <span class="err">┌──</span> <span class="err">文本降维管道</span> <span class="err">──┐</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">inc</span> <span class="err">→</span> <span class="n">x1</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span><span class="mi">224</span><span class="p">]</span>   <span class="err">│</span>    <span class="err">│</span> <span class="n">Conv1d</span> <span class="mi">768</span><span class="err">→</span><span class="mi">512</span>  <span class="err">│</span> <span class="err">→</span> <span class="n">text4</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">down1</span> <span class="err">→</span> <span class="n">x2</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span><span class="mi">112</span><span class="p">]</span><span class="err">│</span>    <span class="err">│</span> <span class="n">Conv1d</span> <span class="mi">512</span><span class="err">→</span><span class="mi">256</span>  <span class="err">│</span> <span class="err">→</span> <span class="n">text3</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">down2</span> <span class="err">→</span> <span class="n">x3</span> <span class="p">[</span><span class="mi">256</span><span class="p">,</span><span class="mi">56</span><span class="p">]</span> <span class="err">│</span>    <span class="err">│</span> <span class="n">Conv1d</span> <span class="mi">256</span><span class="err">→</span><span class="mi">128</span>  <span class="err">│</span> <span class="err">→</span> <span class="n">text2</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">down3</span> <span class="err">→</span> <span class="n">x4</span> <span class="p">[</span><span class="mi">512</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span> <span class="err">│</span>    <span class="err">│</span> <span class="n">Conv1d</span> <span class="mi">128</span><span class="err">→</span><span class="mi">64</span>   <span class="err">│</span> <span class="err">→</span> <span class="n">text1</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">down4</span> <span class="err">→</span> <span class="n">x5</span> <span class="p">[</span><span class="mi">512</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> <span class="err">│</span>    <span class="err">└─────────────────┘</span>
+</span></span><span class="line"><span class="cl">     <span class="err">└──────────────────────┘</span>           <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>                          <span class="err">▼</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">┌──────────</span> <span class="n">ViT</span> <span class="err">多尺度分支</span> <span class="err">──────────┐</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span> <span class="n">downVit</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">text1</span><span class="p">)</span> <span class="err">→</span> <span class="n">y1</span> <span class="p">[</span><span class="mi">196</span><span class="p">,</span><span class="mi">64</span><span class="p">]</span>  <span class="err">│</span> <span class="err">←</span> <span class="err">文本只在这一层融合！</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span> <span class="n">downVit1</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>  <span class="err">→</span> <span class="n">y2</span> <span class="p">[</span><span class="mi">196</span><span class="p">,</span><span class="mi">128</span><span class="p">]</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span> <span class="n">downVit2</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>  <span class="err">→</span> <span class="n">y3</span> <span class="p">[</span><span class="mi">196</span><span class="p">,</span><span class="mi">256</span><span class="p">]</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span> <span class="n">downVit3</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span>  <span class="err">→</span> <span class="n">y4</span> <span class="p">[</span><span class="mi">196</span><span class="p">,</span><span class="mi">512</span><span class="p">]</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span>                                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">│</span> <span class="n">upVit3</span><span class="o">~</span><span class="n">upVit</span><span class="p">:</span> <span class="n">reconstruct</span> <span class="err">路径</span>     <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>    <span class="err">└────────────────────────────────────┘</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>                          <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">▼</span>                          <span class="err">▼</span>
+</span></span><span class="line"><span class="cl">     <span class="err">┌───────────</span> <span class="n">reconstruct</span> <span class="err">──────────────┐</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">token</span> <span class="err">→</span> <span class="err">空间特征图，增强</span> <span class="n">skip</span>        <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">x1</span><span class="o">~</span><span class="n">x4</span> <span class="err">被</span> <span class="n">ViT</span> <span class="err">分支增强后进入解码器</span>    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">└──────────────────────────────────────┘</span>
+</span></span><span class="line"><span class="cl">              <span class="err">│</span>
+</span></span><span class="line"><span class="cl">              <span class="err">▼</span>
+</span></span><span class="line"><span class="cl">     <span class="err">┌───────────</span> <span class="n">U</span><span class="o">-</span><span class="n">Net</span> <span class="err">解码器</span> <span class="err">────────────┐</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">up4</span><span class="p">(</span><span class="n">x5</span><span class="p">,</span><span class="n">x4</span><span class="p">)</span> <span class="err">→</span> <span class="n">up3</span> <span class="err">→</span> <span class="n">up2</span> <span class="err">→</span> <span class="n">up1</span>        <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="n">UpblockAttention</span><span class="p">:</span> <span class="n">PixLevel</span> <span class="err">注意力</span>   <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span> <span class="err">→</span> <span class="n">outc</span> <span class="err">→</span> <span class="n">Sigmoid</span> <span class="err">→</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">]</span>    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">└──────────────────────────────────────┘</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>一句话总结</strong>：U-Net 做骨架，4 个尺度的 ViT 并行处理 token 并用文本增强，ViT 输出再反哺回 U-Net 的 skip connection。</p>
+<h2 id="三关键模块拆解">三、关键模块拆解
+</h2><h3 id="31-图像编码器标准-u-net-encoder">3.1 图像编码器（标准 U-Net Encoder）
+</h3><p>和经典 U-Net 一样，4 级下采样，每一级是 <code>MaxPool2d + 2×(Conv3×3 + BN + ReLU)</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x [3,224,224]
+</span></span><span class="line"><span class="cl">  → inc (ConvBNReLU, 3→64)         → x1 [64,224,224]
+</span></span><span class="line"><span class="cl">  → down1 (MaxPool + 2×ConvBNReLU)  → x2 [128,112,112]
+</span></span><span class="line"><span class="cl">  → down2                          → x3 [256,56,56]
+</span></span><span class="line"><span class="cl">  → down3                          → x4 [512,28,28]
+</span></span><span class="line"><span class="cl">  → down4                          → x5 [512,14,14]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="32-vit-多尺度分支">3.2 ViT 多尺度分支
+</h3><p>这是 LViT 的核心。4 个 VisionTransformer 实例分别处理不同分辨率：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>层级</th>
+          <th>patch_size</th>
+          <th>输入分辨率</th>
+          <th>embed_dim</th>
+          <th>token 数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>downVit</td>
+          <td>16</td>
+          <td>224×224</td>
+          <td>64</td>
+          <td>196</td>
+      </tr>
+      <tr>
+          <td>downVit1</td>
+          <td>8</td>
+          <td>112×112</td>
+          <td>128</td>
+          <td>196</td>
+      </tr>
+      <tr>
+          <td>downVit2</td>
+          <td>4</td>
+          <td>56×56</td>
+          <td>256</td>
+          <td>196</td>
+      </tr>
+      <tr>
+          <td>downVit3</td>
+          <td>2</td>
+          <td>28×28</td>
+          <td>512</td>
+          <td>196</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>每一层保证了相同的 token 数（196），但 embedding 维度随通道数翻倍。这样一来，浅层捕获细粒度纹理，深层捕获高级语义。</p>
+<p>每个 ViT 实例包含：</p>
+<ul>
+<li><strong>Patch Embedding</strong>：用 stride=kernel_size=patch_size 的 Conv2d 做 patch 投影</li>
+<li><strong>Position Embedding</strong>：可学习的 1×196×embed_dim 参数</li>
+<li><strong>1 层 Transformer Block</strong>：LayerNorm → Multi-Head Attention(4 heads) → DropPath → LayerNorm → MLP(GELU, expand_ratio=4)</li>
+</ul>
+<h3 id="33-文本降维管道">3.3 文本降维管道
+</h3><p>文本先走 BERT-base-uncased 拿到 <code>[B, 10, 768]</code> 的 embedding，然后通过 4 个 Conv1d 逐级降维：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">text_module4</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="ow">in</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">text_module3</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="ow">in</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">text_module2</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="ow">in</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">text_module1</span> <span class="o">=</span> <span class="n">Conv1d</span><span class="p">(</span><span class="ow">in</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>  <span class="n">kernel</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到 text4→text1 四个多尺度文本特征，分别对应四个 ViT 层级。<strong>本意</strong>是浅层 ViT 用低维文本特征（粗粒度语义），深层 ViT 用高维文本特征（细粒度语义）。</p>
+<h3 id="34-文本-视觉融合">3.4 文本-视觉融合
+</h3><p><strong>这是重点</strong>。在 <code>VisionTransformer.forward()</code> 的前向路径中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">skip_x</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">reconstruct</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">reconstruct</span><span class="p">:</span>                    <span class="c1"># down 路径</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embeddings</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>            <span class="c1"># 图像 patch embedding</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">64</span><span class="p">:</span>                <span class="c1"># ⚠️ 仅第一层生效！</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CTBN3</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>      <span class="c1"># CTBN3: Conv1d(10→196)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Encoder_blocks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c1"># Transformer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>CTBN3</code> 是一个 Conv1d，把 10 个文本 token 投影到 196 个 patch token 空间，然后<strong>直接相加</strong>。这是一种最朴素的融合方式，相当于告诉 ViT：&ldquo;在每个 patch 的视觉特征上，叠加一句全局文本描述的投影&rdquo;。</p>
+<blockquote>
+<p><strong>发现的问题</strong>：条件 <code>self.dim == 64</code> 意味着只在 downVit（第一层）完成融合，downVit1/2/3 虽然传入了 text2/3/4，但实际上从未使用。多尺度文本语义没有被充分利用。</p>
+</blockquote>
+<h3 id="35-pixlevelmodule像素级注意力">3.5 PixLevelModule（像素级注意力）
+</h3><p>这个模块放在 U-Net 的 skip connection 上，给跳跃连接的特征图做空间注意力加权：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x [B, C, H, W]
+</span></span><span class="line"><span class="cl">  ├→ conv_avg(1×1) → ReLU → channel_mean  → x_avg [B, 1, H, W]
+</span></span><span class="line"><span class="cl">  ├→ conv_max(1×1) → ReLU → channel_max   → x_max [B, 1, H, W]
+</span></span><span class="line"><span class="cl">  └→ x_out = x_avg + x_max
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">concat(x_avg, x_max, x_out) → [B, 3, H, W]
+</span></span><span class="line"><span class="cl">  → transpose → Linear(3→6→1) → Sigmoid  → attention_map [B, 1, H, W]
+</span></span><span class="line"><span class="cl">  → y = attention_map × x
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本质是一个轻量级的<strong>可学习空间注意力</strong>，用 avg/max/combined 三种统计量来自动学习哪些空间位置更重要。它被用在两个地方：</p>
+<ol>
+<li><strong>UpblockAttention</strong>：上采样后对 skip 特征做注意力加权再拼接</li>
+<li><strong>Skip connection 增强</strong>：ViT 输出的 token 经过 reconstruct 恢复成空间图后，也经过 PixLevelModule 再加回原始 skip</li>
+</ol>
+<h3 id="36-reconstructtoken-回到空间">3.6 Reconstruct：Token 回到空间
+</h3><p>ViT 工作在 token 空间 <code>[B, N, C]</code>，但 U-Net 解码器需要空间特征图。Reconstruct 模块完成这个转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[B, N, C] → permute → [B, C, N] → reshape → [B, C, sqrt(N), sqrt(N)]
+</span></span><span class="line"><span class="cl">  → Upsample(scale_factor) → Conv1×1 + BN + ReLU
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="四损失函数">四、损失函数
+</h2><p>训练使用 <strong>WeightedDiceBCE</strong>，将 Dice Loss 和 BCE Loss 线性组合：</p>
+$$
+\mathcal{L} = 0.5 \times \mathcal{L}_{\text{Dice}} + 0.5 \times \mathcal{L}_{\text{BCE}}
+$$<p><strong>WeightedDiceLoss</strong>：每个样本独立计算 Dice，正负样本按 <code>[0.5, 0.5]</code> 加权：</p>
+$$
+\mathcal{L}_{\text{Dice}} = 1 - \frac{2\sum (w \cdot p \cdot t) + \epsilon}{\sum (w \cdot p^2) + \sum (w \cdot t^2) + \epsilon}
+$$<p>其中 $w = t \cdot (w_{\text{pos}} - w_{\text{neg}}) + w_{\text{neg}}$，即正样本像素权重为 0.5，负样本也为 0.5。</p>
+<p><strong>WeightedBCE</strong>：正负样本分别归一化：</p>
+$$
+\mathcal{L}_{\text{BCE}} = w_{\text{pos}} \cdot \frac{\sum_{\text{pos}} \text{BCE}}{N_{\text{pos}}} + w_{\text{neg}} \cdot \frac{\sum_{\text{neg}} \text{BCE}}{N_{\text{neg}}}
+$$<p>权重为 <code>[0.4, 0.6]</code>，对负样本的 BCE 给略高的权重——这是为了应对医学图像中正样本（病灶）通常远少于负样本（背景）的类不平衡问题。</p>
+<h2 id="五训练策略">五、训练策略
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>配置项</th>
+          <th>设定</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>优化器</td>
+          <td>Adam, lr=3e-4 (Covid19) / 1e-3 (MoNuSeg)</td>
+      </tr>
+      <tr>
+          <td>LR 调度</td>
+          <td>CosineAnnealingWarmRestarts (T_0=10, eta_min=1e-4)</td>
+      </tr>
+      <tr>
+          <td>Batch Size</td>
+          <td>2（论文建议 2 优于 4）</td>
+      </tr>
+      <tr>
+          <td>Epochs</td>
+          <td>2000</td>
+      </tr>
+      <tr>
+          <td>Early Stopping</td>
+          <td>patience=50, 监控 val Dice</td>
+      </tr>
+      <tr>
+          <td>输入尺寸</td>
+          <td>224×224</td>
+      </tr>
+      <tr>
+          <td>数据增强</td>
+          <td>随机 90° 旋转 + 随机翻转 + 随机旋转 ±20°</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>还支持 <code>LViT_pretrain</code> 模式：先在 MoNuSeg 上预训练 U-Net 的卷积部分，再迁移到目标数据集。</p>
+<h2 id="六实验结果">六、实验结果
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>数据集</th>
+          <th>U-Net</th>
+          <th>LViT-T</th>
+          <th>提升</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>QaTa-COV19</td>
+          <td>79.02%</td>
+          <td><strong>83.66%</strong></td>
+          <td>+4.64</td>
+      </tr>
+      <tr>
+          <td>MosMedData+</td>
+          <td>64.60%</td>
+          <td><strong>74.57%</strong></td>
+          <td>+9.97</td>
+      </tr>
+      <tr>
+          <td>MoNuSeg</td>
+          <td>76.45%</td>
+          <td><strong>80.36%</strong></td>
+          <td>+3.91</td>
+      </tr>
+      <tr>
+          <td>BKAI-Poly</td>
+          <td>-</td>
+          <td><strong>92.07%</strong></td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>ESO-CT</td>
+          <td>-</td>
+          <td><strong>68.27%</strong></td>
+          <td>-</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在三个主要数据集上稳定超越 U-Net baseline 3-10 个百分点。MosMedData+ 数据集上提升最大，可能是因为该数据集病灶形态多变，文本先验的辅助作用更明显。</p>
+<h2 id="七代码走读中的发现">七、代码走读中的发现
+</h2><p>通读 <a class="link" href="https://github.com/HUANGLIZI/LViT"  target="_blank" rel="noopener"
+    >LViT 源码</a> 时，我发现了几个值得注意的地方：</p>
+<h3 id="71-text234-是死代码">7.1 text2/3/4 是死代码
+</h3><p><code>VisionTransformer.forward()</code> 中文本融合的条件是 <code>if self.dim == 64</code>，只有第一层 ViT 满足。text2(128维)、text3(256维)、text4(512维) 虽然传入但从未使用。一个潜在的改进是为各层加上对应的 CTBN 投影——让文本的多尺度语义真正发挥价值。</p>
+<h3 id="72-lr-scheduler-从未生效">7.2 LR Scheduler 从未生效
+</h3><p><code>train_model.py</code> 第 160 行将 <code>lr_scheduler</code> 参数传为 <code>None</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">train_one_epoch</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">writer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>  <span class="c1"># None！</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>而真正传入 scheduler 的是验证阶段（第 167 行）。查看 <code>Train_one_epoch.py</code> 第 129 行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">lr_scheduler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lr_scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>scheduler 在验证时才 step，而且 CosineAnnealingWarmRestarts 的标准用法是 per-batch step（见其 docstring），per-epoch step 没有发挥 warm restart 的效果。</p>
+<h3 id="73-bert-编码无缓存">7.3 BERT 编码无缓存
+</h3><p><code>TextEmbedder.__call__()</code> 每次 <code>__getitem__</code> 都跑一次完整的 BERT 前向传播。同一个 epoch 内同一张图的文本被反复编码，这是不必要的开销。预计算并缓存可以显著加速数据加载。</p>
+<h3 id="74-文本融合方式较朴素">7.4 文本融合方式较朴素
+</h3><p>当前是 <code>x = x + CTBN3(text)</code>（token 空间直接相加），没有学习文本 token 和图像 token 之间的对应关系。升级为 cross-attention 让模型学会&quot;根据文本语义选择性地关注图像区域&quot;是一个自然的改进方向。</p>
+<h2 id="八值得思考的问题">八、值得思考的问题
+</h2><ol>
+<li>
+<p><strong>文本信息到底起了多大作用？</strong> 论文没有提供 ablation study 去掉文本只用 ViT 分支的结果。如果文本嵌入本身就接近随机初始化，模型可能只是从 ViT 多尺度结构中受益。</p>
+</li>
+<li>
+<p><strong>10 个 token 是否足够？</strong> BERT 的 max_length 设为 10，而放射科报告通常更长。截断可能导致关键信息丢失。</p>
+</li>
+<li>
+<p><strong>文本标注成本</strong>：给每张训练图像配一句英文描述，不是所有医学影像数据集都能做到。这个依赖性限制了 LViT 的应用范围。</p>
+</li>
+</ol>
+<h2 id="总结">总结
+</h2><p>LViT 是一个设计精巧的多模态医学分割架构，核心贡献在于：</p>
+<ul>
+<li>提出了 <strong>U-Net + 多尺度 ViT + 文本增强</strong>的三流架构</li>
+<li>设计了 <strong>PixLevelModule</strong> 做像素级注意力来增强 skip connection</li>
+<li>实验证明文本先验对分割性能有稳定提升</li>
+</ul>
+<p>也有一些可以改进的地方：多尺度文本融合未完全实现、LR 调度器有 bug、文本融合方式可以更精细。如果你在做医学图像分割相关的研究，LViT 是一个值得精读和魔改的 baseline。</p>
+<hr>
+<blockquote>
+<p><strong>参考文献</strong>：Li Z, Li Y, Li Q, et al. LViT: Language meets Vision Transformer in Medical Image Segmentation. IEEE TMI, 2023.</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/deep-learning/">Deep-Learning</a>
+        
+            <a href="/tags/image-segmentation/">Image-Segmentation</a>
+        
+            <a href="/tags/medical-image/">Medical-Image</a>
+        
+            <a href="/tags/vision-transformer/">Vision-Transformer</a>
+        
+            <a href="/tags/multimodal/">Multimodal</a>
+        
+            <a href="/tags/paper-reading/">Paper-Reading</a>
+        
+            <a href="/tags/lvit/">LViT</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-04-29 21:08
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 云雾中的山-NubisLab
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
