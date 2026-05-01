@@ -7,7 +7,85 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 30 Apr 2026 15:26:56 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 May 2026 14:34:20 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-01</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-01/</link>
+        <pubDate>Fri, 01 May 2026 22:33:57 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-01/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-01 22:33:57&lt;/p&gt;
+&lt;h3 id=&#34;1-generalizable-sparse-view-3d-reconstruction-from-unconstrained-images&#34;&gt;1. Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.28193v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.28193v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-01 01:59:55 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Vinayak Gupta, Chih-Hao Lin, Shenlong Wang, Anand Bhattad, Jia-Bin Huang&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种无需逐场景优化的前馈式稀疏视图3D重建框架GenWildSplat，能从非受控互联网图像中实时重建高质量3D场景，并泛化到不同光照和遮挡条件。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出端到端前馈框架，直接从稀疏、无位姿图像预测深度、相机参数和规范空间中的3D高斯，无需测试时优化。&lt;/li&gt;
+&lt;li&gt;设计外观适配器（Appearance Adapter）和语义分割模块，分别处理目标光照条件调制和瞬态物体遮挡，提升对非受控场景的鲁棒性。&lt;/li&gt;
+&lt;li&gt;采用合成数据与真实数据结合的课程学习策略，使模型能泛化到多样化的光照和遮挡模式，在PhotoTourism和MegaScenes基准上达到前馈式重建的最优渲染质量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文的语义分割模块用于处理瞬态遮挡物，展示了分割在3D重建中的实用价值——可启发图像分割研究关注“动态物体/遮挡物”的语义分离，提升分割模型在复杂场景下的鲁棒性；同时，其前馈式、无需逐场景优化的思路，对目标识别中的少样本、跨场景泛化任务具有借鉴意义，例如可探索将外观适配器与语义特征结合，实现光照鲁棒的目标检测或分割。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-action-motifs-self-supervised-hierarchical-representation-of-human-body-movements&#34;&gt;2. Action Motifs: Self-Supervised Hierarchical Representation of Human Body Movements
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.28173v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.28173v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-01 01:55:01 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Genki Kinoshita, Shu Nakamura, Ryo Kawahara, Shohei Nobuhara, Yasutomo Kawanishi, Ko Nishino&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种自监督层次化人体运动表示方法A4Mer，通过动作原子与动作基序的嵌套潜在Transformer学习，有效提升人体行为建模性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出动作原子与动作基序的层次化表示框架，将人体运动分解为原子级关节运动及其时序组合模式，实现可解释的语义化运动表征。&lt;/li&gt;
+&lt;li&gt;设计嵌套潜在Transformer架构A4Mer，通过自监督掩码预测任务在潜在空间中学习变长序列分割与层次化表示，无需人工标注。&lt;/li&gt;
+&lt;li&gt;构建大规模多视角人体行为数据集AMD，创新性地采用脚部安装相机方案解决严重遮挡下的帧级SMPL标注问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文的层次化表示思想可迁移至图像分割任务，例如将图像分解为语义原子（如边缘、纹理基元）与组合基序（如物体部件），通过自监督学习构建可解释的分割层次结构。在目标识别中，其变长序列分割策略可启发动态目标检测的时序建模，通过自适应时间窗口捕捉动作基序，提升对复杂运动目标的识别鲁棒性。脚部相机标注方案为遮挡场景下的3D标注提供了低成本替代方案，对自动驾驶等工业场景具有工程参考价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-continuous-tone-simple-points-an-ell_0-norm-of-cyclic-gradient-for-topology-preserving-data-driven-image-segmentation&#34;&gt;3. Continuous-tone Simple Points: An $\ell_0$-Norm of Cyclic Gradient for Topology-Preserving Data-Driven Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.28159v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.28159v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-01 01:45:50 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Wenxiao Li, Faqiang Wang, Yuping Duan, Li Cui, Liqiang Zhang, Jun Liu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种在连续值图像上直接计算简单点的方法，实现可微分的拓扑保持约束，并成功集成到深度学习分割网络中，提升分割结果的拓扑完整性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出连续值简单点（Continuous-tone Simple Points, CSP）理论，将传统仅适用于二值图像的简单点检测扩展到连续值图像，并使其可微分，从而兼容梯度优化。&lt;/li&gt;
+&lt;li&gt;基于CSP理论，开发了一种高效的骨架提取算法，能够在二值和连续值图像中保持拓扑结构。&lt;/li&gt;
+&lt;li&gt;设计了一个变分模型，通过保留拓扑不可移除（非简单）点来施加拓扑约束，该模型可无缝集成到任何具有softmax或sigmoid输出的深度神经网络分割中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别领域提供了一种将拓扑先验直接嵌入深度学习框架的实用方案。在工程落地上，它解决了传统形态学方法无法保证拓扑一致性的痛点，尤其适用于医学图像（如血管、神经元分割）和遥感图像（如道路网络提取）等对拓扑结构敏感的任务。通过可微分的拓扑损失，研究者可以轻松地在现有分割网络（如U-Net、DeepLab）中加入拓扑约束，无需修改网络架构，从而在保持高精度分割的同时，显著提升结果的几何合理性与结构连通性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-uhr-net-an-uncertainty-aware-hypergraph-refinement-network-for-medical-image-segmentation&#34;&gt;4. UHR-Net: An Uncertainty-Aware Hypergraph Refinement Network for Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2604.28095v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2604.28095v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-01 00:38:51 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Shuokun Cheng, Jinghao Shi, Kun Sun&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种结合不确定性感知与超图细化的医学图像分割网络UHR-Net，通过对比预训练和超图细化模块解决小病灶与边界模糊问题。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出不确定性导向的实例对比预训练策略（UO-IC），结合几何感知复制粘贴增强与困难负样本挖掘，提升小病灶和视觉模糊区域的实例级判别能力。&lt;/li&gt;
+&lt;li&gt;设计不确定性引导的超图细化模块（UGHR），利用熵图将超边原型分解为前景/背景组，解耦高阶交互以改善模糊区域的分割细化。&lt;/li&gt;
+&lt;li&gt;在五个公开医学图像分割基准上验证了方法有效性，代码开源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;领域启发：该工作为图像分割与目标识别提供了两个重要思路：一是将不确定性估计与对比学习结合，可推广至其他小目标或边界模糊场景（如遥感目标检测）；二是超图细化模块的组解耦设计，为处理多模态特征交互提供了新范式，对工程落地中提升模型在低对比度区域的鲁棒性具有直接参考价值。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-04-30</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-04-30/</link>
         <pubDate>Thu, 30 Apr 2026 23:25:07 +0800</pubDate>
