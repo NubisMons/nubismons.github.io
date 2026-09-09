@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 04 Sep 2026 16:53:40 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 09 Sep 2026 17:19:18 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-09-10</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-10/</link>
+        <pubDate>Thu, 10 Sep 2026 01:10:51 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-10/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-09-10 01:10:51&lt;/p&gt;
+&lt;h3 id=&#34;1-godeep-annotation-free-open-vocabulary-3d-scene-understanding-via-language-space-lifting&#34;&gt;1. GoDeep: Annotation-Free Open-Vocabulary 3D Scene Understanding via Language-Space Lifting
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2609.09082v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2609.09082v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-09-09 01:31:51 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Thodoris Betsas, Anastasios Doulamis, Andreas Georgopoulos&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：GoDeep提出一种免标注的开放词汇3D场景理解方法，通过将视觉-语言模型作为翻译器生成结构化实体描述，并在纯语言嵌入空间中直接聚合，无需3D训练语料或专用编码器，实现了超越CLIP-based方法的物理内容跟踪精度和可解释性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出语言空间提升（Language-Space Lifting）范式：将视觉-语言模型仅用作翻译器，生成逐图像的结构化实体级描述，并在纯语言嵌入空间中完成grounding、投影和聚合，彻底摆脱对3D训练语料和专用3D编码器的依赖。&lt;/li&gt;
+&lt;li&gt;系统性词汇校正机制：发现语言空间嵌入比CLIP-based嵌入更忠实地反映物理内容，通过单一系统性词汇校正即可逆转基准排名，并在不同类别上得到二次独立验证。&lt;/li&gt;
+&lt;li&gt;免标注的OOV（Out-of-Vocabulary）物体定位与可解释聚合策略：在ScanNet++上实现对真正词汇外物体的锐利区分与场景内定位，同时利用启发式权重（偏好精确而非频繁观测）与逐点可解释性，提出一种偏向细粒度元素定位的聚合策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于视觉-语言模型的翻译与语言空间嵌入，非传统分割架构）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（开放词汇3D场景理解）、其他（文化遗产基准）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（在ScanNet++上与强免标注基线对比；在5建筑文化遗产基准上报告原始分数与词汇校正后的排名变化；OOV物体定位效果）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：GoDeep对图像分割与目标识别研究及工程落地具有三重价值：其一，它示范了如何将大规模视觉-语言模型从“特征提取器”角色解放为“语义翻译器”，从而规避了CLIP特征在组合任务上的词袋局限，这一思路可迁移至2D开放词汇分割任务，以提升对复杂场景中实体关系的建模能力；其二，其“语言空间嵌入比联合视觉-语言空间更忠实于物理内容”的发现，提示研究者在设计跨模态分割系统时应重新审视嵌入空间的选择，而非默认使用CLIP空间；其三，免标注、无需3D编码器的特性大幅降低了数据与算力门槛，结合逐点可解释性，为文化遗产数字化、机器人导航等标注稀缺的垂直场景提供了高可信、可审计的落地路径。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-09-05</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-05/</link>
         <pubDate>Sat, 05 Sep 2026 00:53:20 +0800</pubDate>
